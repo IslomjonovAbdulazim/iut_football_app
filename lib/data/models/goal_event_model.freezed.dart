@@ -20,14 +20,23 @@ GoalEventModel _$GoalEventModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GoalEventModel {
-  String get playerId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player_id')
+  int get playerId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player_name')
   String get playerName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player_avatar')
   String get playerAvatar => throw _privateConstructorUsedError;
-  String get clubId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'club_id')
+  int get clubId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'club_name')
   String get clubName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'club_avatar')
   String get clubAvatar => throw _privateConstructorUsedError;
+  @JsonKey(name: 'minute')
   int get minute => throw _privateConstructorUsedError;
-  String get matchId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'match_id')
+  int get matchId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'match_detail')
   String get matchDetail => throw _privateConstructorUsedError;
 
   /// Serializes this GoalEventModel to a JSON map.
@@ -47,15 +56,15 @@ abstract class $GoalEventModelCopyWith<$Res> {
       _$GoalEventModelCopyWithImpl<$Res, GoalEventModel>;
   @useResult
   $Res call(
-      {String playerId,
-      String playerName,
-      String playerAvatar,
-      String clubId,
-      String clubName,
-      String clubAvatar,
-      int minute,
-      String matchId,
-      String matchDetail});
+      {@JsonKey(name: 'player_id') int playerId,
+      @JsonKey(name: 'player_name') String playerName,
+      @JsonKey(name: 'player_avatar') String playerAvatar,
+      @JsonKey(name: 'club_id') int clubId,
+      @JsonKey(name: 'club_name') String clubName,
+      @JsonKey(name: 'club_avatar') String clubAvatar,
+      @JsonKey(name: 'minute') int minute,
+      @JsonKey(name: 'match_id') int matchId,
+      @JsonKey(name: 'match_detail') String matchDetail});
 }
 
 /// @nodoc
@@ -87,7 +96,7 @@ class _$GoalEventModelCopyWithImpl<$Res, $Val extends GoalEventModel>
       playerId: null == playerId
           ? _value.playerId
           : playerId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       playerName: null == playerName
           ? _value.playerName
           : playerName // ignore: cast_nullable_to_non_nullable
@@ -99,7 +108,7 @@ class _$GoalEventModelCopyWithImpl<$Res, $Val extends GoalEventModel>
       clubId: null == clubId
           ? _value.clubId
           : clubId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       clubName: null == clubName
           ? _value.clubName
           : clubName // ignore: cast_nullable_to_non_nullable
@@ -115,7 +124,7 @@ class _$GoalEventModelCopyWithImpl<$Res, $Val extends GoalEventModel>
       matchId: null == matchId
           ? _value.matchId
           : matchId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       matchDetail: null == matchDetail
           ? _value.matchDetail
           : matchDetail // ignore: cast_nullable_to_non_nullable
@@ -133,15 +142,15 @@ abstract class _$$GoalEventModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String playerId,
-      String playerName,
-      String playerAvatar,
-      String clubId,
-      String clubName,
-      String clubAvatar,
-      int minute,
-      String matchId,
-      String matchDetail});
+      {@JsonKey(name: 'player_id') int playerId,
+      @JsonKey(name: 'player_name') String playerName,
+      @JsonKey(name: 'player_avatar') String playerAvatar,
+      @JsonKey(name: 'club_id') int clubId,
+      @JsonKey(name: 'club_name') String clubName,
+      @JsonKey(name: 'club_avatar') String clubAvatar,
+      @JsonKey(name: 'minute') int minute,
+      @JsonKey(name: 'match_id') int matchId,
+      @JsonKey(name: 'match_detail') String matchDetail});
 }
 
 /// @nodoc
@@ -171,7 +180,7 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
       playerId: null == playerId
           ? _value.playerId
           : playerId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       playerName: null == playerName
           ? _value.playerName
           : playerName // ignore: cast_nullable_to_non_nullable
@@ -183,7 +192,7 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
       clubId: null == clubId
           ? _value.clubId
           : clubId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       clubName: null == clubName
           ? _value.clubName
           : clubName // ignore: cast_nullable_to_non_nullable
@@ -199,7 +208,7 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
       matchId: null == matchId
           ? _value.matchId
           : matchId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       matchDetail: null == matchDetail
           ? _value.matchDetail
           : matchDetail // ignore: cast_nullable_to_non_nullable
@@ -212,36 +221,45 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GoalEventModelImpl implements _GoalEventModel {
   const _$GoalEventModelImpl(
-      {required this.playerId,
-      required this.playerName,
-      required this.playerAvatar,
-      required this.clubId,
-      required this.clubName,
-      required this.clubAvatar,
-      required this.minute,
-      required this.matchId,
-      required this.matchDetail});
+      {@JsonKey(name: 'player_id') required this.playerId,
+      @JsonKey(name: 'player_name') required this.playerName,
+      @JsonKey(name: 'player_avatar') required this.playerAvatar,
+      @JsonKey(name: 'club_id') required this.clubId,
+      @JsonKey(name: 'club_name') required this.clubName,
+      @JsonKey(name: 'club_avatar') required this.clubAvatar,
+      @JsonKey(name: 'minute') required this.minute,
+      @JsonKey(name: 'match_id') required this.matchId,
+      @JsonKey(name: 'match_detail') required this.matchDetail});
 
   factory _$GoalEventModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$GoalEventModelImplFromJson(json);
 
   @override
-  final String playerId;
+  @JsonKey(name: 'player_id')
+  final int playerId;
   @override
+  @JsonKey(name: 'player_name')
   final String playerName;
   @override
+  @JsonKey(name: 'player_avatar')
   final String playerAvatar;
   @override
-  final String clubId;
+  @JsonKey(name: 'club_id')
+  final int clubId;
   @override
+  @JsonKey(name: 'club_name')
   final String clubName;
   @override
+  @JsonKey(name: 'club_avatar')
   final String clubAvatar;
   @override
+  @JsonKey(name: 'minute')
   final int minute;
   @override
-  final String matchId;
+  @JsonKey(name: 'match_id')
+  final int matchId;
   @override
+  @JsonKey(name: 'match_detail')
   final String matchDetail;
 
   @override
@@ -295,36 +313,46 @@ class _$GoalEventModelImpl implements _GoalEventModel {
 
 abstract class _GoalEventModel implements GoalEventModel {
   const factory _GoalEventModel(
-      {required final String playerId,
-      required final String playerName,
-      required final String playerAvatar,
-      required final String clubId,
-      required final String clubName,
-      required final String clubAvatar,
-      required final int minute,
-      required final String matchId,
-      required final String matchDetail}) = _$GoalEventModelImpl;
+          {@JsonKey(name: 'player_id') required final int playerId,
+          @JsonKey(name: 'player_name') required final String playerName,
+          @JsonKey(name: 'player_avatar') required final String playerAvatar,
+          @JsonKey(name: 'club_id') required final int clubId,
+          @JsonKey(name: 'club_name') required final String clubName,
+          @JsonKey(name: 'club_avatar') required final String clubAvatar,
+          @JsonKey(name: 'minute') required final int minute,
+          @JsonKey(name: 'match_id') required final int matchId,
+          @JsonKey(name: 'match_detail') required final String matchDetail}) =
+      _$GoalEventModelImpl;
 
   factory _GoalEventModel.fromJson(Map<String, dynamic> json) =
       _$GoalEventModelImpl.fromJson;
 
   @override
-  String get playerId;
+  @JsonKey(name: 'player_id')
+  int get playerId;
   @override
+  @JsonKey(name: 'player_name')
   String get playerName;
   @override
+  @JsonKey(name: 'player_avatar')
   String get playerAvatar;
   @override
-  String get clubId;
+  @JsonKey(name: 'club_id')
+  int get clubId;
   @override
+  @JsonKey(name: 'club_name')
   String get clubName;
   @override
+  @JsonKey(name: 'club_avatar')
   String get clubAvatar;
   @override
+  @JsonKey(name: 'minute')
   int get minute;
   @override
-  String get matchId;
+  @JsonKey(name: 'match_id')
+  int get matchId;
   @override
+  @JsonKey(name: 'match_detail')
   String get matchDetail;
 
   /// Create a copy of GoalEventModel

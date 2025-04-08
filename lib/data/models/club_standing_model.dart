@@ -6,14 +6,15 @@ part 'club_standing_model.g.dart';
 @freezed
 class ClubStandingModel with _$ClubStandingModel {
   const factory ClubStandingModel({
-    required String clubId,
-    required String clubName,
-    required String clubAvatar,
-    required int points,
-    required int goalsScored,
-    required int goalsConceded,
-    required int rank,
+    @JsonKey(name: 'club_id') required int clubId,
+    @JsonKey(name: 'club_name') required String clubName,
+    @JsonKey(name: 'club_avatar') required String clubAvatar,
+    @JsonKey(name: 'points') required int points,
+    @JsonKey(name: 'goals_scored') required int goalsScored,
+    @JsonKey(name: 'goals_conceded') required int goalsConceded,
+    @JsonKey(name: 'rank') required int rank,
   }) = _ClubStandingModel;
 
-  factory ClubStandingModel.fromJson(Map<String, dynamic> json) => _$ClubStandingModelFromJson(json);
+  factory ClubStandingModel.fromJson(Map<String, dynamic> json) =>
+      _$ClubStandingModelFromJson(json);
 }

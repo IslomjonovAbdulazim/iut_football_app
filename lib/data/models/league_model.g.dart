@@ -8,7 +8,7 @@ part of 'league_model.dart';
 
 _$LeagueModelImpl _$$LeagueModelImplFromJson(Map<String, dynamic> json) =>
     _$LeagueModelImpl(
-      id: json['id'] as String,
+      id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       clubs: (json['clubs'] as List<dynamic>)
           .map((e) => ClubModel.fromJson(e as Map<String, dynamic>))
@@ -19,11 +19,11 @@ _$LeagueModelImpl _$$LeagueModelImplFromJson(Map<String, dynamic> json) =>
       standings: (json['standings'] as List<dynamic>)
           .map((e) => ClubStandingModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      startDate: DateTime.parse(json['startDate'] as String),
-      endDate: DateTime.parse(json['endDate'] as String),
-      green: (json['green'] as num).toInt(),
-      yellow: (json['yellow'] as num).toInt(),
-      red: (json['red'] as num).toInt(),
+      startDate: DateTime.parse(json['start_date'] as String),
+      endDate: DateTime.parse(json['end_date'] as String),
+      directAdvanceCount: (json['direct_advance_count'] as num).toInt(),
+      qualifierAdvanceCount: (json['qualifier_advance_count'] as num).toInt(),
+      eliminatedCount: (json['eliminated_count'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$LeagueModelImplToJson(_$LeagueModelImpl instance) =>
@@ -33,9 +33,9 @@ Map<String, dynamic> _$$LeagueModelImplToJson(_$LeagueModelImpl instance) =>
       'clubs': instance.clubs,
       'matches': instance.matches,
       'standings': instance.standings,
-      'startDate': instance.startDate.toIso8601String(),
-      'endDate': instance.endDate.toIso8601String(),
-      'green': instance.green,
-      'yellow': instance.yellow,
-      'red': instance.red,
+      'start_date': instance.startDate.toIso8601String(),
+      'end_date': instance.endDate.toIso8601String(),
+      'direct_advance_count': instance.directAdvanceCount,
+      'qualifier_advance_count': instance.qualifierAdvanceCount,
+      'eliminated_count': instance.eliminatedCount,
     };

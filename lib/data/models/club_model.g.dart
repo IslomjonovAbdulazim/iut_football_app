@@ -8,32 +8,36 @@ part of 'club_model.dart';
 
 _$ClubModelImpl _$$ClubModelImplFromJson(Map<String, dynamic> json) =>
     _$ClubModelImpl(
-      id: json['id'] as String,
+      id: (json['id'] as num).toInt(),
       name: json['name'] as String,
-      logoUrl: json['logoUrl'] as String,
-      leagueId: json['leagueId'] as String,
+      logoUrl: json['logo_url'] as String,
+      leagueId: (json['league_id'] as num).toInt(),
       players: (json['players'] as List<dynamic>)
           .map((e) => PlayerModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      matchesPlayed: (json['matchesPlayed'] as num).toInt(),
+      matches: (json['matches'] as List<dynamic>)
+          .map((e) => MatchModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      matchesPlayed: (json['matches_played'] as num).toInt(),
       wins: (json['wins'] as num).toInt(),
       draws: (json['draws'] as num).toInt(),
       losses: (json['losses'] as num).toInt(),
-      goalsScored: (json['goalsScored'] as num).toInt(),
-      goalsConceded: (json['goalsConceded'] as num).toInt(),
+      goalsScored: (json['goals_scored'] as num).toInt(),
+      goalsConceded: (json['goals_conceded'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$ClubModelImplToJson(_$ClubModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'logoUrl': instance.logoUrl,
-      'leagueId': instance.leagueId,
+      'logo_url': instance.logoUrl,
+      'league_id': instance.leagueId,
       'players': instance.players,
-      'matchesPlayed': instance.matchesPlayed,
+      'matches': instance.matches,
+      'matches_played': instance.matchesPlayed,
       'wins': instance.wins,
       'draws': instance.draws,
       'losses': instance.losses,
-      'goalsScored': instance.goalsScored,
-      'goalsConceded': instance.goalsConceded,
+      'goals_scored': instance.goalsScored,
+      'goals_conceded': instance.goalsConceded,
     };

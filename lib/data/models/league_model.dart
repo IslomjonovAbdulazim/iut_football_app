@@ -9,17 +9,18 @@ part 'league_model.g.dart';
 @freezed
 class LeagueModel with _$LeagueModel {
   const factory LeagueModel({
-    required String id,
-    required String name,
-    required List<ClubModel> clubs,
-    required List<MatchModel> matches,
-    required List<ClubStandingModel> standings,
-    required DateTime startDate,
-    required DateTime endDate,
-    required int green,
-    required int yellow,
-    required int red,
+    @JsonKey(name: 'id') required int id,
+    @JsonKey(name: 'name') required String name,
+    @JsonKey(name: 'clubs') required List<ClubModel> clubs,
+    @JsonKey(name: 'matches') required List<MatchModel> matches,
+    @JsonKey(name: 'standings') required List<ClubStandingModel> standings,
+    @JsonKey(name: 'start_date') required DateTime startDate,
+    @JsonKey(name: 'end_date') required DateTime endDate,
+    @JsonKey(name: 'direct_advance_count') required int directAdvanceCount,
+    @JsonKey(name: 'qualifier_advance_count') required int qualifierAdvanceCount,
+    @JsonKey(name: 'eliminated_count') required int eliminatedCount,
   }) = _LeagueModel;
 
-  factory LeagueModel.fromJson(Map<String, dynamic> json) => _$LeagueModelFromJson(json);
+  factory LeagueModel.fromJson(Map<String, dynamic> json) =>
+      _$LeagueModelFromJson(json);
 }

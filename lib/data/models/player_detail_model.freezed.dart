@@ -20,12 +20,19 @@ PlayerDetailModel _$PlayerDetailModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlayerDetailModel {
-  String get playerId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player_id')
+  int get playerId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player_name')
   String get playerName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'player_avatar')
   String get playerAvatar => throw _privateConstructorUsedError;
-  String get clubId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'club_id')
+  int get clubId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'club_name')
   String get clubName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'club_avatar')
   String get clubAvatar => throw _privateConstructorUsedError;
+  @JsonKey(name: 'goals')
   List<PlayerGoalByMatchModel> get goals => throw _privateConstructorUsedError;
 
   /// Serializes this PlayerDetailModel to a JSON map.
@@ -45,13 +52,13 @@ abstract class $PlayerDetailModelCopyWith<$Res> {
       _$PlayerDetailModelCopyWithImpl<$Res, PlayerDetailModel>;
   @useResult
   $Res call(
-      {String playerId,
-      String playerName,
-      String playerAvatar,
-      String clubId,
-      String clubName,
-      String clubAvatar,
-      List<PlayerGoalByMatchModel> goals});
+      {@JsonKey(name: 'player_id') int playerId,
+      @JsonKey(name: 'player_name') String playerName,
+      @JsonKey(name: 'player_avatar') String playerAvatar,
+      @JsonKey(name: 'club_id') int clubId,
+      @JsonKey(name: 'club_name') String clubName,
+      @JsonKey(name: 'club_avatar') String clubAvatar,
+      @JsonKey(name: 'goals') List<PlayerGoalByMatchModel> goals});
 }
 
 /// @nodoc
@@ -81,7 +88,7 @@ class _$PlayerDetailModelCopyWithImpl<$Res, $Val extends PlayerDetailModel>
       playerId: null == playerId
           ? _value.playerId
           : playerId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       playerName: null == playerName
           ? _value.playerName
           : playerName // ignore: cast_nullable_to_non_nullable
@@ -93,7 +100,7 @@ class _$PlayerDetailModelCopyWithImpl<$Res, $Val extends PlayerDetailModel>
       clubId: null == clubId
           ? _value.clubId
           : clubId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       clubName: null == clubName
           ? _value.clubName
           : clubName // ignore: cast_nullable_to_non_nullable
@@ -119,13 +126,13 @@ abstract class _$$PlayerDetailModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String playerId,
-      String playerName,
-      String playerAvatar,
-      String clubId,
-      String clubName,
-      String clubAvatar,
-      List<PlayerGoalByMatchModel> goals});
+      {@JsonKey(name: 'player_id') int playerId,
+      @JsonKey(name: 'player_name') String playerName,
+      @JsonKey(name: 'player_avatar') String playerAvatar,
+      @JsonKey(name: 'club_id') int clubId,
+      @JsonKey(name: 'club_name') String clubName,
+      @JsonKey(name: 'club_avatar') String clubAvatar,
+      @JsonKey(name: 'goals') List<PlayerGoalByMatchModel> goals});
 }
 
 /// @nodoc
@@ -153,7 +160,7 @@ class __$$PlayerDetailModelImplCopyWithImpl<$Res>
       playerId: null == playerId
           ? _value.playerId
           : playerId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       playerName: null == playerName
           ? _value.playerName
           : playerName // ignore: cast_nullable_to_non_nullable
@@ -165,7 +172,7 @@ class __$$PlayerDetailModelImplCopyWithImpl<$Res>
       clubId: null == clubId
           ? _value.clubId
           : clubId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       clubName: null == clubName
           ? _value.clubName
           : clubName // ignore: cast_nullable_to_non_nullable
@@ -186,12 +193,13 @@ class __$$PlayerDetailModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlayerDetailModelImpl implements _PlayerDetailModel {
   const _$PlayerDetailModelImpl(
-      {required this.playerId,
-      required this.playerName,
-      required this.playerAvatar,
-      required this.clubId,
-      required this.clubName,
-      required this.clubAvatar,
+      {@JsonKey(name: 'player_id') required this.playerId,
+      @JsonKey(name: 'player_name') required this.playerName,
+      @JsonKey(name: 'player_avatar') required this.playerAvatar,
+      @JsonKey(name: 'club_id') required this.clubId,
+      @JsonKey(name: 'club_name') required this.clubName,
+      @JsonKey(name: 'club_avatar') required this.clubAvatar,
+      @JsonKey(name: 'goals')
       required final List<PlayerGoalByMatchModel> goals})
       : _goals = goals;
 
@@ -199,19 +207,26 @@ class _$PlayerDetailModelImpl implements _PlayerDetailModel {
       _$$PlayerDetailModelImplFromJson(json);
 
   @override
-  final String playerId;
+  @JsonKey(name: 'player_id')
+  final int playerId;
   @override
+  @JsonKey(name: 'player_name')
   final String playerName;
   @override
+  @JsonKey(name: 'player_avatar')
   final String playerAvatar;
   @override
-  final String clubId;
+  @JsonKey(name: 'club_id')
+  final int clubId;
   @override
+  @JsonKey(name: 'club_name')
   final String clubName;
   @override
+  @JsonKey(name: 'club_avatar')
   final String clubAvatar;
   final List<PlayerGoalByMatchModel> _goals;
   @override
+  @JsonKey(name: 'goals')
   List<PlayerGoalByMatchModel> get goals {
     if (_goals is EqualUnmodifiableListView) return _goals;
     // ignore: implicit_dynamic_type
@@ -273,12 +288,13 @@ class _$PlayerDetailModelImpl implements _PlayerDetailModel {
 
 abstract class _PlayerDetailModel implements PlayerDetailModel {
   const factory _PlayerDetailModel(
-          {required final String playerId,
-          required final String playerName,
-          required final String playerAvatar,
-          required final String clubId,
-          required final String clubName,
-          required final String clubAvatar,
+          {@JsonKey(name: 'player_id') required final int playerId,
+          @JsonKey(name: 'player_name') required final String playerName,
+          @JsonKey(name: 'player_avatar') required final String playerAvatar,
+          @JsonKey(name: 'club_id') required final int clubId,
+          @JsonKey(name: 'club_name') required final String clubName,
+          @JsonKey(name: 'club_avatar') required final String clubAvatar,
+          @JsonKey(name: 'goals')
           required final List<PlayerGoalByMatchModel> goals}) =
       _$PlayerDetailModelImpl;
 
@@ -286,18 +302,25 @@ abstract class _PlayerDetailModel implements PlayerDetailModel {
       _$PlayerDetailModelImpl.fromJson;
 
   @override
-  String get playerId;
+  @JsonKey(name: 'player_id')
+  int get playerId;
   @override
+  @JsonKey(name: 'player_name')
   String get playerName;
   @override
+  @JsonKey(name: 'player_avatar')
   String get playerAvatar;
   @override
-  String get clubId;
+  @JsonKey(name: 'club_id')
+  int get clubId;
   @override
+  @JsonKey(name: 'club_name')
   String get clubName;
   @override
+  @JsonKey(name: 'club_avatar')
   String get clubAvatar;
   @override
+  @JsonKey(name: 'goals')
   List<PlayerGoalByMatchModel> get goals;
 
   /// Create a copy of PlayerDetailModel

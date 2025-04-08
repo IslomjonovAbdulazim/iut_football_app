@@ -8,13 +8,13 @@ part of 'player_model.dart';
 
 _$PlayerModelImpl _$$PlayerModelImplFromJson(Map<String, dynamic> json) =>
     _$PlayerModelImpl(
-      id: json['id'] as String,
+      id: (json['id'] as num).toInt(),
       name: json['name'] as String,
-      clubId: json['clubId'] as String,
-      avatarUrl: json['avatarUrl'] as String,
-      iutStudentId: (json['iutStudentId'] as num).toInt(),
+      clubId: (json['club_id'] as num).toInt(),
+      avatarUrl: json['avatar_url'] as String,
+      iutStudentId: (json['iut_student_id'] as num).toInt(),
       goals: (json['goals'] as num).toInt(),
-      goalEvents: (json['goalEvents'] as List<dynamic>)
+      goalEvents: (json['goal_events'] as List<dynamic>)
           .map((e) => GoalEventModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -23,9 +23,9 @@ Map<String, dynamic> _$$PlayerModelImplToJson(_$PlayerModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'clubId': instance.clubId,
-      'avatarUrl': instance.avatarUrl,
-      'iutStudentId': instance.iutStudentId,
+      'club_id': instance.clubId,
+      'avatar_url': instance.avatarUrl,
+      'iut_student_id': instance.iutStudentId,
       'goals': instance.goals,
-      'goalEvents': instance.goalEvents,
+      'goal_events': instance.goalEvents,
     };

@@ -20,16 +20,26 @@ LeagueModel _$LeagueModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LeagueModel {
-  String get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'clubs')
   List<ClubModel> get clubs => throw _privateConstructorUsedError;
+  @JsonKey(name: 'matches')
   List<MatchModel> get matches => throw _privateConstructorUsedError;
+  @JsonKey(name: 'standings')
   List<ClubStandingModel> get standings => throw _privateConstructorUsedError;
+  @JsonKey(name: 'start_date')
   DateTime get startDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'end_date')
   DateTime get endDate => throw _privateConstructorUsedError;
-  int get green => throw _privateConstructorUsedError;
-  int get yellow => throw _privateConstructorUsedError;
-  int get red => throw _privateConstructorUsedError;
+  @JsonKey(name: 'direct_advance_count')
+  int get directAdvanceCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'qualifier_advance_count')
+  int get qualifierAdvanceCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'eliminated_count')
+  int get eliminatedCount => throw _privateConstructorUsedError;
 
   /// Serializes this LeagueModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,16 +58,16 @@ abstract class $LeagueModelCopyWith<$Res> {
       _$LeagueModelCopyWithImpl<$Res, LeagueModel>;
   @useResult
   $Res call(
-      {String id,
-      String name,
-      List<ClubModel> clubs,
-      List<MatchModel> matches,
-      List<ClubStandingModel> standings,
-      DateTime startDate,
-      DateTime endDate,
-      int green,
-      int yellow,
-      int red});
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'clubs') List<ClubModel> clubs,
+      @JsonKey(name: 'matches') List<MatchModel> matches,
+      @JsonKey(name: 'standings') List<ClubStandingModel> standings,
+      @JsonKey(name: 'start_date') DateTime startDate,
+      @JsonKey(name: 'end_date') DateTime endDate,
+      @JsonKey(name: 'direct_advance_count') int directAdvanceCount,
+      @JsonKey(name: 'qualifier_advance_count') int qualifierAdvanceCount,
+      @JsonKey(name: 'eliminated_count') int eliminatedCount});
 }
 
 /// @nodoc
@@ -82,15 +92,15 @@ class _$LeagueModelCopyWithImpl<$Res, $Val extends LeagueModel>
     Object? standings = null,
     Object? startDate = null,
     Object? endDate = null,
-    Object? green = null,
-    Object? yellow = null,
-    Object? red = null,
+    Object? directAdvanceCount = null,
+    Object? qualifierAdvanceCount = null,
+    Object? eliminatedCount = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -115,17 +125,17 @@ class _$LeagueModelCopyWithImpl<$Res, $Val extends LeagueModel>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      green: null == green
-          ? _value.green
-          : green // ignore: cast_nullable_to_non_nullable
+      directAdvanceCount: null == directAdvanceCount
+          ? _value.directAdvanceCount
+          : directAdvanceCount // ignore: cast_nullable_to_non_nullable
               as int,
-      yellow: null == yellow
-          ? _value.yellow
-          : yellow // ignore: cast_nullable_to_non_nullable
+      qualifierAdvanceCount: null == qualifierAdvanceCount
+          ? _value.qualifierAdvanceCount
+          : qualifierAdvanceCount // ignore: cast_nullable_to_non_nullable
               as int,
-      red: null == red
-          ? _value.red
-          : red // ignore: cast_nullable_to_non_nullable
+      eliminatedCount: null == eliminatedCount
+          ? _value.eliminatedCount
+          : eliminatedCount // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
   }
@@ -140,16 +150,16 @@ abstract class _$$LeagueModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String name,
-      List<ClubModel> clubs,
-      List<MatchModel> matches,
-      List<ClubStandingModel> standings,
-      DateTime startDate,
-      DateTime endDate,
-      int green,
-      int yellow,
-      int red});
+      {@JsonKey(name: 'id') int id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'clubs') List<ClubModel> clubs,
+      @JsonKey(name: 'matches') List<MatchModel> matches,
+      @JsonKey(name: 'standings') List<ClubStandingModel> standings,
+      @JsonKey(name: 'start_date') DateTime startDate,
+      @JsonKey(name: 'end_date') DateTime endDate,
+      @JsonKey(name: 'direct_advance_count') int directAdvanceCount,
+      @JsonKey(name: 'qualifier_advance_count') int qualifierAdvanceCount,
+      @JsonKey(name: 'eliminated_count') int eliminatedCount});
 }
 
 /// @nodoc
@@ -172,15 +182,15 @@ class __$$LeagueModelImplCopyWithImpl<$Res>
     Object? standings = null,
     Object? startDate = null,
     Object? endDate = null,
-    Object? green = null,
-    Object? yellow = null,
-    Object? red = null,
+    Object? directAdvanceCount = null,
+    Object? qualifierAdvanceCount = null,
+    Object? eliminatedCount = null,
   }) {
     return _then(_$LeagueModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -205,17 +215,17 @@ class __$$LeagueModelImplCopyWithImpl<$Res>
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      green: null == green
-          ? _value.green
-          : green // ignore: cast_nullable_to_non_nullable
+      directAdvanceCount: null == directAdvanceCount
+          ? _value.directAdvanceCount
+          : directAdvanceCount // ignore: cast_nullable_to_non_nullable
               as int,
-      yellow: null == yellow
-          ? _value.yellow
-          : yellow // ignore: cast_nullable_to_non_nullable
+      qualifierAdvanceCount: null == qualifierAdvanceCount
+          ? _value.qualifierAdvanceCount
+          : qualifierAdvanceCount // ignore: cast_nullable_to_non_nullable
               as int,
-      red: null == red
-          ? _value.red
-          : red // ignore: cast_nullable_to_non_nullable
+      eliminatedCount: null == eliminatedCount
+          ? _value.eliminatedCount
+          : eliminatedCount // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -225,16 +235,18 @@ class __$$LeagueModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LeagueModelImpl implements _LeagueModel {
   const _$LeagueModelImpl(
-      {required this.id,
-      required this.name,
-      required final List<ClubModel> clubs,
-      required final List<MatchModel> matches,
+      {@JsonKey(name: 'id') required this.id,
+      @JsonKey(name: 'name') required this.name,
+      @JsonKey(name: 'clubs') required final List<ClubModel> clubs,
+      @JsonKey(name: 'matches') required final List<MatchModel> matches,
+      @JsonKey(name: 'standings')
       required final List<ClubStandingModel> standings,
-      required this.startDate,
-      required this.endDate,
-      required this.green,
-      required this.yellow,
-      required this.red})
+      @JsonKey(name: 'start_date') required this.startDate,
+      @JsonKey(name: 'end_date') required this.endDate,
+      @JsonKey(name: 'direct_advance_count') required this.directAdvanceCount,
+      @JsonKey(name: 'qualifier_advance_count')
+      required this.qualifierAdvanceCount,
+      @JsonKey(name: 'eliminated_count') required this.eliminatedCount})
       : _clubs = clubs,
         _matches = matches,
         _standings = standings;
@@ -243,11 +255,14 @@ class _$LeagueModelImpl implements _LeagueModel {
       _$$LeagueModelImplFromJson(json);
 
   @override
-  final String id;
+  @JsonKey(name: 'id')
+  final int id;
   @override
+  @JsonKey(name: 'name')
   final String name;
   final List<ClubModel> _clubs;
   @override
+  @JsonKey(name: 'clubs')
   List<ClubModel> get clubs {
     if (_clubs is EqualUnmodifiableListView) return _clubs;
     // ignore: implicit_dynamic_type
@@ -256,6 +271,7 @@ class _$LeagueModelImpl implements _LeagueModel {
 
   final List<MatchModel> _matches;
   @override
+  @JsonKey(name: 'matches')
   List<MatchModel> get matches {
     if (_matches is EqualUnmodifiableListView) return _matches;
     // ignore: implicit_dynamic_type
@@ -264,6 +280,7 @@ class _$LeagueModelImpl implements _LeagueModel {
 
   final List<ClubStandingModel> _standings;
   @override
+  @JsonKey(name: 'standings')
   List<ClubStandingModel> get standings {
     if (_standings is EqualUnmodifiableListView) return _standings;
     // ignore: implicit_dynamic_type
@@ -271,19 +288,24 @@ class _$LeagueModelImpl implements _LeagueModel {
   }
 
   @override
+  @JsonKey(name: 'start_date')
   final DateTime startDate;
   @override
+  @JsonKey(name: 'end_date')
   final DateTime endDate;
   @override
-  final int green;
+  @JsonKey(name: 'direct_advance_count')
+  final int directAdvanceCount;
   @override
-  final int yellow;
+  @JsonKey(name: 'qualifier_advance_count')
+  final int qualifierAdvanceCount;
   @override
-  final int red;
+  @JsonKey(name: 'eliminated_count')
+  final int eliminatedCount;
 
   @override
   String toString() {
-    return 'LeagueModel(id: $id, name: $name, clubs: $clubs, matches: $matches, standings: $standings, startDate: $startDate, endDate: $endDate, green: $green, yellow: $yellow, red: $red)';
+    return 'LeagueModel(id: $id, name: $name, clubs: $clubs, matches: $matches, standings: $standings, startDate: $startDate, endDate: $endDate, directAdvanceCount: $directAdvanceCount, qualifierAdvanceCount: $qualifierAdvanceCount, eliminatedCount: $eliminatedCount)';
   }
 
   @override
@@ -300,9 +322,12 @@ class _$LeagueModelImpl implements _LeagueModel {
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
-            (identical(other.green, green) || other.green == green) &&
-            (identical(other.yellow, yellow) || other.yellow == yellow) &&
-            (identical(other.red, red) || other.red == red));
+            (identical(other.directAdvanceCount, directAdvanceCount) ||
+                other.directAdvanceCount == directAdvanceCount) &&
+            (identical(other.qualifierAdvanceCount, qualifierAdvanceCount) ||
+                other.qualifierAdvanceCount == qualifierAdvanceCount) &&
+            (identical(other.eliminatedCount, eliminatedCount) ||
+                other.eliminatedCount == eliminatedCount));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -316,9 +341,9 @@ class _$LeagueModelImpl implements _LeagueModel {
       const DeepCollectionEquality().hash(_standings),
       startDate,
       endDate,
-      green,
-      yellow,
-      red);
+      directAdvanceCount,
+      qualifierAdvanceCount,
+      eliminatedCount);
 
   /// Create a copy of LeagueModel
   /// with the given fields replaced by the non-null parameter values.
@@ -338,40 +363,54 @@ class _$LeagueModelImpl implements _LeagueModel {
 
 abstract class _LeagueModel implements LeagueModel {
   const factory _LeagueModel(
-      {required final String id,
-      required final String name,
-      required final List<ClubModel> clubs,
-      required final List<MatchModel> matches,
+      {@JsonKey(name: 'id') required final int id,
+      @JsonKey(name: 'name') required final String name,
+      @JsonKey(name: 'clubs') required final List<ClubModel> clubs,
+      @JsonKey(name: 'matches') required final List<MatchModel> matches,
+      @JsonKey(name: 'standings')
       required final List<ClubStandingModel> standings,
-      required final DateTime startDate,
-      required final DateTime endDate,
-      required final int green,
-      required final int yellow,
-      required final int red}) = _$LeagueModelImpl;
+      @JsonKey(name: 'start_date') required final DateTime startDate,
+      @JsonKey(name: 'end_date') required final DateTime endDate,
+      @JsonKey(name: 'direct_advance_count')
+      required final int directAdvanceCount,
+      @JsonKey(name: 'qualifier_advance_count')
+      required final int qualifierAdvanceCount,
+      @JsonKey(name: 'eliminated_count')
+      required final int eliminatedCount}) = _$LeagueModelImpl;
 
   factory _LeagueModel.fromJson(Map<String, dynamic> json) =
       _$LeagueModelImpl.fromJson;
 
   @override
-  String get id;
+  @JsonKey(name: 'id')
+  int get id;
   @override
+  @JsonKey(name: 'name')
   String get name;
   @override
+  @JsonKey(name: 'clubs')
   List<ClubModel> get clubs;
   @override
+  @JsonKey(name: 'matches')
   List<MatchModel> get matches;
   @override
+  @JsonKey(name: 'standings')
   List<ClubStandingModel> get standings;
   @override
+  @JsonKey(name: 'start_date')
   DateTime get startDate;
   @override
+  @JsonKey(name: 'end_date')
   DateTime get endDate;
   @override
-  int get green;
+  @JsonKey(name: 'direct_advance_count')
+  int get directAdvanceCount;
   @override
-  int get yellow;
+  @JsonKey(name: 'qualifier_advance_count')
+  int get qualifierAdvanceCount;
   @override
-  int get red;
+  @JsonKey(name: 'eliminated_count')
+  int get eliminatedCount;
 
   /// Create a copy of LeagueModel
   /// with the given fields replaced by the non-null parameter values.
