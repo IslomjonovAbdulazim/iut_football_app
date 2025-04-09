@@ -5,6 +5,8 @@ class LeaguePage extends GetView<LeagueController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(),
+    );
   }
 }

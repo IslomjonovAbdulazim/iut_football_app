@@ -1,22 +1,73 @@
 part of 'imports.dart';
 
 class _Matches extends StatelessWidget {
-  const _Matches({super.key});
+  const _Matches();
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text(
+              "Matches",
+              style: context.title,
+            ),
+            Spacer(),
+            CupertinoButton(
+              padding: EdgeInsets.zero,
+              onPressed: () {
+                Get.toNamed(AppRoutes.matches);
+              },
+              child: Text(
+                "See All",
+                style: context.name,
+              ),
+            ),
+          ],
+        ),
+        ...List.generate(2, (index) {
+          return MatchWidget(MockData.sampleMatches[index]);
+        }),
+      ],
     );
   }
 }
 
 class _Top3AndBottom2 extends StatelessWidget {
-  const _Top3AndBottom2({super.key});
+  const _Top3AndBottom2();
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text(
+              "League",
+              style: context.title,
+            ),
+            Spacer(),
+            CupertinoButton(
+              padding: EdgeInsets.zero,
+              onPressed: () {
+                Get.toNamed(AppRoutes.matches);
+              },
+              child: Text(
+                "See All",
+                style: context.name,
+              ),
+            ),
+          ],
+        ),
+        ...List.generate(3, (index) {
+          return ClubStandingsWidget(
+            standing: MockData.sampleStandings[index],
+            league: MockData.sampleLeague,
+          );
+        }),
+      ],
+    );
   }
 }
 
@@ -25,11 +76,6 @@ class _TopScorers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column();
   }
 }
-
-
-
-
-

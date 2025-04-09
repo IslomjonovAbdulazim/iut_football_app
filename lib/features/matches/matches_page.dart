@@ -5,6 +5,8 @@ class MatchesPage extends GetView<MatchesController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(),
+    );
   }
 }

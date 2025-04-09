@@ -35,9 +35,15 @@ class CachedNetworkWidget extends StatelessWidget {
             placeholder: (context, url) => CircularProgressIndicator.adaptive(
               backgroundColor: context.textPrimary,
             ),
-            errorWidget: (context, url, error) => Icon(
-              Icons.error,
-              color: context.error,
+            errorWidget: (context, url, error) => Container(
+              decoration: BoxDecoration(
+                color: context.dividerColor,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Icon(
+                Icons.error,
+                color: context.error,
+              ),
             ),
           );
   }
