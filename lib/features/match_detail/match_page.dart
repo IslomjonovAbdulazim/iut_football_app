@@ -6,7 +6,13 @@ class MatchDetailsPage extends GetView<MatchDetailsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Match Detail",
+          style: context.title,
+        ),
+      ),
     );
   }
 }

@@ -49,6 +49,7 @@ class ClubStandingsWidget extends StatelessWidget {
       child: Container(
         height: 60,
         margin: const EdgeInsets.symmetric(vertical: 4),
+        padding: EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
           color: context.cardColor,
           borderRadius: BorderRadius.circular(12),

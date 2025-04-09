@@ -51,7 +51,7 @@ class _Top3AndBottom2 extends StatelessWidget {
             CupertinoButton(
               padding: EdgeInsets.zero,
               onPressed: () {
-                Get.toNamed(AppRoutes.matches);
+                Get.toNamed(AppRoutes.league);
               },
               child: Text(
                 "See All",
@@ -88,7 +88,7 @@ class _TopScorers extends StatelessWidget {
             CupertinoButton(
               padding: EdgeInsets.zero,
               onPressed: () {
-                Get.toNamed(AppRoutes.matches);
+                Get.toNamed(AppRoutes.stats);
               },
               child: Text(
                 "See All",

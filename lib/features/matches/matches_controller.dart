@@ -1,3 +1,5 @@
 part of 'imports.dart';
 
-class MatchesController extends GetxController {}
+class MatchesController extends GetxController {
+
+}

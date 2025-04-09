@@ -6,7 +6,13 @@ class PlayerDetailsPage extends GetView<PlayerDetailsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Player Detail",
+          style: context.title,
+        ),
+      ),
     );
   }
 }

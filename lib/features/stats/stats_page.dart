@@ -5,6 +5,14 @@ class StatsPage extends GetView<StatsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Stats",
+          style: context.title,
+        ),
+      ),
+    );
   }
 }

@@ -6,7 +6,13 @@ class ClubDetailPage extends GetView<ClubDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Club Detail",
+          style: context.title,
+        ),
+      ),
     );
   }
 }
