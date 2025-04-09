@@ -37,26 +37,32 @@ class _ClubTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(
-            color: context.cardColor,
-            borderRadius: BorderRadius.circular(20),
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: () {
+        Get.toNamed(AppRoutes.clubDetail);
+      },
+      child: Column(
+        children: [
+          Container(
+            height: 70,
+            width: 70,
+            decoration: BoxDecoration(
+              color: context.cardColor,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: CachedNetworkWidget(avatar),
           ),
-          child: CachedNetworkWidget(avatar),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          name,
-          style: context.name,
-          textAlign: TextAlign.center,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-        ),
-      ],
+          const SizedBox(height: 6),
+          Text(
+            name,
+            style: context.name,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -79,19 +85,34 @@ class _ScoreSection extends StatelessWidget {
         Text("${match.homeScore} : ${match.awayScore}",
             style: context.title.copyWith(fontSize: 32)),
         const SizedBox(height: 8),
-        Text(
-          status,
-          style: TextStyle(
-            color: status == "Live"
-                ? Colors.red
-                : status == "Upcoming"
-                    ? Colors.orange
-                    : Colors.green,
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          decoration: BoxDecoration(
+              color: (status == "Live"
+                      ? Colors.red
+                      : status == "Upcoming"
+                          ? Colors.orange
+                          : Colors.green)
+                  .withOpacity(.2),
+              borderRadius: BorderRadius.circular(8)),
+          child: Text(
+            status,
+            style: TextStyle(
+              color: status == "Live"
+                  ? Colors.red
+                  : status == "Upcoming"
+                      ? Colors.orange
+                      : Colors.green,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         const SizedBox(height: 8),
-        Text(DateFormat.yMMMEd().add_Hm().format(match.matchTime),
-            style: context.smallName),
+        Text(
+          DateFormat.yMMMEd().add_Hm().format(match.matchTime),
+          style: context.smallName,
+        ),
       ],
     );
   }
@@ -113,7 +134,9 @@ class _GoalEventsSection extends StatelessWidget {
       children: [
         Text("Goals", style: context.title),
         const SizedBox(height: 12),
-        ...match.goalEvents.map((event) => _GoalTile(event)).toList(),
+        ...match.goalEvents.map(
+          (event) => _GoalTile(event),
+        ),
       ],
     );
   }
@@ -126,13 +149,35 @@ class _GoalTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      leading: CircleAvatar(backgroundImage: NetworkImage(event.playerAvatar)),
-      title: Text(event.playerName, style: context.name),
-      subtitle: Text("${event.clubName} • ${event.minute}'",
-          style: context.smallName),
-      trailing: Icon(Icons.sports_soccer, size: 20, color: Colors.grey[600]),
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: () {
+        Get.toNamed(
+          AppRoutes.playerDetails,
+          arguments: event.playerId,
+        );
+      },
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: SizedBox(
+            height: 40,
+            width: 40,
+            child: CachedNetworkWidget(event.playerAvatar),
+          ),
+        ),
+        title: Text(event.playerName, style: context.name),
+        subtitle: Text(
+          "${event.clubName} • ${event.minute}'",
+          style: context.smallName,
+        ),
+        trailing: Icon(
+          Icons.sports_soccer,
+          size: 20,
+          color: Colors.grey[600],
+        ),
+      ),
     );
   }
 }

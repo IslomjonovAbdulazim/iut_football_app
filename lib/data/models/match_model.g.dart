@@ -18,16 +18,24 @@ _$MatchModelImpl _$$MatchModelImplFromJson(Map<String, dynamic> json) =>
       homeScore: (json['home_score'] as num).toInt(),
       awayScore: (json['away_score'] as num).toInt(),
       matchTime: DateTime.parse(json['match_time'] as String),
+      firstHalfStartedAt: json['first_half_started_at'] == null
+          ? null
+          : DateTime.parse(json['first_half_started_at'] as String),
+      firstHalfFinishedAt: json['first_half_finished_at'] == null
+          ? null
+          : DateTime.parse(json['first_half_finished_at'] as String),
+      secondHalfStartedAt: json['second_half_started_at'] == null
+          ? null
+          : DateTime.parse(json['second_half_started_at'] as String),
+      secondHalfFinishedAt: json['second_half_finished_at'] == null
+          ? null
+          : DateTime.parse(json['second_half_finished_at'] as String),
       goalEvents: (json['goal_events'] as List<dynamic>)
           .map((e) => GoalEventModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       isFirstHalfFinished: json['is_first_half_finished'] as bool,
       isSecondHalfFinished: json['is_second_half_finished'] as bool,
       gameStarted: json['game_started'] as bool,
-      additionalTimeForFirstHalf:
-          (json['additional_time_for_first_half'] as num).toInt(),
-      additionalTimeForSecondHalf:
-          (json['additional_time_for_second_half'] as num).toInt(),
       title: json['title'] as String,
       leagueId: (json['league_id'] as num).toInt(),
     );
@@ -44,12 +52,15 @@ Map<String, dynamic> _$$MatchModelImplToJson(_$MatchModelImpl instance) =>
       'home_score': instance.homeScore,
       'away_score': instance.awayScore,
       'match_time': instance.matchTime.toIso8601String(),
+      'first_half_started_at': instance.firstHalfStartedAt?.toIso8601String(),
+      'first_half_finished_at': instance.firstHalfFinishedAt?.toIso8601String(),
+      'second_half_started_at': instance.secondHalfStartedAt?.toIso8601String(),
+      'second_half_finished_at':
+          instance.secondHalfFinishedAt?.toIso8601String(),
       'goal_events': instance.goalEvents,
       'is_first_half_finished': instance.isFirstHalfFinished,
       'is_second_half_finished': instance.isSecondHalfFinished,
       'game_started': instance.gameStarted,
-      'additional_time_for_first_half': instance.additionalTimeForFirstHalf,
-      'additional_time_for_second_half': instance.additionalTimeForSecondHalf,
       'title': instance.title,
       'league_id': instance.leagueId,
     };
