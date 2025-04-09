@@ -72,34 +72,31 @@ class _PlayersSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Players", style: context.title),
-        const SizedBox(height: 12),
-        ...players.map(
-          (player) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 3),
-            child: CupertinoButton(
-              padding: EdgeInsets.zero,
-              color: context.cardColor,
-              onPressed: () {
-                Get.toNamed(AppRoutes.playerDetails, arguments: player);
-              },
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(player.avatarUrl),
-                ),
-                title: Text(player.name, style: context.name),
-                subtitle: Text(
-                  "Goals: ${player.goals}    ID: U${player.iutStudentId}",
-                  style: context.smallName,
-                ),
+    return ListView.builder(
+      itemCount: players.length,
+      itemBuilder: (context, index) {
+        final player = players[index];
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 3),
+          child: CupertinoButton(
+            padding: EdgeInsets.zero,
+            color: context.cardColor,
+            onPressed: () {
+              Get.toNamed(AppRoutes.playerDetails, arguments: player);
+            },
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(player.avatarUrl),
+              ),
+              title: Text(player.name, style: context.name),
+              subtitle: Text(
+                "Goals: ${player.goals}    ID: U${player.iutStudentId}",
+                style: context.smallName,
               ),
             ),
           ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
@@ -111,34 +108,12 @@ class _MatchesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Matches", style: context.title),
-        const SizedBox(height: 12),
-        ...matches.map(
-          (match) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4),
-            child: CupertinoButton(
-              padding: EdgeInsets.zero,
-              color: context.cardColor,
-              onPressed: () {
-                Get.toNamed(AppRoutes.matchDetail, arguments: match);
-              },
-              child: ListTile(
-                leading: Text(
-                  "${match.homeScore} : ${match.awayScore}",
-                  style: context.name,
-                ),
-                title: Text("${match.homeClubName} vs ${match.awayClubName}"),
-                subtitle:
-                    Text(DateFormat.yMMMEd().add_Hm().format(match.matchTime)),
-                trailing: Icon(Icons.chevron_right),
-              ),
-            ),
-          ),
-        ),
-      ],
+    return ListView.builder(
+      itemCount: matches.length,
+      itemBuilder: (context, index) {
+        final match = matches[index];
+        return MatchWidget(match);
+      },
     );
   }
 }

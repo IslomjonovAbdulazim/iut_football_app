@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:iut_football_app/utils/extenstions/color_extension.dart';
 import 'package:iut_football_app/utils/extenstions/text_style_extention.dart';
 import 'package:iut_football_app/widgets/cashed_network_image_widget.dart';
+import 'package:iut_football_app/widgets/match_widget.dart';
 
 import '../../data/models/club_model.dart';
 import '../../data/models/match_model.dart';

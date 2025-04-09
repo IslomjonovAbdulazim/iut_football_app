@@ -23,16 +23,35 @@ class ClubDetailPage extends GetView<ClubDetailController> {
           SizedBox(width: 6),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
+      body: Column(
         children: [
           _ClubHeader(club: club),
           const SizedBox(height: 16),
           _StatsRow(club: club),
           const SizedBox(height: 24),
-          _PlayersSection(players: club.players),
-          const SizedBox(height: 24),
-          _MatchesSection(matches: club.matches),
+          PreferredSize(
+            preferredSize: Size.fromHeight(55),
+            child: TabBar(
+              controller: controller.tabController,
+              dividerColor: Colors.transparent,
+              tabs: const [
+                Tab(text: "Players"),
+                Tab(text: "Matches"),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TabBarView(
+                controller: controller.tabController,
+                children: [
+                  _PlayersSection(players: club.players),
+                  _MatchesSection(matches: club.matches),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
