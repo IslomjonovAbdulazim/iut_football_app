@@ -13,7 +13,6 @@ class StatsModel with _$StatsModel {
     @JsonKey(name: 'club_name') required String clubName,
     @JsonKey(name: 'club_logo_url') required String clubLogoUrl,
     @JsonKey(name: 'goals') required int goals,
-    @JsonKey(name: 'matches_played') required int matchesPlayed,
   }) = _StatsModel;
 
   factory StatsModel.fromJson(Map<String, dynamic> json) =>

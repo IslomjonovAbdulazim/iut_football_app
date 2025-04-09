@@ -44,7 +44,7 @@ class ClubStandingsWidget extends StatelessWidget {
       padding: EdgeInsets.zero,
       borderRadius: BorderRadius.circular(12),
       onPressed: () {
-        Get.toNamed(AppRoutes.clubDetail);
+        Get.toNamed(AppRoutes.clubDetail, arguments: standing);
       },
       child: Container(
         height: 60,

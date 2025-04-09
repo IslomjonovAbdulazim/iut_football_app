@@ -8,6 +8,7 @@ import 'package:iut_football_app/utils/extenstions/color_extension.dart';
 import 'package:iut_football_app/utils/extenstions/text_style_extention.dart';
 import 'package:iut_football_app/widgets/club_standings_widget.dart';
 import 'package:iut_football_app/widgets/match_widget.dart';
+import 'package:iut_football_app/widgets/top_scorer_widget.dart';
 
 part 'home_binding.dart';
 part 'home_controller.dart';

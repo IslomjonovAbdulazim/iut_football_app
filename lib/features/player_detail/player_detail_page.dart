@@ -5,6 +5,8 @@ class PlayerDetailsPage extends GetView<PlayerDetailsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(),
+    );
   }
 }

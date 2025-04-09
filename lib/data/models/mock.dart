@@ -537,7 +537,6 @@ class MockData {
       clubName: 'IUT Tigers',
       clubLogoUrl: 'https://iut-league/clubs/1/logo.png',
       goals: 5,
-      matchesPlayed: 8,
     ),
     StatsModel(
       playerId: 105,
@@ -547,7 +546,6 @@ class MockData {
       clubName: 'Samarkand Lions',
       clubLogoUrl: 'https://iut-league/clubs/2/logo.png',
       goals: 4,
-      matchesPlayed: 8,
     ),
     StatsModel(
       playerId: 118,
@@ -557,7 +555,6 @@ class MockData {
       clubName: 'Tashkent Warriors',
       clubLogoUrl: 'https://iut-league/clubs/5/logo.png',
       goals: 3,
-      matchesPlayed: 8,
     ),
   ];
 }

@@ -76,6 +76,33 @@ class _TopScorers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text(
+              "Top Scorers",
+              style: context.title,
+            ),
+            Spacer(),
+            CupertinoButton(
+              padding: EdgeInsets.zero,
+              onPressed: () {
+                Get.toNamed(AppRoutes.matches);
+              },
+              child: Text(
+                "See All",
+                style: context.name,
+              ),
+            ),
+          ],
+        ),
+        ...List.generate(3, (index) {
+          return TopScorerWidget(
+            MockData.sampleStats[index],
+          );
+        }),
+      ],
+    );
   }
 }

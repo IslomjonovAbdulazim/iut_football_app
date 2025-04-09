@@ -11,6 +11,7 @@ class HomePage extends GetView<HomeController> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: AppBar(
+            surfaceTintColor: context.backgroundColor,
             leading: Image.asset(
               BrandConstants.transparent,
             ),
