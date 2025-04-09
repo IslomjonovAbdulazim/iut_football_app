@@ -7,11 +7,19 @@ class StatsPage extends GetView<StatsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: context.backgroundColor,
         centerTitle: true,
         title: Text(
-          "Stats",
+          "Top Scorers",
           style: context.title,
         ),
+      ),
+      body: ListView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        itemCount: MockData.sampleStats.length,
+        itemBuilder: (context, index) {
+          return TopScorerWidget(MockData.sampleStats[index]);
+        },
       ),
     );
   }

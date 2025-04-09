@@ -7,7 +7,7 @@ class LeaguePage extends GetView<LeagueController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: context.backgroundColor,
+        surfaceTintColor: context.backgroundColor,
         centerTitle: true,
         title: Text(
           "League",

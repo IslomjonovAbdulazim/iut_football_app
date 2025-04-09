@@ -7,7 +7,7 @@ class MatchesPage extends GetView<MatchesController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: context.backgroundColor,
+        surfaceTintColor: context.backgroundColor,
         centerTitle: true,
         title: Text(
           "Matches",
