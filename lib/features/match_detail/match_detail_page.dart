@@ -13,6 +13,16 @@ class MatchDetailsPage extends GetView<MatchDetailsController> {
           style: context.title,
         ),
       ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          _MatchHeader(match: Get.arguments),
+          const SizedBox(height: 16),
+          _ScoreSection(match: Get.arguments),
+          const SizedBox(height: 16),
+          _GoalEventsSection(match: Get.arguments),
+        ],
+      ),
     );
   }
 }
