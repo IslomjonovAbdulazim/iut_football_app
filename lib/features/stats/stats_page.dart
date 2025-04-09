@@ -13,6 +13,17 @@ class StatsPage extends GetView<StatsController> {
           "Top Scorers",
           style: context.title,
         ),
+        actions: [
+          CupertinoButton(
+            onPressed: () {
+              Get.offAllNamed(
+                AppRoutes.home,
+              );
+            },
+            child: Icon(CupertinoIcons.home),
+          ),
+          SizedBox(width: 6),
+        ],
       ),
       body: ListView.builder(
         padding: EdgeInsets.symmetric(horizontal: 20),

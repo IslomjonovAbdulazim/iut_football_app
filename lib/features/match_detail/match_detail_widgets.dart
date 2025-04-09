@@ -40,7 +40,7 @@ class _ClubTile extends StatelessWidget {
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: () {
-        Get.toNamed(AppRoutes.clubDetail);
+        Get.toNamed(AppRoutes.clubDetail, arguments: MockData.clubs.first);
       },
       child: Column(
         children: [

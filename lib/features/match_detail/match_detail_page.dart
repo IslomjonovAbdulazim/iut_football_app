@@ -12,6 +12,15 @@ class MatchDetailsPage extends GetView<MatchDetailsController> {
           "Match Detail",
           style: context.title,
         ),
+        actions: [
+          CupertinoButton(
+            onPressed: () {
+              Get.offAllNamed(AppRoutes.home);
+            },
+            child: Icon(CupertinoIcons.home),
+          ),
+          SizedBox(width: 6),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),

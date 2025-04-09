@@ -1,12 +1,12 @@
 // mock_data.dart
 import 'club_model.dart';
-import 'player_model.dart';
-import 'goal_event_model.dart';
-import 'match_model.dart';
-import 'league_model.dart';
 import 'club_standing_model.dart';
-import 'player_goal_by_match_model.dart';
+import 'goal_event_model.dart';
+import 'league_model.dart';
+import 'match_model.dart';
 import 'player_detail_model.dart';
+import 'player_goal_by_match_model.dart';
+import 'player_model.dart';
 import 'stats_model.dart';
 
 /// A class containing static mock data for testing your UI.
@@ -18,8 +18,155 @@ class MockData {
       name: 'IUT Tigers',
       logoUrl: 'https://iut-league/clubs/1/logo.png',
       leagueId: 1,
-      players: [],
-      matches: [],
+      players: [
+        PlayerModel(
+          id: 101,
+          name: 'Abdulloh Turgunov',
+          clubId: 1,
+          avatarUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
+          iutStudentId: 220101,
+          goals: 5,
+          goalEvents: [],
+        ),
+        PlayerModel(
+          id: 102,
+          name: 'Javohir Karimov',
+          clubId: 1,
+          avatarUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
+          iutStudentId: 220102,
+          goals: 2,
+          goalEvents: [],
+        ),
+        PlayerModel(
+          id: 103,
+          name: 'Sardor Nazarov',
+          clubId: 1,
+          avatarUrl: 'https://randomuser.me/api/portraits/men/66.jpg',
+          iutStudentId: 220103,
+          goals: 3,
+          goalEvents: [],
+        ),
+        PlayerModel(
+          id: 104,
+          name: 'Ibrohim Mirzayev',
+          clubId: 1,
+          avatarUrl: 'https://randomuser.me/api/portraits/men/78.jpg',
+          iutStudentId: 220104,
+          goals: 0,
+          goalEvents: [],
+        ),
+        // Club 2 => Samarkand Lions
+        PlayerModel(
+          id: 105,
+          name: 'Muhammad Saidov',
+          clubId: 2,
+          avatarUrl: 'https://randomuser.me/api/portraits/men/12.jpg',
+          iutStudentId: 220105,
+          goals: 4,
+          goalEvents: [],
+        ),
+        PlayerModel(
+          id: 106,
+          name: 'Diyorbek Rakhimov',
+          clubId: 2,
+          avatarUrl: 'https://randomuser.me/api/portraits/men/91.jpg',
+          iutStudentId: 220106,
+          goals: 2,
+          goalEvents: [],
+        ),
+      ],
+      matches: [
+        MatchModel(
+          id: 1,
+          homeClubId: 1,
+          homeClubName: 'IUT Tigers',
+          homeClubAvatar: 'https://iut-league/clubs/1/logo.png',
+          awayClubId: 2,
+          awayClubName: 'Samarkand Lions',
+          awayClubAvatar: 'https://iut-league/clubs/2/logo.png',
+          homeScore: 1,
+          awayScore: 1,
+          matchTime: DateTime.now().subtract(const Duration(days: 2)),
+          goalEvents: sampleGoalEvents,
+          isFirstHalfFinished: true,
+          isSecondHalfFinished: true,
+          gameStarted: true,
+          title: 'Round 1',
+          leagueId: 1,
+        ),
+        MatchModel(
+          id: 2,
+          homeClubId: 3,
+          homeClubName: 'Bukhara Eagles',
+          homeClubAvatar: 'https://iut-league/clubs/3/logo.png',
+          awayClubId: 4,
+          awayClubName: 'Fergana Falcons',
+          awayClubAvatar: 'https://iut-league/clubs/4/logo.png',
+          homeScore: 2,
+          awayScore: 1,
+          matchTime: DateTime.now().subtract(const Duration(days: 1)),
+          goalEvents: [],
+          isFirstHalfFinished: true,
+          isSecondHalfFinished: true,
+          gameStarted: true,
+          title: 'Round 1',
+          leagueId: 1,
+        ),
+        MatchModel(
+          id: 3,
+          homeClubId: 5,
+          homeClubName: 'Tashkent Warriors',
+          homeClubAvatar: 'https://iut-league/clubs/5/logo.png',
+          awayClubId: 1,
+          awayClubName: 'IUT Tigers',
+          awayClubAvatar: 'https://iut-league/clubs/1/logo.png',
+          homeScore: 3,
+          awayScore: 4,
+          matchTime: DateTime.now().subtract(const Duration(hours: 5)),
+          goalEvents: [],
+          isFirstHalfFinished: true,
+          isSecondHalfFinished: true,
+          gameStarted: true,
+          title: 'Round 2',
+          leagueId: 1,
+        ),
+        MatchModel(
+          id: 4,
+          homeClubId: 2,
+          homeClubName: 'Samarkand Lions',
+          homeClubAvatar: 'https://iut-league/clubs/2/logo.png',
+          awayClubId: 3,
+          awayClubName: 'Bukhara Eagles',
+          awayClubAvatar: 'https://iut-league/clubs/3/logo.png',
+          homeScore: 0,
+          awayScore: 0,
+          matchTime: DateTime.now().add(const Duration(days: 1)),
+          goalEvents: [],
+          isFirstHalfFinished: false,
+          isSecondHalfFinished: false,
+          gameStarted: false,
+          title: 'Round 2',
+          leagueId: 1,
+        ),
+        MatchModel(
+          id: 5,
+          homeClubId: 4,
+          homeClubName: 'Fergana Falcons',
+          homeClubAvatar: 'https://iut-league/clubs/4/logo.png',
+          awayClubId: 5,
+          awayClubName: 'Tashkent Warriors',
+          awayClubAvatar: 'https://iut-league/clubs/5/logo.png',
+          homeScore: 0,
+          awayScore: 0,
+          matchTime: DateTime.now().add(const Duration(days: 2)),
+          goalEvents: [],
+          isFirstHalfFinished: false,
+          isSecondHalfFinished: false,
+          gameStarted: false,
+          title: 'Round 2',
+          leagueId: 1,
+        ),
+      ],
       matchesPlayed: 8,
       wins: 5,
       draws: 2,
@@ -480,18 +627,22 @@ class MockData {
   static final LeagueModel sampleLeague = LeagueModel(
     id: 1,
     name: 'IUT Football League',
-    clubs: clubsWithPlayers,         // attach players inside
+    clubs: clubsWithPlayers,
+    // attach players inside
     matches: sampleMatches,
     standings: sampleStandings,
     startDate: DateTime(2025, 03, 01),
     endDate: DateTime(2025, 05, 01),
-    directAdvanceCount: 1,     // top 1 goes directly
-    qualifierAdvanceCount: 2,  // next 2 do extra round
-    eliminatedCount: 2,        // bottom 2 are out
+    directAdvanceCount: 1,
+    // top 1 goes directly
+    qualifierAdvanceCount: 2,
+    // next 2 do extra round
+    eliminatedCount: 2, // bottom 2 are out
   );
 
   /// Player Goal By Match example
-  static final PlayerGoalByMatchModel sampleGoalBreakdown = PlayerGoalByMatchModel(
+  static final PlayerGoalByMatchModel sampleGoalBreakdown =
+      PlayerGoalByMatchModel(
     matchId: 2,
     opponentClubId: 4,
     opponentClubName: 'Fergana Falcons',

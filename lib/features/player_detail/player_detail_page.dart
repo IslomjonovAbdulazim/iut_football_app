@@ -12,6 +12,15 @@ class PlayerDetailsPage extends GetView<PlayerDetailsController> {
           "Player Detail",
           style: context.title,
         ),
+        actions: [
+          CupertinoButton(
+            onPressed: () {
+              Get.offAllNamed(AppRoutes.home);
+            },
+            child: Icon(CupertinoIcons.home),
+          ),
+          SizedBox(width: 6),
+        ],
       ),
     );
   }

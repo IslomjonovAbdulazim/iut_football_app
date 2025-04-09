@@ -13,6 +13,15 @@ class LeaguePage extends GetView<LeagueController> {
           "League",
           style: context.title,
         ),
+        actions: [
+          CupertinoButton(
+            onPressed: () {
+              Get.offAllNamed(AppRoutes.home);
+            },
+            child: Icon(CupertinoIcons.home),
+          ),
+          SizedBox(width: 6),
+        ],
       ),
       body: SafeArea(
         child: ListView.builder(

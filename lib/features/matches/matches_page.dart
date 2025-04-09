@@ -13,6 +13,15 @@ class MatchesPage extends GetView<MatchesController> {
           "Matches",
           style: context.title,
         ),
+        actions: [
+          CupertinoButton(
+            onPressed: () {
+              Get.offAllNamed(AppRoutes.home);
+            },
+            child: Icon(CupertinoIcons.home),
+          ),
+          SizedBox(width: 6),
+        ],
       ),
       body: SafeArea(
         child: ListView.builder(
