@@ -5,8 +5,7 @@ class ClubDetailPage extends GetView<ClubDetailController> {
 
   @override
   Widget build(BuildContext context) {
-    print(Get.arguments);
-    final club = Get.arguments;
+    final club = MockData.clubs.first;
 
     return Scaffold(
       appBar: AppBar(

@@ -3,7 +3,7 @@ part of 'imports.dart';
 class ClubDetailController extends GetxController with GetSingleTickerProviderStateMixin {
   late TabController tabController;
 
-  final ClubModel club = Get.arguments;
+  // final ClubModel club = Get.arguments;
 
   @override
   void onInit() {
