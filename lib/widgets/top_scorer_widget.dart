@@ -17,7 +17,7 @@ class TopScorerWidget extends StatelessWidget {
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: () {
-        Get.toNamed(AppRoutes.playerDetails, arguments: stats);
+        Get.toNamed(AppRoutes.playerDetails, arguments: stats.playerId);
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 6),

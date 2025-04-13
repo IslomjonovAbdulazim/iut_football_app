@@ -24,12 +24,14 @@ mixin _$PlayerModel {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'avatar', defaultValue: '')
+  String get avatarUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'club_id', defaultValue: 0)
   int get clubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'avatar_url', defaultValue: '')
-  String get avatarUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'iut_student_id', defaultValue: 0)
-  int get iutStudentId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'club_name', defaultValue: "")
+  String get clubName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'club_avatar', defaultValue: "")
+  String get clubAvatar => throw _privateConstructorUsedError;
   @JsonKey(name: 'goals', defaultValue: 0)
   int get goals => throw _privateConstructorUsedError;
 
@@ -52,9 +54,10 @@ abstract class $PlayerModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id', defaultValue: 0) int id,
       @JsonKey(name: 'name', defaultValue: 'Unknown Player') String name,
+      @JsonKey(name: 'avatar', defaultValue: '') String avatarUrl,
       @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
-      @JsonKey(name: 'avatar_url', defaultValue: '') String avatarUrl,
-      @JsonKey(name: 'iut_student_id', defaultValue: 0) int iutStudentId,
+      @JsonKey(name: 'club_name', defaultValue: "") String clubName,
+      @JsonKey(name: 'club_avatar', defaultValue: "") String clubAvatar,
       @JsonKey(name: 'goals', defaultValue: 0) int goals});
 }
 
@@ -75,9 +78,10 @@ class _$PlayerModelCopyWithImpl<$Res, $Val extends PlayerModel>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? clubId = null,
     Object? avatarUrl = null,
-    Object? iutStudentId = null,
+    Object? clubId = null,
+    Object? clubName = null,
+    Object? clubAvatar = null,
     Object? goals = null,
   }) {
     return _then(_value.copyWith(
@@ -89,18 +93,22 @@ class _$PlayerModelCopyWithImpl<$Res, $Val extends PlayerModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      clubId: null == clubId
-          ? _value.clubId
-          : clubId // ignore: cast_nullable_to_non_nullable
-              as int,
       avatarUrl: null == avatarUrl
           ? _value.avatarUrl
           : avatarUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      iutStudentId: null == iutStudentId
-          ? _value.iutStudentId
-          : iutStudentId // ignore: cast_nullable_to_non_nullable
+      clubId: null == clubId
+          ? _value.clubId
+          : clubId // ignore: cast_nullable_to_non_nullable
               as int,
+      clubName: null == clubName
+          ? _value.clubName
+          : clubName // ignore: cast_nullable_to_non_nullable
+              as String,
+      clubAvatar: null == clubAvatar
+          ? _value.clubAvatar
+          : clubAvatar // ignore: cast_nullable_to_non_nullable
+              as String,
       goals: null == goals
           ? _value.goals
           : goals // ignore: cast_nullable_to_non_nullable
@@ -120,9 +128,10 @@ abstract class _$$PlayerModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id', defaultValue: 0) int id,
       @JsonKey(name: 'name', defaultValue: 'Unknown Player') String name,
+      @JsonKey(name: 'avatar', defaultValue: '') String avatarUrl,
       @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
-      @JsonKey(name: 'avatar_url', defaultValue: '') String avatarUrl,
-      @JsonKey(name: 'iut_student_id', defaultValue: 0) int iutStudentId,
+      @JsonKey(name: 'club_name', defaultValue: "") String clubName,
+      @JsonKey(name: 'club_avatar', defaultValue: "") String clubAvatar,
       @JsonKey(name: 'goals', defaultValue: 0) int goals});
 }
 
@@ -141,9 +150,10 @@ class __$$PlayerModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? clubId = null,
     Object? avatarUrl = null,
-    Object? iutStudentId = null,
+    Object? clubId = null,
+    Object? clubName = null,
+    Object? clubAvatar = null,
     Object? goals = null,
   }) {
     return _then(_$PlayerModelImpl(
@@ -155,18 +165,22 @@ class __$$PlayerModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      clubId: null == clubId
-          ? _value.clubId
-          : clubId // ignore: cast_nullable_to_non_nullable
-              as int,
       avatarUrl: null == avatarUrl
           ? _value.avatarUrl
           : avatarUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      iutStudentId: null == iutStudentId
-          ? _value.iutStudentId
-          : iutStudentId // ignore: cast_nullable_to_non_nullable
+      clubId: null == clubId
+          ? _value.clubId
+          : clubId // ignore: cast_nullable_to_non_nullable
               as int,
+      clubName: null == clubName
+          ? _value.clubName
+          : clubName // ignore: cast_nullable_to_non_nullable
+              as String,
+      clubAvatar: null == clubAvatar
+          ? _value.clubAvatar
+          : clubAvatar // ignore: cast_nullable_to_non_nullable
+              as String,
       goals: null == goals
           ? _value.goals
           : goals // ignore: cast_nullable_to_non_nullable
@@ -181,10 +195,10 @@ class _$PlayerModelImpl implements _PlayerModel {
   const _$PlayerModelImpl(
       {@JsonKey(name: 'id', defaultValue: 0) required this.id,
       @JsonKey(name: 'name', defaultValue: 'Unknown Player') required this.name,
+      @JsonKey(name: 'avatar', defaultValue: '') required this.avatarUrl,
       @JsonKey(name: 'club_id', defaultValue: 0) required this.clubId,
-      @JsonKey(name: 'avatar_url', defaultValue: '') required this.avatarUrl,
-      @JsonKey(name: 'iut_student_id', defaultValue: 0)
-      required this.iutStudentId,
+      @JsonKey(name: 'club_name', defaultValue: "") required this.clubName,
+      @JsonKey(name: 'club_avatar', defaultValue: "") required this.clubAvatar,
       @JsonKey(name: 'goals', defaultValue: 0) required this.goals});
 
   factory _$PlayerModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,21 +211,24 @@ class _$PlayerModelImpl implements _PlayerModel {
   @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   final String name;
   @override
+  @JsonKey(name: 'avatar', defaultValue: '')
+  final String avatarUrl;
+  @override
   @JsonKey(name: 'club_id', defaultValue: 0)
   final int clubId;
   @override
-  @JsonKey(name: 'avatar_url', defaultValue: '')
-  final String avatarUrl;
+  @JsonKey(name: 'club_name', defaultValue: "")
+  final String clubName;
   @override
-  @JsonKey(name: 'iut_student_id', defaultValue: 0)
-  final int iutStudentId;
+  @JsonKey(name: 'club_avatar', defaultValue: "")
+  final String clubAvatar;
   @override
   @JsonKey(name: 'goals', defaultValue: 0)
   final int goals;
 
   @override
   String toString() {
-    return 'PlayerModel(id: $id, name: $name, clubId: $clubId, avatarUrl: $avatarUrl, iutStudentId: $iutStudentId, goals: $goals)';
+    return 'PlayerModel(id: $id, name: $name, avatarUrl: $avatarUrl, clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, goals: $goals)';
   }
 
   @override
@@ -221,18 +238,20 @@ class _$PlayerModelImpl implements _PlayerModel {
             other is _$PlayerModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.clubId, clubId) || other.clubId == clubId) &&
             (identical(other.avatarUrl, avatarUrl) ||
                 other.avatarUrl == avatarUrl) &&
-            (identical(other.iutStudentId, iutStudentId) ||
-                other.iutStudentId == iutStudentId) &&
+            (identical(other.clubId, clubId) || other.clubId == clubId) &&
+            (identical(other.clubName, clubName) ||
+                other.clubName == clubName) &&
+            (identical(other.clubAvatar, clubAvatar) ||
+                other.clubAvatar == clubAvatar) &&
             (identical(other.goals, goals) || other.goals == goals));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, clubId, avatarUrl, iutStudentId, goals);
+      runtimeType, id, name, avatarUrl, clubId, clubName, clubAvatar, goals);
 
   /// Create a copy of PlayerModel
   /// with the given fields replaced by the non-null parameter values.
@@ -255,11 +274,13 @@ abstract class _PlayerModel implements PlayerModel {
           {@JsonKey(name: 'id', defaultValue: 0) required final int id,
           @JsonKey(name: 'name', defaultValue: 'Unknown Player')
           required final String name,
-          @JsonKey(name: 'club_id', defaultValue: 0) required final int clubId,
-          @JsonKey(name: 'avatar_url', defaultValue: '')
+          @JsonKey(name: 'avatar', defaultValue: '')
           required final String avatarUrl,
-          @JsonKey(name: 'iut_student_id', defaultValue: 0)
-          required final int iutStudentId,
+          @JsonKey(name: 'club_id', defaultValue: 0) required final int clubId,
+          @JsonKey(name: 'club_name', defaultValue: "")
+          required final String clubName,
+          @JsonKey(name: 'club_avatar', defaultValue: "")
+          required final String clubAvatar,
           @JsonKey(name: 'goals', defaultValue: 0) required final int goals}) =
       _$PlayerModelImpl;
 
@@ -273,14 +294,17 @@ abstract class _PlayerModel implements PlayerModel {
   @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   String get name;
   @override
+  @JsonKey(name: 'avatar', defaultValue: '')
+  String get avatarUrl;
+  @override
   @JsonKey(name: 'club_id', defaultValue: 0)
   int get clubId;
   @override
-  @JsonKey(name: 'avatar_url', defaultValue: '')
-  String get avatarUrl;
+  @JsonKey(name: 'club_name', defaultValue: "")
+  String get clubName;
   @override
-  @JsonKey(name: 'iut_student_id', defaultValue: 0)
-  int get iutStudentId;
+  @JsonKey(name: 'club_avatar', defaultValue: "")
+  String get clubAvatar;
   @override
   @JsonKey(name: 'goals', defaultValue: 0)
   int get goals;

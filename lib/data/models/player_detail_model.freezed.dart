@@ -20,11 +20,11 @@ PlayerDetailModel _$PlayerDetailModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlayerDetailModel {
-  @JsonKey(name: 'player_id', defaultValue: 0)
+  @JsonKey(name: 'id', defaultValue: 0)
   int get playerId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'player_name', defaultValue: 'Unknown Player')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   String get playerName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'player_avatar', defaultValue: '')
+  @JsonKey(name: 'avatar', defaultValue: '')
   String get playerAvatar => throw _privateConstructorUsedError;
   @JsonKey(name: 'club_id', defaultValue: 0)
   int get clubId => throw _privateConstructorUsedError;
@@ -52,10 +52,9 @@ abstract class $PlayerDetailModelCopyWith<$Res> {
       _$PlayerDetailModelCopyWithImpl<$Res, PlayerDetailModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'player_id', defaultValue: 0) int playerId,
-      @JsonKey(name: 'player_name', defaultValue: 'Unknown Player')
-      String playerName,
-      @JsonKey(name: 'player_avatar', defaultValue: '') String playerAvatar,
+      {@JsonKey(name: 'id', defaultValue: 0) int playerId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player') String playerName,
+      @JsonKey(name: 'avatar', defaultValue: '') String playerAvatar,
       @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
       @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') String clubName,
       @JsonKey(name: 'club_avatar', defaultValue: '') String clubAvatar,
@@ -128,10 +127,9 @@ abstract class _$$PlayerDetailModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'player_id', defaultValue: 0) int playerId,
-      @JsonKey(name: 'player_name', defaultValue: 'Unknown Player')
-      String playerName,
-      @JsonKey(name: 'player_avatar', defaultValue: '') String playerAvatar,
+      {@JsonKey(name: 'id', defaultValue: 0) int playerId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player') String playerName,
+      @JsonKey(name: 'avatar', defaultValue: '') String playerAvatar,
       @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
       @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') String clubName,
       @JsonKey(name: 'club_avatar', defaultValue: '') String clubAvatar,
@@ -197,11 +195,10 @@ class __$$PlayerDetailModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlayerDetailModelImpl implements _PlayerDetailModel {
   const _$PlayerDetailModelImpl(
-      {@JsonKey(name: 'player_id', defaultValue: 0) required this.playerId,
-      @JsonKey(name: 'player_name', defaultValue: 'Unknown Player')
+      {@JsonKey(name: 'id', defaultValue: 0) required this.playerId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player')
       required this.playerName,
-      @JsonKey(name: 'player_avatar', defaultValue: '')
-      required this.playerAvatar,
+      @JsonKey(name: 'avatar', defaultValue: '') required this.playerAvatar,
       @JsonKey(name: 'club_id', defaultValue: 0) required this.clubId,
       @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
       required this.clubName,
@@ -214,13 +211,13 @@ class _$PlayerDetailModelImpl implements _PlayerDetailModel {
       _$$PlayerDetailModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'player_id', defaultValue: 0)
+  @JsonKey(name: 'id', defaultValue: 0)
   final int playerId;
   @override
-  @JsonKey(name: 'player_name', defaultValue: 'Unknown Player')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   final String playerName;
   @override
-  @JsonKey(name: 'player_avatar', defaultValue: '')
+  @JsonKey(name: 'avatar', defaultValue: '')
   final String playerAvatar;
   @override
   @JsonKey(name: 'club_id', defaultValue: 0)
@@ -295,31 +292,31 @@ class _$PlayerDetailModelImpl implements _PlayerDetailModel {
 
 abstract class _PlayerDetailModel implements PlayerDetailModel {
   const factory _PlayerDetailModel(
-      {@JsonKey(name: 'player_id', defaultValue: 0) required final int playerId,
-      @JsonKey(name: 'player_name', defaultValue: 'Unknown Player')
-      required final String playerName,
-      @JsonKey(name: 'player_avatar', defaultValue: '')
-      required final String playerAvatar,
-      @JsonKey(name: 'club_id', defaultValue: 0) required final int clubId,
-      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
-      required final String clubName,
-      @JsonKey(name: 'club_avatar', defaultValue: '')
-      required final String clubAvatar,
-      @JsonKey(name: 'goals', defaultValue: [])
-      required final List<PlayerGoalByMatchModel>
-          goals}) = _$PlayerDetailModelImpl;
+          {@JsonKey(name: 'id', defaultValue: 0) required final int playerId,
+          @JsonKey(name: 'name', defaultValue: 'Unknown Player')
+          required final String playerName,
+          @JsonKey(name: 'avatar', defaultValue: '')
+          required final String playerAvatar,
+          @JsonKey(name: 'club_id', defaultValue: 0) required final int clubId,
+          @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
+          required final String clubName,
+          @JsonKey(name: 'club_avatar', defaultValue: '')
+          required final String clubAvatar,
+          @JsonKey(name: 'goals', defaultValue: [])
+          required final List<PlayerGoalByMatchModel> goals}) =
+      _$PlayerDetailModelImpl;
 
   factory _PlayerDetailModel.fromJson(Map<String, dynamic> json) =
       _$PlayerDetailModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'player_id', defaultValue: 0)
+  @JsonKey(name: 'id', defaultValue: 0)
   int get playerId;
   @override
-  @JsonKey(name: 'player_name', defaultValue: 'Unknown Player')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   String get playerName;
   @override
-  @JsonKey(name: 'player_avatar', defaultValue: '')
+  @JsonKey(name: 'avatar', defaultValue: '')
   String get playerAvatar;
   @override
   @JsonKey(name: 'club_id', defaultValue: 0)

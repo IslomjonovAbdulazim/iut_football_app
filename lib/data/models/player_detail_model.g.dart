@@ -9,9 +9,9 @@ part of 'player_detail_model.dart';
 _$PlayerDetailModelImpl _$$PlayerDetailModelImplFromJson(
         Map<String, dynamic> json) =>
     _$PlayerDetailModelImpl(
-      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
-      playerName: json['player_name'] as String? ?? 'Unknown Player',
-      playerAvatar: json['player_avatar'] as String? ?? '',
+      playerId: (json['id'] as num?)?.toInt() ?? 0,
+      playerName: json['name'] as String? ?? 'Unknown Player',
+      playerAvatar: json['avatar'] as String? ?? '',
       clubId: (json['club_id'] as num?)?.toInt() ?? 0,
       clubName: json['club_name'] as String? ?? 'Unknown Club',
       clubAvatar: json['club_avatar'] as String? ?? '',
@@ -25,9 +25,9 @@ _$PlayerDetailModelImpl _$$PlayerDetailModelImplFromJson(
 Map<String, dynamic> _$$PlayerDetailModelImplToJson(
         _$PlayerDetailModelImpl instance) =>
     <String, dynamic>{
-      'player_id': instance.playerId,
-      'player_name': instance.playerName,
-      'player_avatar': instance.playerAvatar,
+      'id': instance.playerId,
+      'name': instance.playerName,
+      'avatar': instance.playerAvatar,
       'club_id': instance.clubId,
       'club_name': instance.clubName,
       'club_avatar': instance.clubAvatar,

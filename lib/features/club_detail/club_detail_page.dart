@@ -5,7 +5,7 @@ class ClubDetailPage extends GetView<ClubDetailController> {
 
   @override
   Widget build(BuildContext context) {
-    final club = MockData.clubs.first;
+    // final club = MockData.clubs.first;
 
     return Scaffold(
       appBar: AppBar(
@@ -24,9 +24,9 @@ class ClubDetailPage extends GetView<ClubDetailController> {
       ),
       body: Column(
         children: [
-          _ClubHeader(club: club),
-          const SizedBox(height: 16),
-          _StatsRow(club: club),
+          // _ClubHeader(club: club),
+          // const SizedBox(height: 16),
+          // _StatsRow(club: club),
           const SizedBox(height: 24),
           PreferredSize(
             preferredSize: Size.fromHeight(55),
@@ -45,8 +45,8 @@ class ClubDetailPage extends GetView<ClubDetailController> {
               child: TabBarView(
                 controller: controller.tabController,
                 children: [
-                  _PlayersSection(players: club.players),
-                  _MatchesSection(matches: club.matches),
+                  // _PlayersSection(players: club.players),
+                  // _MatchesSection(matches: club.matches),
                 ],
               ),
             ),

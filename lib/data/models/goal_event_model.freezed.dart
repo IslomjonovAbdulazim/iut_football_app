@@ -20,23 +20,23 @@ GoalEventModel _$GoalEventModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GoalEventModel {
-  @JsonKey(name: 'player', defaultValue: 0)
+  @JsonKey(name: 'player')
   int get playerId => throw _privateConstructorUsedError;
   @JsonKey(name: 'player_name')
   String? get playerName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'player_avatar', defaultValue: '')
+  @JsonKey(name: 'player_avatar')
   String get playerAvatar => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_id', defaultValue: 0)
+  @JsonKey(name: 'club_id')
   int get clubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
+  @JsonKey(name: 'club_name')
   String get clubName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_avatar', defaultValue: '')
+  @JsonKey(name: 'club_avatar')
   String get clubAvatar => throw _privateConstructorUsedError;
-  @JsonKey(name: 'minute', defaultValue: 0)
+  @JsonKey(name: 'minute')
   int get minute => throw _privateConstructorUsedError;
-  @JsonKey(name: 'match', defaultValue: 0)
+  @JsonKey(name: 'match')
   int get matchId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'match_detail', defaultValue: '')
+  @JsonKey(name: 'match_detail')
   String get matchDetail => throw _privateConstructorUsedError;
 
   /// Serializes this GoalEventModel to a JSON map.
@@ -56,15 +56,15 @@ abstract class $GoalEventModelCopyWith<$Res> {
       _$GoalEventModelCopyWithImpl<$Res, GoalEventModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'player', defaultValue: 0) int playerId,
+      {@JsonKey(name: 'player') int playerId,
       @JsonKey(name: 'player_name') String? playerName,
-      @JsonKey(name: 'player_avatar', defaultValue: '') String playerAvatar,
-      @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
-      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') String clubName,
-      @JsonKey(name: 'club_avatar', defaultValue: '') String clubAvatar,
-      @JsonKey(name: 'minute', defaultValue: 0) int minute,
-      @JsonKey(name: 'match', defaultValue: 0) int matchId,
-      @JsonKey(name: 'match_detail', defaultValue: '') String matchDetail});
+      @JsonKey(name: 'player_avatar') String playerAvatar,
+      @JsonKey(name: 'club_id') int clubId,
+      @JsonKey(name: 'club_name') String clubName,
+      @JsonKey(name: 'club_avatar') String clubAvatar,
+      @JsonKey(name: 'minute') int minute,
+      @JsonKey(name: 'match') int matchId,
+      @JsonKey(name: 'match_detail') String matchDetail});
 }
 
 /// @nodoc
@@ -142,15 +142,15 @@ abstract class _$$GoalEventModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'player', defaultValue: 0) int playerId,
+      {@JsonKey(name: 'player') int playerId,
       @JsonKey(name: 'player_name') String? playerName,
-      @JsonKey(name: 'player_avatar', defaultValue: '') String playerAvatar,
-      @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
-      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') String clubName,
-      @JsonKey(name: 'club_avatar', defaultValue: '') String clubAvatar,
-      @JsonKey(name: 'minute', defaultValue: 0) int minute,
-      @JsonKey(name: 'match', defaultValue: 0) int matchId,
-      @JsonKey(name: 'match_detail', defaultValue: '') String matchDetail});
+      @JsonKey(name: 'player_avatar') String playerAvatar,
+      @JsonKey(name: 'club_id') int clubId,
+      @JsonKey(name: 'club_name') String clubName,
+      @JsonKey(name: 'club_avatar') String clubAvatar,
+      @JsonKey(name: 'minute') int minute,
+      @JsonKey(name: 'match') int matchId,
+      @JsonKey(name: 'match_detail') String matchDetail});
 }
 
 /// @nodoc
@@ -221,48 +221,45 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GoalEventModelImpl implements _GoalEventModel {
   const _$GoalEventModelImpl(
-      {@JsonKey(name: 'player', defaultValue: 0) required this.playerId,
-      @JsonKey(name: 'player_name') this.playerName,
-      @JsonKey(name: 'player_avatar', defaultValue: '')
-      required this.playerAvatar,
-      @JsonKey(name: 'club_id', defaultValue: 0) required this.clubId,
-      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
-      required this.clubName,
-      @JsonKey(name: 'club_avatar', defaultValue: '') required this.clubAvatar,
-      @JsonKey(name: 'minute', defaultValue: 0) required this.minute,
-      @JsonKey(name: 'match', defaultValue: 0) required this.matchId,
-      @JsonKey(name: 'match_detail', defaultValue: '')
-      required this.matchDetail});
+      {@JsonKey(name: 'player') required this.playerId,
+      @JsonKey(name: 'player_name') required this.playerName,
+      @JsonKey(name: 'player_avatar') required this.playerAvatar,
+      @JsonKey(name: 'club_id') required this.clubId,
+      @JsonKey(name: 'club_name') required this.clubName,
+      @JsonKey(name: 'club_avatar') required this.clubAvatar,
+      @JsonKey(name: 'minute') required this.minute,
+      @JsonKey(name: 'match') required this.matchId,
+      @JsonKey(name: 'match_detail') required this.matchDetail});
 
   factory _$GoalEventModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$GoalEventModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'player', defaultValue: 0)
+  @JsonKey(name: 'player')
   final int playerId;
   @override
   @JsonKey(name: 'player_name')
   final String? playerName;
   @override
-  @JsonKey(name: 'player_avatar', defaultValue: '')
+  @JsonKey(name: 'player_avatar')
   final String playerAvatar;
   @override
-  @JsonKey(name: 'club_id', defaultValue: 0)
+  @JsonKey(name: 'club_id')
   final int clubId;
   @override
-  @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
+  @JsonKey(name: 'club_name')
   final String clubName;
   @override
-  @JsonKey(name: 'club_avatar', defaultValue: '')
+  @JsonKey(name: 'club_avatar')
   final String clubAvatar;
   @override
-  @JsonKey(name: 'minute', defaultValue: 0)
+  @JsonKey(name: 'minute')
   final int minute;
   @override
-  @JsonKey(name: 'match', defaultValue: 0)
+  @JsonKey(name: 'match')
   final int matchId;
   @override
-  @JsonKey(name: 'match_detail', defaultValue: '')
+  @JsonKey(name: 'match_detail')
   final String matchDetail;
 
   @override
@@ -316,49 +313,46 @@ class _$GoalEventModelImpl implements _GoalEventModel {
 
 abstract class _GoalEventModel implements GoalEventModel {
   const factory _GoalEventModel(
-      {@JsonKey(name: 'player', defaultValue: 0) required final int playerId,
-      @JsonKey(name: 'player_name') final String? playerName,
-      @JsonKey(name: 'player_avatar', defaultValue: '')
-      required final String playerAvatar,
-      @JsonKey(name: 'club_id', defaultValue: 0) required final int clubId,
-      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
-      required final String clubName,
-      @JsonKey(name: 'club_avatar', defaultValue: '')
-      required final String clubAvatar,
-      @JsonKey(name: 'minute', defaultValue: 0) required final int minute,
-      @JsonKey(name: 'match', defaultValue: 0) required final int matchId,
-      @JsonKey(name: 'match_detail', defaultValue: '')
-      required final String matchDetail}) = _$GoalEventModelImpl;
+          {@JsonKey(name: 'player') required final int playerId,
+          @JsonKey(name: 'player_name') required final String? playerName,
+          @JsonKey(name: 'player_avatar') required final String playerAvatar,
+          @JsonKey(name: 'club_id') required final int clubId,
+          @JsonKey(name: 'club_name') required final String clubName,
+          @JsonKey(name: 'club_avatar') required final String clubAvatar,
+          @JsonKey(name: 'minute') required final int minute,
+          @JsonKey(name: 'match') required final int matchId,
+          @JsonKey(name: 'match_detail') required final String matchDetail}) =
+      _$GoalEventModelImpl;
 
   factory _GoalEventModel.fromJson(Map<String, dynamic> json) =
       _$GoalEventModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'player', defaultValue: 0)
+  @JsonKey(name: 'player')
   int get playerId;
   @override
   @JsonKey(name: 'player_name')
   String? get playerName;
   @override
-  @JsonKey(name: 'player_avatar', defaultValue: '')
+  @JsonKey(name: 'player_avatar')
   String get playerAvatar;
   @override
-  @JsonKey(name: 'club_id', defaultValue: 0)
+  @JsonKey(name: 'club_id')
   int get clubId;
   @override
-  @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
+  @JsonKey(name: 'club_name')
   String get clubName;
   @override
-  @JsonKey(name: 'club_avatar', defaultValue: '')
+  @JsonKey(name: 'club_avatar')
   String get clubAvatar;
   @override
-  @JsonKey(name: 'minute', defaultValue: 0)
+  @JsonKey(name: 'minute')
   int get minute;
   @override
-  @JsonKey(name: 'match', defaultValue: 0)
+  @JsonKey(name: 'match')
   int get matchId;
   @override
-  @JsonKey(name: 'match_detail', defaultValue: '')
+  @JsonKey(name: 'match_detail')
   String get matchDetail;
 
   /// Create a copy of GoalEventModel

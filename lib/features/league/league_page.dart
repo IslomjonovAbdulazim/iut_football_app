@@ -23,18 +23,18 @@ class LeaguePage extends GetView<LeagueController> {
           SizedBox(width: 6),
         ],
       ),
-      body: SafeArea(
-        child: ListView.builder(
-          itemCount: MockData.sampleStandings.length,
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          itemBuilder: (context, index) {
-            return ClubStandingsWidget(
-              standing: MockData.sampleStandings[index],
-              league: MockData.sampleLeague,
-            );
-          },
-        ),
-      ),
+      // body: SafeArea(
+      //   child: ListView.builder(
+      //     itemCount: MockData.sampleStandings.length,
+      //     padding: EdgeInsets.symmetric(horizontal: 20),
+      //     itemBuilder: (context, index) {
+      //       return ClubStandingsWidget(
+      //         standing: MockData.sampleStandings[index],
+      //         league: MockData.sampleLeague,
+      //       );
+      //     },
+      //   ),
+      // ),
     );
   }
 }

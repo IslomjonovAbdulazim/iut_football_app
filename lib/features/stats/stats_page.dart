@@ -25,27 +25,30 @@ class StatsPage extends GetView<StatsController> {
           SizedBox(width: 6),
         ],
       ),
-      body: StreamBuilder(
-        stream: controller.getStats(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator.adaptive(
-                backgroundColor: context.textPrimary,
-              ),
-            );
-          } else if (snapshot.hasError || snapshot.data == null) {
-            return Text(snapshot.error.toString(), style: context.title);
-          } else {
-            return Column(
-              children: snapshot.data!
-                  .map(
-                    (model) => TopScorerWidget(model),
-                  )
-                  .toList(),
-            );
-          }
-        },
+      body: SafeArea(
+        child: StreamBuilder(
+          stream: controller.getStats(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator.adaptive(
+                  backgroundColor: context.textPrimary,
+                ),
+              );
+            } else if (snapshot.hasError || snapshot.data == null) {
+              return Text(snapshot.error.toString(), style: context.title);
+            } else {
+              return ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                itemCount: snapshot.data?.length,
+                itemBuilder: (context, index) {
+                  final model = snapshot.data![index];
+                  return TopScorerWidget(model);
+                },
+              );
+            }
+          },
+        ),
       ),
     );
   }

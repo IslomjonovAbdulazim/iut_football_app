@@ -54,7 +54,7 @@ class _ClubTile extends GetView<MatchDetailsController> {
         CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () {
-            Get.toNamed(AppRoutes.clubDetail, arguments: MockData.clubs.first);
+            // Get.toNamed(AppRoutes.clubDetail, arguments: MockData.clubs.first);
           },
           child: Column(
             children: [
@@ -139,9 +139,7 @@ class _ClubTile extends GetView<MatchDetailsController> {
                     btnCancelOnPress: () {},
                   ).show();
                 },
-                items: (isHomeClub
-                        ? controller.homePlayers
-                        : controller.awayPlayers)
+                items: ([])
                     .map((model) {
                   return DropdownMenuItem<PlayerModel>(
                     value: model,

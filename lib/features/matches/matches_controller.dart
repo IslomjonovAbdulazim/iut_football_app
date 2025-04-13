@@ -1,9 +1,9 @@
 part of 'imports.dart';
 
 class MatchesController extends GetxController {
-  Stream<List<MatchModel>> connectLeaderboard() {
+  Stream<List<MatchModel>> allMatches() {
     final channel = WebSocketChannel.connect(
-      Uri.parse(ApiConstants.streamURL + ApiConstants.matches),
+      Uri.parse(ApiConstants.streamURL + ApiConstants.allMatches),
     );
 
     return channel.stream.map((data) {

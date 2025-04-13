@@ -26,11 +26,11 @@ class MatchDetailsPage extends GetView<MatchDetailsController> {
         body: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            _MatchHeader(match: MockData.sampleMatches.first),
-            const SizedBox(height: 16),
-            _ScoreSection(match: MockData.sampleMatches.first),
-            const SizedBox(height: 16),
-            _GoalEventsSection(match: MockData.sampleMatches.first),
+            // _MatchHeader(match: MockData.sampleMatches.first),
+            // const SizedBox(height: 16),
+            // _ScoreSection(match: MockData.sampleMatches.first),
+            // const SizedBox(height: 16),
+            // _GoalEventsSection(match: MockData.sampleMatches.first),
           ],
         ),
       ),

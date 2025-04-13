@@ -73,12 +73,12 @@ class _Top3AndBottom2 extends StatelessWidget {
             ),
           ],
         ),
-        ...List.generate(3, (index) {
-          return ClubStandingsWidget(
-            standing: MockData.sampleStandings[index],
-            league: MockData.sampleLeague,
-          );
-        }),
+        // ...List.generate(3, (index) {
+        //   return ClubStandingsWidget(
+        //     standing: MockData.sampleStandings[index],
+        //     league: MockData.sampleLeague,
+        //   );
+        // }),
       ],
     );
   }

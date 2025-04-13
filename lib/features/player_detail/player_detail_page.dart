@@ -5,8 +5,6 @@ class PlayerDetailsPage extends GetView<PlayerDetailsController> {
 
   @override
   Widget build(BuildContext context) {
-    final player = MockData.samplePlayerDetail;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -21,15 +19,31 @@ class PlayerDetailsPage extends GetView<PlayerDetailsController> {
           const SizedBox(width: 6),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          _PlayerHeader(player: player),
-          const SizedBox(height: 20),
-          _PlayerClubInfo(player: player),
-          const SizedBox(height: 20),
-          _GoalBreakdown(goals: player.goals),
-        ],
+      body: SafeArea(
+        child: StreamBuilder<PlayerDetailModel>(
+            stream: controller.getPlayerDetail(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator.adaptive(
+                    backgroundColor: context.textPrimary,
+                  ),
+                );
+              } else if (snapshot.hasError || snapshot.data == null) {
+                return Text(snapshot.error.toString(), style: context.title);
+              } else {
+                return ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  children: [
+                    _PlayerHeader(player: snapshot.data!),
+                    const SizedBox(height: 20),
+                    _PlayerClubInfo(player: snapshot.data!),
+                    const SizedBox(height: 20),
+                    _GoalBreakdown(goals: snapshot.data!.goals),
+                  ],
+                );
+              }
+            }),
       ),
     );
   }

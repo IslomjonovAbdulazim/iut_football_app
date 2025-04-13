@@ -24,11 +24,27 @@ class MatchesPage extends GetView<MatchesController> {
         ],
       ),
       body: SafeArea(
-        child: ListView.builder(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          itemCount: MockData.sampleMatches.length,
-          itemBuilder: (context, index) {
-            return MatchWidget(MockData.sampleMatches[index]);
+        child: StreamBuilder<List<MatchModel>>(
+          stream: controller.allMatches(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator.adaptive(
+                  backgroundColor: context.textPrimary,
+                ),
+              );
+            } else if (snapshot.hasError || snapshot.data == null) {
+              return Text(snapshot.error.toString(), style: context.title);
+            } else {
+              return ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                itemCount: snapshot.data?.length,
+                itemBuilder: (context, index) {
+                  final model = snapshot.data![index];
+                  return MatchWidget(model);
+                },
+              );
+            }
           },
         ),
       ),

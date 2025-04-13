@@ -27,7 +27,7 @@ mixin _$PlayerGoalByMatchModel {
   int get opponentClubId => throw _privateConstructorUsedError;
   @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
   String get opponentClubName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+  @JsonKey(name: 'opponent_club_logo', defaultValue: '')
   String get opponentClubAvatar => throw _privateConstructorUsedError;
   @JsonKey(name: 'goal_at_minutes', defaultValue: [])
   List<int> get goalAtMinutes => throw _privateConstructorUsedError;
@@ -57,7 +57,7 @@ abstract class $PlayerGoalByMatchModelCopyWith<$Res> {
       @JsonKey(name: 'opponent_club_id', defaultValue: 0) int opponentClubId,
       @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
       String opponentClubName,
-      @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+      @JsonKey(name: 'opponent_club_logo', defaultValue: '')
       String opponentClubAvatar,
       @JsonKey(name: 'goal_at_minutes', defaultValue: [])
       List<int> goalAtMinutes,
@@ -136,7 +136,7 @@ abstract class _$$PlayerGoalByMatchModelImplCopyWith<$Res>
       @JsonKey(name: 'opponent_club_id', defaultValue: 0) int opponentClubId,
       @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
       String opponentClubName,
-      @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+      @JsonKey(name: 'opponent_club_logo', defaultValue: '')
       String opponentClubAvatar,
       @JsonKey(name: 'goal_at_minutes', defaultValue: [])
       List<int> goalAtMinutes,
@@ -209,7 +209,7 @@ class _$PlayerGoalByMatchModelImpl implements _PlayerGoalByMatchModel {
       required this.opponentClubId,
       @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
       required this.opponentClubName,
-      @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+      @JsonKey(name: 'opponent_club_logo', defaultValue: '')
       required this.opponentClubAvatar,
       @JsonKey(name: 'goal_at_minutes', defaultValue: [])
       required final List<int> goalAtMinutes,
@@ -231,7 +231,7 @@ class _$PlayerGoalByMatchModelImpl implements _PlayerGoalByMatchModel {
   @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
   final String opponentClubName;
   @override
-  @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+  @JsonKey(name: 'opponent_club_logo', defaultValue: '')
   final String opponentClubAvatar;
   final List<int> _goalAtMinutes;
   @override
@@ -310,7 +310,7 @@ abstract class _PlayerGoalByMatchModel implements PlayerGoalByMatchModel {
       required final int opponentClubId,
       @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
       required final String opponentClubName,
-      @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+      @JsonKey(name: 'opponent_club_logo', defaultValue: '')
       required final String opponentClubAvatar,
       @JsonKey(name: 'goal_at_minutes', defaultValue: [])
       required final List<int> goalAtMinutes,
@@ -332,7 +332,7 @@ abstract class _PlayerGoalByMatchModel implements PlayerGoalByMatchModel {
   @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
   String get opponentClubName;
   @override
-  @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+  @JsonKey(name: 'opponent_club_logo', defaultValue: '')
   String get opponentClubAvatar;
   @override
   @JsonKey(name: 'goal_at_minutes', defaultValue: [])
