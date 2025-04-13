@@ -10,19 +10,19 @@ import 'package:iut_football_app/widgets/cashed_network_image_widget.dart';
 
 class ClubStandingsWidget extends StatelessWidget {
   final ClubStandingModel standing;
-  final LeagueModel league;
+  // final LeagueModel league;
 
   const ClubStandingsWidget({
     super.key,
     required this.standing,
-    required this.league,
+    // required this.league,
   });
 
   int getLevel() {
-    if (standing.rank <= league.directAdvanceCount) return 1;
-    if (standing.rank <=
-        league.directAdvanceCount + league.qualifierAdvanceCount) return 2;
-    return 3;
+    // if (standing.rank <= league.directAdvanceCount) return 1;
+    // if (standing.rank <=
+    //     league.directAdvanceCount + league.qualifierAdvanceCount) return 2;
+    return 1;
   }
 
   Color getLevelColor() {

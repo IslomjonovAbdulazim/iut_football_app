@@ -39,7 +39,7 @@ class HomePage extends GetView<HomeController> {
           children: [
             _Matches(),
             Divider(color: context.dividerColor),
-            _Top3AndBottom2(),
+            _TopStandings(),
             Divider(color: context.dividerColor),
             _TopScorers(),
           ],

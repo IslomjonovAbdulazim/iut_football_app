@@ -37,7 +37,8 @@ class _Matches extends GetView<HomeController> {
               return Text(snapshot.error.toString(), style: context.title);
             } else {
               return Column(
-                children: snapshot.data!.map((model) => MatchWidget(model)).toList(),
+                children:
+                    snapshot.data!.map((model) => MatchWidget(model)).toList(),
               );
             }
           },
@@ -47,8 +48,8 @@ class _Matches extends GetView<HomeController> {
   }
 }
 
-class _Top3AndBottom2 extends StatelessWidget {
-  const _Top3AndBottom2();
+class _TopStandings extends GetView<HomeController> {
+  const _TopStandings();
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +74,28 @@ class _Top3AndBottom2 extends StatelessWidget {
             ),
           ],
         ),
-        // ...List.generate(3, (index) {
-        //   return ClubStandingsWidget(
-        //     standing: MockData.sampleStandings[index],
-        //     league: MockData.sampleLeague,
-        //   );
-        // }),
+        StreamBuilder<List<ClubStandingModel>>(
+          stream: controller.getStandings(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator.adaptive(
+                  backgroundColor: context.textPrimary,
+                ),
+              );
+            } else if (snapshot.hasError || snapshot.data == null) {
+              return Text(snapshot.error.toString(), style: context.title);
+            } else {
+              return Column(
+                children: snapshot.data!
+                    .map(
+                      (model) => ClubStandingsWidget(standing: model),
+                    )
+                    .toList(),
+              );
+            }
+          },
+        ),
       ],
     );
   }
@@ -126,7 +143,7 @@ class _TopScorers extends GetView<HomeController> {
                 children: snapshot.data!
                     .map(
                       (model) => TopScorerWidget(model),
-                )
+                    )
                     .toList(),
               );
             }

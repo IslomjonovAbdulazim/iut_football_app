@@ -14,6 +14,7 @@ import 'package:iut_football_app/widgets/match_widget.dart';
 import 'package:iut_football_app/widgets/top_scorer_widget.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+import '../../data/models/club_standing_model.dart';
 import '../../data/models/match_model.dart';
 import '../../data/models/stats_model.dart';
 import '../../utils/constants/api_constants.dart';

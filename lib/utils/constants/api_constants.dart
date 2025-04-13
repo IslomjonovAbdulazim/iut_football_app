@@ -10,5 +10,6 @@ class ApiConstants {
   static const String allMatches = "ws/all-matches/";
   static const String matchDetail = "ws/match-detail/";
   static const String clubDetail = "ws/club-detail/";
+  static const String standings = "ws/standings/";
 
 }
