@@ -89,50 +89,56 @@ class _GoalMatchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 6),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-      decoration: BoxDecoration(
-        color: context.cardColor,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        children: [
-          CircleAvatar(
-            backgroundImage: NetworkImage(goalMatch.opponentClubAvatar),
-            radius: 20,
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: () {
+        Get.toNamed(AppRoutes.matchDetail, arguments: goalMatch.matchId);
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        decoration: BoxDecoration(
+          color: context.cardColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          children: [
+            CircleAvatar(
+              backgroundImage: NetworkImage(goalMatch.opponentClubAvatar),
+              radius: 20,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "vs ${goalMatch.opponentClubName}",
+                    style: context.name,
+                  ),
+                  Text(
+                    "Scored at: ${goalMatch.goalAtMinutes.map((e) => "$e'").join(", ")}",
+                    style: context.smallName.copyWith(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            Row(
               children: [
                 Text(
-                  "vs ${goalMatch.opponentClubName}",
-                  style: context.name,
+                  "${goalMatch.goalAtMinutes.length}",
+                  style: context.title,
                 ),
-                Text(
-                  "Scored at: ${goalMatch.goalAtMinutes.map((e) => "$e'").join(", ")}",
-                  style: context.smallName.copyWith(color: Colors.grey),
+                SizedBox(width: 4),
+                Icon(
+                  Icons.sports_soccer,
+                  size: 20,
                 ),
               ],
             ),
-          ),
-          const SizedBox(width: 8),
-          Row(
-            children: [
-              Text(
-                "${goalMatch.goalAtMinutes.length}",
-                style: context.title,
-              ),
-              SizedBox(width: 4),
-              Icon(
-                Icons.sports_soccer,
-                size: 20,
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
