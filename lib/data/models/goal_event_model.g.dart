@@ -15,6 +15,7 @@ _$GoalEventModelImpl _$$GoalEventModelImplFromJson(Map<String, dynamic> json) =>
       clubName: json['club_name'] as String? ?? 'Unknown Club',
       clubAvatar: json['club_avatar'] as String? ?? '',
       minute: (json['minute'] as num?)?.toInt() ?? 0,
+      league: (json['league'] as num?)?.toInt() ?? 0,
       matchId: (json['match'] as num?)?.toInt() ?? 0,
       matchDetail: json['match_detail'] as String? ?? '',
     );
@@ -29,6 +30,7 @@ Map<String, dynamic> _$$GoalEventModelImplToJson(
       'club_name': instance.clubName,
       'club_avatar': instance.clubAvatar,
       'minute': instance.minute,
+      'league': instance.league,
       'match': instance.matchId,
       'match_detail': instance.matchDetail,
     };

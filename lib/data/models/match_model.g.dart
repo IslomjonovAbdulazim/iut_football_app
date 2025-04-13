@@ -39,6 +39,14 @@ _$MatchModelImpl _$$MatchModelImplFromJson(Map<String, dynamic> json) =>
               .toList() ??
           [],
       leagueId: (json['league_id'] as num?)?.toInt() ?? 0,
+      homeClubPlayers: (json['home_club_players'] as List<dynamic>?)
+              ?.map((e) => PlayerModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      awayClubPlayers: (json['away_club_players'] as List<dynamic>?)
+              ?.map((e) => PlayerModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$$MatchModelImplToJson(_$MatchModelImpl instance) =>
@@ -62,4 +70,6 @@ Map<String, dynamic> _$$MatchModelImplToJson(_$MatchModelImpl instance) =>
       'title': instance.title,
       'goal_events': instance.goalEvents,
       'league_id': instance.leagueId,
+      'home_club_players': instance.homeClubPlayers,
+      'away_club_players': instance.awayClubPlayers,
     };

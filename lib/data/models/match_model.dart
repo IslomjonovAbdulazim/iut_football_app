@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:iut_football_app/data/models/player_model.dart';
 import 'goal_event_model.dart';
 
 part 'match_model.freezed.dart';
@@ -25,6 +26,8 @@ class MatchModel with _$MatchModel {
     @JsonKey(name: 'title', defaultValue: 'Match Title') required String title,
     @JsonKey(name: 'goal_events', defaultValue: []) required List<GoalEventModel> goalEvents,
     @JsonKey(name: 'league_id', defaultValue: 0) required int leagueId,
+    @JsonKey(name: 'home_club_players', defaultValue: []) required List<PlayerModel> homeClubPlayers,
+    @JsonKey(name: 'away_club_players', defaultValue: []) required List<PlayerModel> awayClubPlayers,
   }) = _MatchModel;
 
   factory MatchModel.fromJson(Map<String, dynamic> json) => _$MatchModelFromJson(json);

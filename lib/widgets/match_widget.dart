@@ -26,7 +26,7 @@ class MatchWidget extends StatelessWidget {
         color: context.cardColor,
         borderRadius: BorderRadius.circular(15),
         onPressed: () {
-          Get.toNamed(AppRoutes.matchDetail, arguments: match);
+          Get.toNamed(AppRoutes.matchDetail, arguments: match.id);
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),

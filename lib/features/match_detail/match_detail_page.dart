@@ -23,16 +23,37 @@ class MatchDetailsPage extends GetView<MatchDetailsController> {
             SizedBox(width: 6),
           ],
         ),
-        body: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            // _MatchHeader(match: MockData.sampleMatches.first),
-            // const SizedBox(height: 16),
-            // _ScoreSection(match: MockData.sampleMatches.first),
-            // const SizedBox(height: 16),
-            // _GoalEventsSection(match: MockData.sampleMatches.first),
-          ],
+        body:SafeArea(
+          child: StreamBuilder<MatchModel>(
+              stream: controller.getMatchDetail(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator.adaptive(
+                      backgroundColor: context.textPrimary,
+                    ),
+                  );
+                } else if (snapshot.hasError || snapshot.data == null) {
+                  return Text(snapshot.error.toString(), style: context.title);
+                } else {
+                  final model = snapshot.data!;
+                  return ListView(
+                    padding: const EdgeInsets.all(16),
+                    children: [
+                      _MatchHeader(match: model),
+                      const SizedBox(height: 16),
+                      _ScoreSection(match: model),
+                      const SizedBox(height: 16),
+                      _GoalEventsSection(match: model),
+                    ],
+                  );
+                }
+              }),
         ),
+
+
+
+
       ),
     );
   }

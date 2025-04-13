@@ -15,6 +15,7 @@ class _MatchHeader extends StatelessWidget {
             avatar: match.homeClubAvatar,
             club: match.homeClubId,
             isHomeClub: true,
+            match: match,
           ),
         ),
         const SizedBox(width: 8),
@@ -26,6 +27,7 @@ class _MatchHeader extends StatelessWidget {
             avatar: match.awayClubAvatar,
             club: match.awayClubId,
             isHomeClub: false,
+            match: match,
           ),
         ),
       ],
@@ -38,12 +40,14 @@ class _ClubTile extends GetView<MatchDetailsController> {
   final String avatar;
   final int club;
   final bool isHomeClub;
+  final MatchModel match;
 
   const _ClubTile({
     required this.name,
     required this.avatar,
     required this.club,
     required this.isHomeClub,
+    required this.match,
   });
 
   @override
@@ -54,7 +58,7 @@ class _ClubTile extends GetView<MatchDetailsController> {
         CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () {
-            // Get.toNamed(AppRoutes.clubDetail, arguments: MockData.clubs.first);
+            Get.toNamed(AppRoutes.clubDetail, arguments: club);
           },
           child: Column(
             children: [
@@ -139,8 +143,9 @@ class _ClubTile extends GetView<MatchDetailsController> {
                     btnCancelOnPress: () {},
                   ).show();
                 },
-                items: ([])
-                    .map((model) {
+                items:
+                    (isHomeClub ? match.homeClubPlayers : match.awayClubPlayers)
+                        .map((model) {
                   return DropdownMenuItem<PlayerModel>(
                     value: model,
                     child: Row(
@@ -288,10 +293,11 @@ class _GoalEventsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Goals", style: context.title),
+        Divider(color: context.dividerColor),
+        SizedBox(height: 5),
         const SizedBox(height: 12),
         ...match.goalEvents.map(
-          (event) => _GoalTile(event),
+          (event) => _GoalTile(event, event.clubId == match.homeClubId),
         ),
       ],
     );
@@ -300,38 +306,75 @@ class _GoalEventsSection extends StatelessWidget {
 
 class _GoalTile extends StatelessWidget {
   final GoalEventModel event;
+  final bool isHomeTeam;
 
-  const _GoalTile(this.event);
+  const _GoalTile(this.event, this.isHomeTeam);
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: () {
-        Get.toNamed(
-          AppRoutes.playerDetails,
-          arguments: event.playerId,
-        );
-      },
-      child: ListTile(
-        contentPadding: EdgeInsets.zero,
-        leading: ClipRRect(
-          borderRadius: BorderRadius.circular(100),
-          child: SizedBox(
-            height: 40,
-            width: 40,
-            child: CachedNetworkWidget(event.playerAvatar),
+    final avatar = ClipRRect(
+      borderRadius: BorderRadius.circular(100),
+      child: SizedBox(
+        height: 40,
+        width: 40,
+        child: CachedNetworkWidget(event.playerAvatar),
+      ),
+    );
+
+    final textColumn = Expanded(
+      child: Text(
+        "${event.playerName ?? "No Name"} - ${event.minute}'",
+        style: context.name,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        textAlign: isHomeTeam ? null : TextAlign.end,
+      ),
+    );
+
+    return Align(
+      alignment: isHomeTeam ? Alignment.centerLeft : Alignment.centerRight,
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: 8,
+          left: isHomeTeam ? 0 : 30,
+          right: isHomeTeam ? 30 : 0,
+        ),
+        child: CupertinoButton(
+          color: context.cardColor,
+          padding: EdgeInsets.only(
+            top: 5,
+            bottom: 5,
+            right: isHomeTeam ? 20 : 10,
+            left: isHomeTeam ? 10 : 20,
           ),
-        ),
-        title: Text(event.playerName ?? "No Name", style: context.name),
-        subtitle: Text(
-          "${event.clubName} • ${event.minute}'",
-          style: context.smallName,
-        ),
-        trailing: Icon(
-          Icons.sports_soccer,
-          size: 20,
-          color: Colors.grey[600],
+          onPressed: () {
+            Get.toNamed(AppRoutes.playerDetails, arguments: event.playerId);
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment:
+                  isHomeTeam ? MainAxisAlignment.start : MainAxisAlignment.end,
+              children: [
+                if (isHomeTeam) avatar,
+                if (isHomeTeam) const SizedBox(width: 10),
+                Flexible(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: isHomeTeam
+                        ? CrossAxisAlignment.start
+                        : CrossAxisAlignment.end,
+                    children: [
+                      textColumn,
+                    ],
+                  ),
+                ),
+                if (!isHomeTeam) const SizedBox(width: 10),
+                if (!isHomeTeam) avatar,
+              ],
+            ),
+          ),
         ),
       ),
     );

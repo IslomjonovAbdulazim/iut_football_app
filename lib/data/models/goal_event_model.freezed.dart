@@ -34,6 +34,8 @@ mixin _$GoalEventModel {
   String get clubAvatar => throw _privateConstructorUsedError;
   @JsonKey(name: 'minute', defaultValue: 0)
   int get minute => throw _privateConstructorUsedError;
+  @JsonKey(name: 'league', defaultValue: 0)
+  int get league => throw _privateConstructorUsedError;
   @JsonKey(name: 'match', defaultValue: 0)
   int get matchId => throw _privateConstructorUsedError;
   @JsonKey(name: 'match_detail', defaultValue: '')
@@ -63,6 +65,7 @@ abstract class $GoalEventModelCopyWith<$Res> {
       @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') String clubName,
       @JsonKey(name: 'club_avatar', defaultValue: '') String clubAvatar,
       @JsonKey(name: 'minute', defaultValue: 0) int minute,
+      @JsonKey(name: 'league', defaultValue: 0) int league,
       @JsonKey(name: 'match', defaultValue: 0) int matchId,
       @JsonKey(name: 'match_detail', defaultValue: '') String matchDetail});
 }
@@ -89,6 +92,7 @@ class _$GoalEventModelCopyWithImpl<$Res, $Val extends GoalEventModel>
     Object? clubName = null,
     Object? clubAvatar = null,
     Object? minute = null,
+    Object? league = null,
     Object? matchId = null,
     Object? matchDetail = null,
   }) {
@@ -121,6 +125,10 @@ class _$GoalEventModelCopyWithImpl<$Res, $Val extends GoalEventModel>
           ? _value.minute
           : minute // ignore: cast_nullable_to_non_nullable
               as int,
+      league: null == league
+          ? _value.league
+          : league // ignore: cast_nullable_to_non_nullable
+              as int,
       matchId: null == matchId
           ? _value.matchId
           : matchId // ignore: cast_nullable_to_non_nullable
@@ -149,6 +157,7 @@ abstract class _$$GoalEventModelImplCopyWith<$Res>
       @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') String clubName,
       @JsonKey(name: 'club_avatar', defaultValue: '') String clubAvatar,
       @JsonKey(name: 'minute', defaultValue: 0) int minute,
+      @JsonKey(name: 'league', defaultValue: 0) int league,
       @JsonKey(name: 'match', defaultValue: 0) int matchId,
       @JsonKey(name: 'match_detail', defaultValue: '') String matchDetail});
 }
@@ -173,6 +182,7 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
     Object? clubName = null,
     Object? clubAvatar = null,
     Object? minute = null,
+    Object? league = null,
     Object? matchId = null,
     Object? matchDetail = null,
   }) {
@@ -205,6 +215,10 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
           ? _value.minute
           : minute // ignore: cast_nullable_to_non_nullable
               as int,
+      league: null == league
+          ? _value.league
+          : league // ignore: cast_nullable_to_non_nullable
+              as int,
       matchId: null == matchId
           ? _value.matchId
           : matchId // ignore: cast_nullable_to_non_nullable
@@ -230,6 +244,7 @@ class _$GoalEventModelImpl implements _GoalEventModel {
       required this.clubName,
       @JsonKey(name: 'club_avatar', defaultValue: '') required this.clubAvatar,
       @JsonKey(name: 'minute', defaultValue: 0) required this.minute,
+      @JsonKey(name: 'league', defaultValue: 0) required this.league,
       @JsonKey(name: 'match', defaultValue: 0) required this.matchId,
       @JsonKey(name: 'match_detail', defaultValue: '')
       required this.matchDetail});
@@ -259,6 +274,9 @@ class _$GoalEventModelImpl implements _GoalEventModel {
   @JsonKey(name: 'minute', defaultValue: 0)
   final int minute;
   @override
+  @JsonKey(name: 'league', defaultValue: 0)
+  final int league;
+  @override
   @JsonKey(name: 'match', defaultValue: 0)
   final int matchId;
   @override
@@ -267,7 +285,7 @@ class _$GoalEventModelImpl implements _GoalEventModel {
 
   @override
   String toString() {
-    return 'GoalEventModel(playerId: $playerId, playerName: $playerName, playerAvatar: $playerAvatar, clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, minute: $minute, matchId: $matchId, matchDetail: $matchDetail)';
+    return 'GoalEventModel(playerId: $playerId, playerName: $playerName, playerAvatar: $playerAvatar, clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, minute: $minute, league: $league, matchId: $matchId, matchDetail: $matchDetail)';
   }
 
   @override
@@ -287,6 +305,7 @@ class _$GoalEventModelImpl implements _GoalEventModel {
             (identical(other.clubAvatar, clubAvatar) ||
                 other.clubAvatar == clubAvatar) &&
             (identical(other.minute, minute) || other.minute == minute) &&
+            (identical(other.league, league) || other.league == league) &&
             (identical(other.matchId, matchId) || other.matchId == matchId) &&
             (identical(other.matchDetail, matchDetail) ||
                 other.matchDetail == matchDetail));
@@ -294,8 +313,18 @@ class _$GoalEventModelImpl implements _GoalEventModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, playerId, playerName,
-      playerAvatar, clubId, clubName, clubAvatar, minute, matchId, matchDetail);
+  int get hashCode => Object.hash(
+      runtimeType,
+      playerId,
+      playerName,
+      playerAvatar,
+      clubId,
+      clubName,
+      clubAvatar,
+      minute,
+      league,
+      matchId,
+      matchDetail);
 
   /// Create a copy of GoalEventModel
   /// with the given fields replaced by the non-null parameter values.
@@ -326,6 +355,7 @@ abstract class _GoalEventModel implements GoalEventModel {
       @JsonKey(name: 'club_avatar', defaultValue: '')
       required final String clubAvatar,
       @JsonKey(name: 'minute', defaultValue: 0) required final int minute,
+      @JsonKey(name: 'league', defaultValue: 0) required final int league,
       @JsonKey(name: 'match', defaultValue: 0) required final int matchId,
       @JsonKey(name: 'match_detail', defaultValue: '')
       required final String matchDetail}) = _$GoalEventModelImpl;
@@ -354,6 +384,9 @@ abstract class _GoalEventModel implements GoalEventModel {
   @override
   @JsonKey(name: 'minute', defaultValue: 0)
   int get minute;
+  @override
+  @JsonKey(name: 'league', defaultValue: 0)
+  int get league;
   @override
   @JsonKey(name: 'match', defaultValue: 0)
   int get matchId;
