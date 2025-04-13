@@ -80,24 +80,70 @@ class _ClubTile extends GetView<MatchDetailsController> {
         ),
         SizedBox(height: isAdmin ? 10 : 0),
         isAdmin
-            ? CupertinoButton(
-                padding: EdgeInsets.zero,
-                color: context.textPrimary,
-                onPressed: () {
-                  _showPlayers(
-                      isHomeClub
-                          ? controller.homePlayers
-                          : controller.awayPlayers,
-                      club);
-                },
-                child: Center(
-                  child: Text(
-                    "Goal",
-                    style: context.biggerName.copyWith(
-                      color: context.backgroundColor,
+            ? DropdownButton<PlayerModel>(
+                isExpanded: true,
+                borderRadius: BorderRadius.circular(15),
+                underline: SizedBox.shrink(),
+                icon: SizedBox.shrink(),
+                hint: Container(
+                  decoration: BoxDecoration(
+                    color: context.textPrimary,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Goal",
+                      style: context.biggerName.copyWith(
+                        color: context.backgroundColor,
+                      ),
                     ),
                   ),
                 ),
+                onChanged: (val) {
+                  AwesomeDialog(
+                    context: context,
+                    dialogType: DialogType.info,
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    title: "${val?.name ?? "Someone"} just scored a goal!",
+                    titleTextStyle: context.title,
+                    desc:
+                        "This action cannot be undone. If you're sure, please press Confirm.",
+                    descTextStyle: context.body,
+                    btnOk: CupertinoButton(
+                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      color: context.greenColor,
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text(
+                        "Confirm",
+                        style: context.biggerName,
+                      ),
+                    ),
+                    btnOkOnPress: () {},
+                    btnCancel: CupertinoButton(
+                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      color: context.error,
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text(
+                        "Cancel",
+                        style: context.biggerName,
+                      ),
+                    ),
+                    btnCancelOnPress: () {},
+                  ).show();
+                },
+                items: (isHomeClub
+                        ? controller.homePlayers
+                        : controller.awayPlayers)
+                    .map((model) {
+                  return DropdownMenuItem<PlayerModel>(
+                    value: model,
+                    child: Text(model.name),
+                  );
+                }).toList(),
               )
             : SizedBox.shrink(),
       ],
@@ -106,7 +152,28 @@ class _ClubTile extends GetView<MatchDetailsController> {
 }
 
 void _showPlayers(List<PlayerModel> players, int clubId) async {
-
+  EasyDialog.positioned(
+    position: EasyDialogPosition.center,
+    id: 1,
+    autoHideDuration: Duration(seconds: 1),
+    content: Container(
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      height: 400,
+      decoration: BoxDecoration(
+        color: Get.context?.cardColor,
+      ),
+      child: ListView.builder(
+        itemCount: players.length,
+        itemBuilder: (context, index) {
+          final model = players[index];
+          return CupertinoButton(
+            onPressed: () {},
+            child: Text(model.name),
+          );
+        },
+      ),
+    ),
+  ).show();
 }
 
 class _ScoreSection extends StatelessWidget {

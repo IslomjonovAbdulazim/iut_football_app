@@ -3,6 +3,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_easy_dialogs/flutter_easy_dialogs.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:iut_football_app/routes/app_routes.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
         themeMode: themeController.themeMode,
         debugShowCheckedModeBanner: false,
         initialRoute:
-            TokenService.to.hasToken ? AppRoutes.admin : AppRoutes.home,
+            TokenService.to.hasToken ? AppRoutes.admin : AppRoutes.matchDetail,
         initialBinding: InitialBinding(),
         getPages: AppPages.pages,
         builder: (context, child) => MediaQuery(

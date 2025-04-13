@@ -65,6 +65,7 @@ dependencies:
   flutter_typeahead: ^5.2.0
   searchfield: ^1.2.6
   flutter_easy_dialogs: ^4.0.3
+  awesome_dialog: ^3.2.1
 
   # models
   freezed_annotation: ^2.4.4
