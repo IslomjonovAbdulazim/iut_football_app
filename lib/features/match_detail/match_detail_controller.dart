@@ -4,6 +4,48 @@ class MatchDetailsController extends GetxController {
   // List<PlayerModel> homePlayers = MockData.players;
   // List<PlayerModel> awayPlayers = MockData.players;
   RxBool isLoading = false.obs;
+  // final RxInt minutes = 0.obs;
+  // final RxInt seconds = 0.obs;
+  // Timer? _timer;
+  //
+  // DateTime? startTime;
+  // int offsetMinutes = 0;
+  //
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
+  //
+  // @override
+  // void onClose() {
+  //   _timer?.cancel();
+  //   super.onClose();
+  // }
+  //
+  // void startTimer(DateTime start, {int offset = 0}) {
+  //   startTime = start;
+  //   offsetMinutes = offset;
+  //   _timer?.cancel();
+  //
+  //   _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+  //     final diff = DateTime.now().difference(startTime!);
+  //     final totalSeconds = offsetMinutes * 60 + diff.inSeconds;
+  //
+  //     minutes.value = totalSeconds ~/ 60;
+  //     seconds.value = totalSeconds % 60;
+  //   });
+  // }
+  //
+  // void stopTimer() {
+  //   _timer?.cancel();
+  //   _timer = null;
+  // }
+  //
+  // void reset() {
+  //   minutes.value = 0;
+  //   seconds.value = 0;
+  //   _timer?.cancel();
+  // }
 
   Stream<MatchModel> getMatchDetail() {
     final channel = WebSocketChannel.connect(
@@ -45,7 +87,7 @@ class MatchDetailsController extends GetxController {
       time: DateTime.now(),
     );
     await Dio().post(
-      ApiConstants.baseURL + ApiConstants.goalScored,
+      ApiConstants.baseURL + ApiConstants.changeStatus,
       data: goal.toJson(),
     );
     isLoading.value = false;

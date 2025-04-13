@@ -23,7 +23,7 @@ class MatchDetailsPage extends GetView<MatchDetailsController> {
             SizedBox(width: 6),
           ],
         ),
-        body:SafeArea(
+        body: SafeArea(
           child: StreamBuilder<MatchModel>(
               stream: controller.getMatchDetail(),
               builder: (context, snapshot) {
@@ -50,10 +50,6 @@ class MatchDetailsPage extends GetView<MatchDetailsController> {
                 }
               }),
         ),
-
-
-
-
       ),
     );
   }

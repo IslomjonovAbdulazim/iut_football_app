@@ -66,6 +66,7 @@ dependencies:
   searchfield: ^1.2.6
   flutter_easy_dialogs: ^4.0.3
   awesome_dialog: ^3.2.1
+  flutter_timer_countdown: ^1.0.7
 
   # models
   freezed_annotation: ^2.4.4

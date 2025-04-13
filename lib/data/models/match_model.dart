@@ -130,4 +130,16 @@ extension MatchModelStatusExtension on MatchModel {
       return "Finished";
     }
   }
+
+  int? get currentMatchMinute {
+    final now = DateTime.now();
+
+    if (firstHalfStartedAt != null && firstHalfFinishedAt == null) {
+      return now.difference(firstHalfStartedAt!).inMinutes.clamp(0, 20);
+    } else if (secondHalfStartedAt != null && secondHalfFinishedAt == null) {
+      return 20 + now.difference(secondHalfStartedAt!).inMinutes.clamp(0, 20);
+    }
+
+    return null;
+  }
 }

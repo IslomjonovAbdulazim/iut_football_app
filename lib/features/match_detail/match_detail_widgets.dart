@@ -184,7 +184,7 @@ class _ClubTile extends GetView<MatchDetailsController> {
   }
 }
 
-class _ScoreSection extends StatelessWidget {
+class _ScoreSection extends GetView<MatchDetailsController> {
   final MatchModel match;
 
   const _ScoreSection({required this.match});
@@ -203,7 +203,7 @@ class _ScoreSection extends StatelessWidget {
           decoration: BoxDecoration(
               color: (match.isLive
                       ? Colors.red
-                      : match.isFinished
+                      : match.isUpcoming
                           ? Colors.orange
                           : Colors.green)
                   .withOpacity(.2),
@@ -213,7 +213,7 @@ class _ScoreSection extends StatelessWidget {
             style: TextStyle(
               color: match.isLive
                   ? Colors.red
-                  : match.isFinished
+                  : match.isUpcoming
                       ? Colors.orange
                       : Colors.green,
               fontSize: 14,
@@ -229,52 +229,57 @@ class _ScoreSection extends StatelessWidget {
           style: context.smallName,
         ),
         SizedBox(height: isAdmin ? 20 : 0),
-        CupertinoButton(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          color: context.textPrimary,
-          onPressed: () {
-            AwesomeDialog(
-              context: context,
-              dialogType: DialogType.info,
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-              title: match.confirmationText,
-              titleTextStyle: context.title,
-              desc:
-                  "This action cannot be undone. If you're sure, please press Confirm.",
-              descTextStyle: context.body,
-              btnOk: CupertinoButton(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                color: context.greenColor,
+        !match.isFinished
+            ? CupertinoButton(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                color: context.textPrimary,
                 onPressed: () {
-                  Get.back();
+                  AwesomeDialog(
+                    context: context,
+                    dialogType: DialogType.info,
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    title: match.confirmationText,
+                    titleTextStyle: context.title,
+                    desc:
+                        "This action cannot be undone. If you're sure, please press Confirm.",
+                    descTextStyle: context.body,
+                    btnOk: CupertinoButton(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      color: context.greenColor,
+                      onPressed: () {
+                        controller.changeStatus(match.id);
+                        Get.back();
+                      },
+                      child: Text(
+                        "Confirm",
+                        style: context.biggerName,
+                      ),
+                    ),
+                    btnOkOnPress: () {},
+                    btnCancel: CupertinoButton(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      color: context.error,
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text(
+                        "Cancel",
+                        style: context.biggerName,
+                      ),
+                    ),
+                    btnCancelOnPress: () {},
+                  ).show();
                 },
                 child: Text(
-                  "Confirm",
-                  style: context.biggerName,
+                  match.adminActionButtonText,
+                  style: context.name.copyWith(
+                    color: context.backgroundColor,
+                  ),
                 ),
-              ),
-              btnOkOnPress: () {},
-              btnCancel: CupertinoButton(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                color: context.error,
-                onPressed: () {
-                  Get.back();
-                },
-                child: Text(
-                  "Cancel",
-                  style: context.biggerName,
-                ),
-              ),
-              btnCancelOnPress: () {},
-            ).show();
-          },
-          child: Text(
-            match.adminActionButtonText,
-            style: context.name.copyWith(
-              color: context.backgroundColor,
-            ),
-          ),
-        ),
+              )
+            : SizedBox.shrink(),
       ],
     );
   }
