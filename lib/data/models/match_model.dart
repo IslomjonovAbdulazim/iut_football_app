@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 import 'package:iut_football_app/data/models/player_model.dart';
 import 'goal_event_model.dart';
 
@@ -61,8 +62,44 @@ extension MatchModelStatusExtension on MatchModel {
         DateTime.now().isAfter(matchTime!);
   }
 
-  /// Extra helpers
   bool get isUpcoming => matchStatus == "Upcoming";
   bool get isLive => matchStatus == "Live";
   bool get isFinished => matchStatus == "Finished";
+
+  /// Active half checks
+  bool get isFirstHalfGoing =>
+      firstHalfStartedAt != null && firstHalfFinishedAt == null;
+
+  bool get isSecondHalfGoing =>
+      secondHalfStartedAt != null && secondHalfFinishedAt == null;
+
+  /// Time formatters
+  String? get formattedMatchTime =>
+      matchTime != null ? DateFormat('HH:mm').format(matchTime!) : null;
+
+  String? get formattedFirstHalfTime =>
+      firstHalfStartedAt != null ? DateFormat('HH:mm').format(firstHalfStartedAt!) : null;
+
+  String? get formattedSecondHalfTime =>
+      secondHalfStartedAt != null ? DateFormat('HH:mm').format(secondHalfStartedAt!) : null;
+
+  String? get formattedFullTime =>
+      secondHalfFinishedAt != null ? DateFormat('HH:mm').format(secondHalfFinishedAt!) : null;
+
+  /// ✅ NEW: Half durations
+  String get firstHalfDuration {
+    if (firstHalfStartedAt != null && firstHalfFinishedAt != null) {
+      final duration = firstHalfFinishedAt!.difference(firstHalfStartedAt!);
+      return "${duration.inMinutes} min";
+    }
+    return "-";
+  }
+
+  String get secondHalfDuration {
+    if (secondHalfStartedAt != null && secondHalfFinishedAt != null) {
+      final duration = secondHalfFinishedAt!.difference(secondHalfStartedAt!);
+      return "${duration.inMinutes} min";
+    }
+    return "-";
+  }
 }
