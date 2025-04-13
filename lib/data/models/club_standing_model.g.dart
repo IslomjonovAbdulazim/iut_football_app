@@ -9,9 +9,9 @@ part of 'club_standing_model.dart';
 _$ClubStandingModelImpl _$$ClubStandingModelImplFromJson(
         Map<String, dynamic> json) =>
     _$ClubStandingModelImpl(
-      clubId: (json['club_id'] as num).toInt(),
-      clubName: json['club_name'] as String,
-      clubAvatar: json['club_avatar'] as String,
+      clubId: (json['id'] as num).toInt(),
+      clubName: json['name'] as String,
+      clubAvatar: json['logo'] as String,
       points: (json['points'] as num).toInt(),
       goalsScored: (json['goals_scored'] as num).toInt(),
       goalsConceded: (json['goals_conceded'] as num).toInt(),
@@ -21,9 +21,9 @@ _$ClubStandingModelImpl _$$ClubStandingModelImplFromJson(
 Map<String, dynamic> _$$ClubStandingModelImplToJson(
         _$ClubStandingModelImpl instance) =>
     <String, dynamic>{
-      'club_id': instance.clubId,
-      'club_name': instance.clubName,
-      'club_avatar': instance.clubAvatar,
+      'id': instance.clubId,
+      'name': instance.clubName,
+      'logo': instance.clubAvatar,
       'points': instance.points,
       'goals_scored': instance.goalsScored,
       'goals_conceded': instance.goalsConceded,

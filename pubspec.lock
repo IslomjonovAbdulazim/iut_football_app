@@ -430,6 +430,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.1"
+  flutter_easy_dialogs:
+    dependency: "direct main"
+    description:
+      name: flutter_easy_dialogs
+      sha256: e488d27d498180ade82e009b0414c1c59eb96f93612c3c9bf9781cd85b2fb5a7
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.3"
   flutter_facebook_auth:
     dependency: "direct main"
     description:

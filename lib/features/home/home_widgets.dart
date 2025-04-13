@@ -1,8 +1,6 @@
 part of 'imports.dart';
 
-class _Matches extends StatelessWidget {
-  const _Matches();
-
+class _Matches extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,9 +24,24 @@ class _Matches extends StatelessWidget {
             ),
           ],
         ),
-        ...List.generate(2, (index) {
-          return MatchWidget(MockData.sampleMatches[index]);
-        }),
+        StreamBuilder(
+          stream: controller.getMatches(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator.adaptive(
+                  backgroundColor: context.textPrimary,
+                ),
+              );
+            } else if (snapshot.hasError || snapshot.data == null) {
+              return Text(snapshot.error.toString(), style: context.title);
+            } else {
+              return Column(
+                children: snapshot.data!.map((model) => MatchWidget(model)).toList(),
+              );
+            }
+          },
+        ),
       ],
     );
   }

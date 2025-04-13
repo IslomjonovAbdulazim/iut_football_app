@@ -26,7 +26,6 @@ class MockData {
           avatarUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
           iutStudentId: 220101,
           goals: 5,
-          goalEvents: [],
         ),
         PlayerModel(
           id: 102,
@@ -35,7 +34,6 @@ class MockData {
           avatarUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
           iutStudentId: 220102,
           goals: 2,
-          goalEvents: [],
         ),
         PlayerModel(
           id: 103,
@@ -44,7 +42,6 @@ class MockData {
           avatarUrl: 'https://randomuser.me/api/portraits/men/66.jpg',
           iutStudentId: 220103,
           goals: 3,
-          goalEvents: [],
         ),
         PlayerModel(
           id: 104,
@@ -53,7 +50,6 @@ class MockData {
           avatarUrl: 'https://randomuser.me/api/portraits/men/78.jpg',
           iutStudentId: 220104,
           goals: 0,
-          goalEvents: [],
         ),
         // Club 2 => Samarkand Lions
         PlayerModel(
@@ -63,7 +59,6 @@ class MockData {
           avatarUrl: 'https://randomuser.me/api/portraits/men/12.jpg',
           iutStudentId: 220105,
           goals: 4,
-          goalEvents: [],
         ),
         PlayerModel(
           id: 106,
@@ -72,7 +67,6 @@ class MockData {
           avatarUrl: 'https://randomuser.me/api/portraits/men/91.jpg',
           iutStudentId: 220106,
           goals: 2,
-          goalEvents: [],
         ),
       ],
       matches: [
@@ -88,8 +82,6 @@ class MockData {
           awayScore: 1,
           matchTime: DateTime.now().subtract(const Duration(days: 2)),
           goalEvents: sampleGoalEvents,
-          isFirstHalfFinished: true,
-          isSecondHalfFinished: true,
           gameStarted: true,
           title: 'Round 1',
           leagueId: 1,
@@ -105,12 +97,10 @@ class MockData {
           homeScore: 2,
           awayScore: 1,
           matchTime: DateTime.now().subtract(const Duration(days: 1)),
-          goalEvents: [],
-          isFirstHalfFinished: true,
-          isSecondHalfFinished: true,
           gameStarted: true,
           title: 'Round 1',
           leagueId: 1,
+          goalEvents: [],
         ),
         MatchModel(
           id: 3,
@@ -123,12 +113,10 @@ class MockData {
           homeScore: 3,
           awayScore: 4,
           matchTime: DateTime.now().subtract(const Duration(hours: 5)),
-          goalEvents: [],
-          isFirstHalfFinished: true,
-          isSecondHalfFinished: true,
           gameStarted: true,
           title: 'Round 2',
           leagueId: 1,
+          goalEvents: [],
         ),
         MatchModel(
           id: 4,
@@ -141,12 +129,10 @@ class MockData {
           homeScore: 0,
           awayScore: 0,
           matchTime: DateTime.now().add(const Duration(days: 1)),
-          goalEvents: [],
-          isFirstHalfFinished: false,
-          isSecondHalfFinished: false,
           gameStarted: false,
           title: 'Round 2',
           leagueId: 1,
+          goalEvents: [],
         ),
         MatchModel(
           id: 5,
@@ -159,12 +145,10 @@ class MockData {
           homeScore: 0,
           awayScore: 0,
           matchTime: DateTime.now().add(const Duration(days: 2)),
-          goalEvents: [],
-          isFirstHalfFinished: false,
-          isSecondHalfFinished: false,
           gameStarted: false,
           title: 'Round 2',
           leagueId: 1,
+          goalEvents: [],
         ),
       ],
       matchesPlayed: 8,
@@ -242,7 +226,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/21.jpg',
       iutStudentId: 220101,
       goals: 5,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 102,
@@ -251,7 +234,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/45.jpg',
       iutStudentId: 220102,
       goals: 2,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 103,
@@ -260,7 +242,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/66.jpg',
       iutStudentId: 220103,
       goals: 3,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 104,
@@ -269,7 +250,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/78.jpg',
       iutStudentId: 220104,
       goals: 0,
-      goalEvents: [],
     ),
     // Club 2 => Samarkand Lions
     PlayerModel(
@@ -279,7 +259,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/12.jpg',
       iutStudentId: 220105,
       goals: 4,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 106,
@@ -288,7 +267,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/91.jpg',
       iutStudentId: 220106,
       goals: 2,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 107,
@@ -297,7 +275,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/55.jpg',
       iutStudentId: 220107,
       goals: 1,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 108,
@@ -306,7 +283,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/84.jpg',
       iutStudentId: 220108,
       goals: 1,
-      goalEvents: [],
     ),
     // Club 3 => Bukhara Eagles
     PlayerModel(
@@ -316,7 +292,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/14.jpg',
       iutStudentId: 220109,
       goals: 2,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 110,
@@ -325,7 +300,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/29.jpg',
       iutStudentId: 220110,
       goals: 1,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 111,
@@ -334,7 +308,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/41.jpg',
       iutStudentId: 220111,
       goals: 3,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 112,
@@ -343,7 +316,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/36.jpg',
       iutStudentId: 220112,
       goals: 0,
-      goalEvents: [],
     ),
     // Club 4 => Fergana Falcons
     PlayerModel(
@@ -353,7 +325,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/72.jpg',
       iutStudentId: 220113,
       goals: 2,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 114,
@@ -362,7 +333,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/18.jpg',
       iutStudentId: 220114,
       goals: 1,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 115,
@@ -371,7 +341,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/31.jpg',
       iutStudentId: 220115,
       goals: 0,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 116,
@@ -380,7 +349,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/76.jpg',
       iutStudentId: 220116,
       goals: 2,
-      goalEvents: [],
     ),
     // Club 5 => Tashkent Warriors
     PlayerModel(
@@ -390,7 +358,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/82.jpg',
       iutStudentId: 220117,
       goals: 1,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 118,
@@ -399,7 +366,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/66.jpg',
       iutStudentId: 220118,
       goals: 3,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 119,
@@ -408,7 +374,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/97.jpg',
       iutStudentId: 220119,
       goals: 2,
-      goalEvents: [],
     ),
     PlayerModel(
       id: 120,
@@ -417,7 +382,6 @@ class MockData {
       avatarUrl: 'https://randomuser.me/api/portraits/men/52.jpg',
       iutStudentId: 220120,
       goals: 0,
-      goalEvents: [],
     ),
   ];
 
@@ -476,8 +440,6 @@ class MockData {
       awayScore: 1,
       matchTime: DateTime.now().subtract(const Duration(days: 2)),
       goalEvents: sampleGoalEvents,
-      isFirstHalfFinished: true,
-      isSecondHalfFinished: true,
       gameStarted: true,
       title: 'Round 1',
       leagueId: 1,
@@ -493,12 +455,10 @@ class MockData {
       homeScore: 2,
       awayScore: 1,
       matchTime: DateTime.now().subtract(const Duration(days: 1)),
-      goalEvents: [],
-      isFirstHalfFinished: true,
-      isSecondHalfFinished: true,
       gameStarted: true,
       title: 'Round 1',
       leagueId: 1,
+      goalEvents: [],
     ),
     MatchModel(
       id: 3,
@@ -511,12 +471,10 @@ class MockData {
       homeScore: 3,
       awayScore: 4,
       matchTime: DateTime.now().subtract(const Duration(hours: 5)),
-      goalEvents: [],
-      isFirstHalfFinished: true,
-      isSecondHalfFinished: true,
       gameStarted: true,
       title: 'Round 2',
       leagueId: 1,
+      goalEvents: [],
     ),
     MatchModel(
       id: 4,
@@ -529,12 +487,10 @@ class MockData {
       homeScore: 0,
       awayScore: 0,
       matchTime: DateTime.now().add(const Duration(days: 1)),
-      goalEvents: [],
-      isFirstHalfFinished: false,
-      isSecondHalfFinished: false,
       gameStarted: false,
       title: 'Round 2',
       leagueId: 1,
+      goalEvents: [],
     ),
     MatchModel(
       id: 5,
@@ -547,12 +503,10 @@ class MockData {
       homeScore: 0,
       awayScore: 0,
       matchTime: DateTime.now().add(const Duration(days: 2)),
-      goalEvents: [],
-      isFirstHalfFinished: false,
-      isSecondHalfFinished: false,
       gameStarted: false,
       title: 'Round 2',
       leagueId: 1,
+      goalEvents: [],
     ),
     MatchModel(
       id: 6,
@@ -565,12 +519,10 @@ class MockData {
       homeScore: 0,
       awayScore: 0,
       matchTime: DateTime.now().add(const Duration(days: 3)),
-      goalEvents: [],
-      isFirstHalfFinished: false,
-      isSecondHalfFinished: false,
       gameStarted: false,
       title: 'Round 3',
       leagueId: 1,
+      goalEvents: [],
     ),
   ];
 

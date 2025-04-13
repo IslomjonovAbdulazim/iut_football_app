@@ -13,6 +13,8 @@ class _MatchHeader extends StatelessWidget {
           child: _ClubTile(
             name: match.homeClubName,
             avatar: match.homeClubAvatar,
+            club: match.homeClubId,
+            isHomeClub: true,
           ),
         ),
         const SizedBox(width: 8),
@@ -22,6 +24,8 @@ class _MatchHeader extends StatelessWidget {
           child: _ClubTile(
             name: match.awayClubName,
             avatar: match.awayClubAvatar,
+            club: match.awayClubId,
+            isHomeClub: false,
           ),
         ),
       ],
@@ -29,42 +33,80 @@ class _MatchHeader extends StatelessWidget {
   }
 }
 
-class _ClubTile extends StatelessWidget {
+class _ClubTile extends GetView<MatchDetailsController> {
   final String name;
   final String avatar;
+  final int club;
+  final bool isHomeClub;
 
-  const _ClubTile({required this.name, required this.avatar});
+  const _ClubTile({
+    required this.name,
+    required this.avatar,
+    required this.club,
+    required this.isHomeClub,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: () {
-        Get.toNamed(AppRoutes.clubDetail, arguments: MockData.clubs.first);
-      },
-      child: Column(
-        children: [
-          Container(
-            height: 70,
-            width: 70,
-            decoration: BoxDecoration(
-              color: context.cardColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: CachedNetworkWidget(avatar),
+    bool isAdmin = true;
+    return Column(
+      children: [
+        CupertinoButton(
+          padding: EdgeInsets.zero,
+          onPressed: () {
+            Get.toNamed(AppRoutes.clubDetail, arguments: MockData.clubs.first);
+          },
+          child: Column(
+            children: [
+              Container(
+                height: 70,
+                width: 70,
+                decoration: BoxDecoration(
+                  color: context.cardColor,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: CachedNetworkWidget(avatar),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                name,
+                style: context.name,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
           ),
-          const SizedBox(height: 6),
-          Text(
-            name,
-            style: context.name,
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ],
-      ),
+        ),
+        SizedBox(height: isAdmin ? 10 : 0),
+        isAdmin
+            ? CupertinoButton(
+                padding: EdgeInsets.zero,
+                color: context.textPrimary,
+                onPressed: () {
+                  _showPlayers(
+                      isHomeClub
+                          ? controller.homePlayers
+                          : controller.awayPlayers,
+                      club);
+                },
+                child: Center(
+                  child: Text(
+                    "Goal",
+                    style: context.biggerName.copyWith(
+                      color: context.backgroundColor,
+                    ),
+                  ),
+                ),
+              )
+            : SizedBox.shrink(),
+      ],
     );
   }
+}
+
+void _showPlayers(List<PlayerModel> players, int clubId) async {
+
 }
 
 class _ScoreSection extends StatelessWidget {
@@ -74,7 +116,7 @@ class _ScoreSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final status = match.isSecondHalfFinished
+    final status = match.secondHalfFinishedAt != null
         ? "Finished"
         : match.gameStarted
             ? "Live"
@@ -110,7 +152,9 @@ class _ScoreSection extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          DateFormat.yMMMEd().add_Hm().format(match.matchTime),
+          DateFormat.yMMMEd()
+              .add_Hm()
+              .format(match.matchTime ?? DateTime.now()),
           style: context.smallName,
         ),
       ],
@@ -167,7 +211,7 @@ class _GoalTile extends StatelessWidget {
             child: CachedNetworkWidget(event.playerAvatar),
           ),
         ),
-        title: Text(event.playerName, style: context.name),
+        title: Text(event.playerName ?? "No Name", style: context.name),
         subtitle: Text(
           "${event.clubName} • ${event.minute}'",
           style: context.smallName,

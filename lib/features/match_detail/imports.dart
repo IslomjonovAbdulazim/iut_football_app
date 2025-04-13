@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:iut_football_app/data/models/mock.dart';
+import 'package:iut_football_app/data/models/player_model.dart';
 import 'package:iut_football_app/routes/app_routes.dart';
 import 'package:iut_football_app/utils/extenstions/color_extension.dart';
 import 'package:iut_football_app/utils/extenstions/text_style_extention.dart';

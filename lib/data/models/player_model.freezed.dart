@@ -32,8 +32,6 @@ mixin _$PlayerModel {
   int get iutStudentId => throw _privateConstructorUsedError;
   @JsonKey(name: 'goals')
   int get goals => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goal_events')
-  List<GoalEventModel> get goalEvents => throw _privateConstructorUsedError;
 
   /// Serializes this PlayerModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,8 +55,7 @@ abstract class $PlayerModelCopyWith<$Res> {
       @JsonKey(name: 'club_id') int clubId,
       @JsonKey(name: 'avatar_url') String avatarUrl,
       @JsonKey(name: 'iut_student_id') int iutStudentId,
-      @JsonKey(name: 'goals') int goals,
-      @JsonKey(name: 'goal_events') List<GoalEventModel> goalEvents});
+      @JsonKey(name: 'goals') int goals});
 }
 
 /// @nodoc
@@ -82,7 +79,6 @@ class _$PlayerModelCopyWithImpl<$Res, $Val extends PlayerModel>
     Object? avatarUrl = null,
     Object? iutStudentId = null,
     Object? goals = null,
-    Object? goalEvents = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -109,10 +105,6 @@ class _$PlayerModelCopyWithImpl<$Res, $Val extends PlayerModel>
           ? _value.goals
           : goals // ignore: cast_nullable_to_non_nullable
               as int,
-      goalEvents: null == goalEvents
-          ? _value.goalEvents
-          : goalEvents // ignore: cast_nullable_to_non_nullable
-              as List<GoalEventModel>,
     ) as $Val);
   }
 }
@@ -131,8 +123,7 @@ abstract class _$$PlayerModelImplCopyWith<$Res>
       @JsonKey(name: 'club_id') int clubId,
       @JsonKey(name: 'avatar_url') String avatarUrl,
       @JsonKey(name: 'iut_student_id') int iutStudentId,
-      @JsonKey(name: 'goals') int goals,
-      @JsonKey(name: 'goal_events') List<GoalEventModel> goalEvents});
+      @JsonKey(name: 'goals') int goals});
 }
 
 /// @nodoc
@@ -154,7 +145,6 @@ class __$$PlayerModelImplCopyWithImpl<$Res>
     Object? avatarUrl = null,
     Object? iutStudentId = null,
     Object? goals = null,
-    Object? goalEvents = null,
   }) {
     return _then(_$PlayerModelImpl(
       id: null == id
@@ -181,10 +171,6 @@ class __$$PlayerModelImplCopyWithImpl<$Res>
           ? _value.goals
           : goals // ignore: cast_nullable_to_non_nullable
               as int,
-      goalEvents: null == goalEvents
-          ? _value._goalEvents
-          : goalEvents // ignore: cast_nullable_to_non_nullable
-              as List<GoalEventModel>,
     ));
   }
 }
@@ -198,10 +184,7 @@ class _$PlayerModelImpl implements _PlayerModel {
       @JsonKey(name: 'club_id') required this.clubId,
       @JsonKey(name: 'avatar_url') required this.avatarUrl,
       @JsonKey(name: 'iut_student_id') required this.iutStudentId,
-      @JsonKey(name: 'goals') required this.goals,
-      @JsonKey(name: 'goal_events')
-      required final List<GoalEventModel> goalEvents})
-      : _goalEvents = goalEvents;
+      @JsonKey(name: 'goals') required this.goals});
 
   factory _$PlayerModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlayerModelImplFromJson(json);
@@ -224,18 +207,10 @@ class _$PlayerModelImpl implements _PlayerModel {
   @override
   @JsonKey(name: 'goals')
   final int goals;
-  final List<GoalEventModel> _goalEvents;
-  @override
-  @JsonKey(name: 'goal_events')
-  List<GoalEventModel> get goalEvents {
-    if (_goalEvents is EqualUnmodifiableListView) return _goalEvents;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_goalEvents);
-  }
 
   @override
   String toString() {
-    return 'PlayerModel(id: $id, name: $name, clubId: $clubId, avatarUrl: $avatarUrl, iutStudentId: $iutStudentId, goals: $goals, goalEvents: $goalEvents)';
+    return 'PlayerModel(id: $id, name: $name, clubId: $clubId, avatarUrl: $avatarUrl, iutStudentId: $iutStudentId, goals: $goals)';
   }
 
   @override
@@ -250,15 +225,13 @@ class _$PlayerModelImpl implements _PlayerModel {
                 other.avatarUrl == avatarUrl) &&
             (identical(other.iutStudentId, iutStudentId) ||
                 other.iutStudentId == iutStudentId) &&
-            (identical(other.goals, goals) || other.goals == goals) &&
-            const DeepCollectionEquality()
-                .equals(other._goalEvents, _goalEvents));
+            (identical(other.goals, goals) || other.goals == goals));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, clubId, avatarUrl,
-      iutStudentId, goals, const DeepCollectionEquality().hash(_goalEvents));
+  int get hashCode => Object.hash(
+      runtimeType, id, name, clubId, avatarUrl, iutStudentId, goals);
 
   /// Create a copy of PlayerModel
   /// with the given fields replaced by the non-null parameter values.
@@ -283,9 +256,7 @@ abstract class _PlayerModel implements PlayerModel {
       @JsonKey(name: 'club_id') required final int clubId,
       @JsonKey(name: 'avatar_url') required final String avatarUrl,
       @JsonKey(name: 'iut_student_id') required final int iutStudentId,
-      @JsonKey(name: 'goals') required final int goals,
-      @JsonKey(name: 'goal_events')
-      required final List<GoalEventModel> goalEvents}) = _$PlayerModelImpl;
+      @JsonKey(name: 'goals') required final int goals}) = _$PlayerModelImpl;
 
   factory _PlayerModel.fromJson(Map<String, dynamic> json) =
       _$PlayerModelImpl.fromJson;
@@ -308,9 +279,6 @@ abstract class _PlayerModel implements PlayerModel {
   @override
   @JsonKey(name: 'goals')
   int get goals;
-  @override
-  @JsonKey(name: 'goal_events')
-  List<GoalEventModel> get goalEvents;
 
   /// Create a copy of PlayerModel
   /// with the given fields replaced by the non-null parameter values.

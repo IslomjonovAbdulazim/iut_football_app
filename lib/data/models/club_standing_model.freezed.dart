@@ -20,11 +20,11 @@ ClubStandingModel _$ClubStandingModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ClubStandingModel {
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'id')
   int get clubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_name')
+  @JsonKey(name: 'name')
   String get clubName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_avatar')
+  @JsonKey(name: 'logo')
   String get clubAvatar => throw _privateConstructorUsedError;
   @JsonKey(name: 'points')
   int get points => throw _privateConstructorUsedError;
@@ -52,9 +52,9 @@ abstract class $ClubStandingModelCopyWith<$Res> {
       _$ClubStandingModelCopyWithImpl<$Res, ClubStandingModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'club_id') int clubId,
-      @JsonKey(name: 'club_name') String clubName,
-      @JsonKey(name: 'club_avatar') String clubAvatar,
+      {@JsonKey(name: 'id') int clubId,
+      @JsonKey(name: 'name') String clubName,
+      @JsonKey(name: 'logo') String clubAvatar,
       @JsonKey(name: 'points') int points,
       @JsonKey(name: 'goals_scored') int goalsScored,
       @JsonKey(name: 'goals_conceded') int goalsConceded,
@@ -126,9 +126,9 @@ abstract class _$$ClubStandingModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'club_id') int clubId,
-      @JsonKey(name: 'club_name') String clubName,
-      @JsonKey(name: 'club_avatar') String clubAvatar,
+      {@JsonKey(name: 'id') int clubId,
+      @JsonKey(name: 'name') String clubName,
+      @JsonKey(name: 'logo') String clubAvatar,
       @JsonKey(name: 'points') int points,
       @JsonKey(name: 'goals_scored') int goalsScored,
       @JsonKey(name: 'goals_conceded') int goalsConceded,
@@ -193,9 +193,9 @@ class __$$ClubStandingModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ClubStandingModelImpl implements _ClubStandingModel {
   const _$ClubStandingModelImpl(
-      {@JsonKey(name: 'club_id') required this.clubId,
-      @JsonKey(name: 'club_name') required this.clubName,
-      @JsonKey(name: 'club_avatar') required this.clubAvatar,
+      {@JsonKey(name: 'id') required this.clubId,
+      @JsonKey(name: 'name') required this.clubName,
+      @JsonKey(name: 'logo') required this.clubAvatar,
       @JsonKey(name: 'points') required this.points,
       @JsonKey(name: 'goals_scored') required this.goalsScored,
       @JsonKey(name: 'goals_conceded') required this.goalsConceded,
@@ -205,13 +205,13 @@ class _$ClubStandingModelImpl implements _ClubStandingModel {
       _$$ClubStandingModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'id')
   final int clubId;
   @override
-  @JsonKey(name: 'club_name')
+  @JsonKey(name: 'name')
   final String clubName;
   @override
-  @JsonKey(name: 'club_avatar')
+  @JsonKey(name: 'logo')
   final String clubAvatar;
   @override
   @JsonKey(name: 'points')
@@ -273,9 +273,9 @@ class _$ClubStandingModelImpl implements _ClubStandingModel {
 
 abstract class _ClubStandingModel implements ClubStandingModel {
   const factory _ClubStandingModel(
-          {@JsonKey(name: 'club_id') required final int clubId,
-          @JsonKey(name: 'club_name') required final String clubName,
-          @JsonKey(name: 'club_avatar') required final String clubAvatar,
+          {@JsonKey(name: 'id') required final int clubId,
+          @JsonKey(name: 'name') required final String clubName,
+          @JsonKey(name: 'logo') required final String clubAvatar,
           @JsonKey(name: 'points') required final int points,
           @JsonKey(name: 'goals_scored') required final int goalsScored,
           @JsonKey(name: 'goals_conceded') required final int goalsConceded,
@@ -286,13 +286,13 @@ abstract class _ClubStandingModel implements ClubStandingModel {
       _$ClubStandingModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'id')
   int get clubId;
   @override
-  @JsonKey(name: 'club_name')
+  @JsonKey(name: 'name')
   String get clubName;
   @override
-  @JsonKey(name: 'club_avatar')
+  @JsonKey(name: 'logo')
   String get clubAvatar;
   @override
   @JsonKey(name: 'points')

@@ -24,9 +24,9 @@ mixin _$ClubModel {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'logo_url')
+  @JsonKey(name: 'logo')
   String get logoUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'league_id')
+  @JsonKey(name: 'league')
   int get leagueId => throw _privateConstructorUsedError;
   @JsonKey(name: 'players')
   List<PlayerModel> get players => throw _privateConstructorUsedError;
@@ -63,8 +63,8 @@ abstract class $ClubModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'logo_url') String logoUrl,
-      @JsonKey(name: 'league_id') int leagueId,
+      @JsonKey(name: 'logo') String logoUrl,
+      @JsonKey(name: 'league') int leagueId,
       @JsonKey(name: 'players') List<PlayerModel> players,
       @JsonKey(name: 'matches') List<MatchModel> matches,
       @JsonKey(name: 'matches_played') int matchesPlayed,
@@ -167,8 +167,8 @@ abstract class _$$ClubModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'logo_url') String logoUrl,
-      @JsonKey(name: 'league_id') int leagueId,
+      @JsonKey(name: 'logo') String logoUrl,
+      @JsonKey(name: 'league') int leagueId,
       @JsonKey(name: 'players') List<PlayerModel> players,
       @JsonKey(name: 'matches') List<MatchModel> matches,
       @JsonKey(name: 'matches_played') int matchesPlayed,
@@ -264,8 +264,8 @@ class _$ClubModelImpl implements _ClubModel {
   const _$ClubModelImpl(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'logo_url') required this.logoUrl,
-      @JsonKey(name: 'league_id') required this.leagueId,
+      @JsonKey(name: 'logo') required this.logoUrl,
+      @JsonKey(name: 'league') required this.leagueId,
       @JsonKey(name: 'players') required final List<PlayerModel> players,
       @JsonKey(name: 'matches') required final List<MatchModel> matches,
       @JsonKey(name: 'matches_played') required this.matchesPlayed,
@@ -287,10 +287,10 @@ class _$ClubModelImpl implements _ClubModel {
   @JsonKey(name: 'name')
   final String name;
   @override
-  @JsonKey(name: 'logo_url')
+  @JsonKey(name: 'logo')
   final String logoUrl;
   @override
-  @JsonKey(name: 'league_id')
+  @JsonKey(name: 'league')
   final int leagueId;
   final List<PlayerModel> _players;
   @override
@@ -394,8 +394,8 @@ abstract class _ClubModel implements ClubModel {
   const factory _ClubModel(
           {@JsonKey(name: 'id') required final int id,
           @JsonKey(name: 'name') required final String name,
-          @JsonKey(name: 'logo_url') required final String logoUrl,
-          @JsonKey(name: 'league_id') required final int leagueId,
+          @JsonKey(name: 'logo') required final String logoUrl,
+          @JsonKey(name: 'league') required final int leagueId,
           @JsonKey(name: 'players') required final List<PlayerModel> players,
           @JsonKey(name: 'matches') required final List<MatchModel> matches,
           @JsonKey(name: 'matches_played') required final int matchesPlayed,
@@ -416,10 +416,10 @@ abstract class _ClubModel implements ClubModel {
   @JsonKey(name: 'name')
   String get name;
   @override
-  @JsonKey(name: 'logo_url')
+  @JsonKey(name: 'logo')
   String get logoUrl;
   @override
-  @JsonKey(name: 'league_id')
+  @JsonKey(name: 'league')
   int get leagueId;
   @override
   @JsonKey(name: 'players')

@@ -22,13 +22,13 @@ MatchModel _$MatchModelFromJson(Map<String, dynamic> json) {
 mixin _$MatchModel {
   @JsonKey(name: 'id')
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'home_club_id')
+  @JsonKey(name: 'home_club')
   int get homeClubId => throw _privateConstructorUsedError;
   @JsonKey(name: 'home_club_name')
   String get homeClubName => throw _privateConstructorUsedError;
   @JsonKey(name: 'home_club_avatar')
   String get homeClubAvatar => throw _privateConstructorUsedError;
-  @JsonKey(name: 'away_club_id')
+  @JsonKey(name: 'away_club')
   int get awayClubId => throw _privateConstructorUsedError;
   @JsonKey(name: 'away_club_name')
   String get awayClubName => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ mixin _$MatchModel {
   @JsonKey(name: 'away_score')
   int get awayScore => throw _privateConstructorUsedError;
   @JsonKey(name: 'match_time')
-  DateTime get matchTime => throw _privateConstructorUsedError;
+  DateTime? get matchTime => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_half_started_at')
   DateTime? get firstHalfStartedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_half_finished_at')
@@ -48,16 +48,12 @@ mixin _$MatchModel {
   DateTime? get secondHalfStartedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'second_half_finished_at')
   DateTime? get secondHalfFinishedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goal_events')
-  List<GoalEventModel> get goalEvents => throw _privateConstructorUsedError;
-  @JsonKey(name: 'is_first_half_finished')
-  bool get isFirstHalfFinished => throw _privateConstructorUsedError;
-  @JsonKey(name: 'is_second_half_finished')
-  bool get isSecondHalfFinished => throw _privateConstructorUsedError;
   @JsonKey(name: 'game_started')
   bool get gameStarted => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'goal_events', defaultValue: [])
+  List<GoalEventModel> get goalEvents => throw _privateConstructorUsedError;
   @JsonKey(name: 'league_id')
   int get leagueId => throw _privateConstructorUsedError;
 
@@ -79,24 +75,23 @@ abstract class $MatchModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'home_club_id') int homeClubId,
+      @JsonKey(name: 'home_club') int homeClubId,
       @JsonKey(name: 'home_club_name') String homeClubName,
       @JsonKey(name: 'home_club_avatar') String homeClubAvatar,
-      @JsonKey(name: 'away_club_id') int awayClubId,
+      @JsonKey(name: 'away_club') int awayClubId,
       @JsonKey(name: 'away_club_name') String awayClubName,
       @JsonKey(name: 'away_club_avatar') String awayClubAvatar,
       @JsonKey(name: 'home_score') int homeScore,
       @JsonKey(name: 'away_score') int awayScore,
-      @JsonKey(name: 'match_time') DateTime matchTime,
+      @JsonKey(name: 'match_time') DateTime? matchTime,
       @JsonKey(name: 'first_half_started_at') DateTime? firstHalfStartedAt,
       @JsonKey(name: 'first_half_finished_at') DateTime? firstHalfFinishedAt,
       @JsonKey(name: 'second_half_started_at') DateTime? secondHalfStartedAt,
       @JsonKey(name: 'second_half_finished_at') DateTime? secondHalfFinishedAt,
-      @JsonKey(name: 'goal_events') List<GoalEventModel> goalEvents,
-      @JsonKey(name: 'is_first_half_finished') bool isFirstHalfFinished,
-      @JsonKey(name: 'is_second_half_finished') bool isSecondHalfFinished,
       @JsonKey(name: 'game_started') bool gameStarted,
       @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'goal_events', defaultValue: [])
+      List<GoalEventModel> goalEvents,
       @JsonKey(name: 'league_id') int leagueId});
 }
 
@@ -124,16 +119,14 @@ class _$MatchModelCopyWithImpl<$Res, $Val extends MatchModel>
     Object? awayClubAvatar = null,
     Object? homeScore = null,
     Object? awayScore = null,
-    Object? matchTime = null,
+    Object? matchTime = freezed,
     Object? firstHalfStartedAt = freezed,
     Object? firstHalfFinishedAt = freezed,
     Object? secondHalfStartedAt = freezed,
     Object? secondHalfFinishedAt = freezed,
-    Object? goalEvents = null,
-    Object? isFirstHalfFinished = null,
-    Object? isSecondHalfFinished = null,
     Object? gameStarted = null,
     Object? title = null,
+    Object? goalEvents = null,
     Object? leagueId = null,
   }) {
     return _then(_value.copyWith(
@@ -173,10 +166,10 @@ class _$MatchModelCopyWithImpl<$Res, $Val extends MatchModel>
           ? _value.awayScore
           : awayScore // ignore: cast_nullable_to_non_nullable
               as int,
-      matchTime: null == matchTime
+      matchTime: freezed == matchTime
           ? _value.matchTime
           : matchTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       firstHalfStartedAt: freezed == firstHalfStartedAt
           ? _value.firstHalfStartedAt
           : firstHalfStartedAt // ignore: cast_nullable_to_non_nullable
@@ -193,18 +186,6 @@ class _$MatchModelCopyWithImpl<$Res, $Val extends MatchModel>
           ? _value.secondHalfFinishedAt
           : secondHalfFinishedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      goalEvents: null == goalEvents
-          ? _value.goalEvents
-          : goalEvents // ignore: cast_nullable_to_non_nullable
-              as List<GoalEventModel>,
-      isFirstHalfFinished: null == isFirstHalfFinished
-          ? _value.isFirstHalfFinished
-          : isFirstHalfFinished // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSecondHalfFinished: null == isSecondHalfFinished
-          ? _value.isSecondHalfFinished
-          : isSecondHalfFinished // ignore: cast_nullable_to_non_nullable
-              as bool,
       gameStarted: null == gameStarted
           ? _value.gameStarted
           : gameStarted // ignore: cast_nullable_to_non_nullable
@@ -213,6 +194,10 @@ class _$MatchModelCopyWithImpl<$Res, $Val extends MatchModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      goalEvents: null == goalEvents
+          ? _value.goalEvents
+          : goalEvents // ignore: cast_nullable_to_non_nullable
+              as List<GoalEventModel>,
       leagueId: null == leagueId
           ? _value.leagueId
           : leagueId // ignore: cast_nullable_to_non_nullable
@@ -231,24 +216,23 @@ abstract class _$$MatchModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'home_club_id') int homeClubId,
+      @JsonKey(name: 'home_club') int homeClubId,
       @JsonKey(name: 'home_club_name') String homeClubName,
       @JsonKey(name: 'home_club_avatar') String homeClubAvatar,
-      @JsonKey(name: 'away_club_id') int awayClubId,
+      @JsonKey(name: 'away_club') int awayClubId,
       @JsonKey(name: 'away_club_name') String awayClubName,
       @JsonKey(name: 'away_club_avatar') String awayClubAvatar,
       @JsonKey(name: 'home_score') int homeScore,
       @JsonKey(name: 'away_score') int awayScore,
-      @JsonKey(name: 'match_time') DateTime matchTime,
+      @JsonKey(name: 'match_time') DateTime? matchTime,
       @JsonKey(name: 'first_half_started_at') DateTime? firstHalfStartedAt,
       @JsonKey(name: 'first_half_finished_at') DateTime? firstHalfFinishedAt,
       @JsonKey(name: 'second_half_started_at') DateTime? secondHalfStartedAt,
       @JsonKey(name: 'second_half_finished_at') DateTime? secondHalfFinishedAt,
-      @JsonKey(name: 'goal_events') List<GoalEventModel> goalEvents,
-      @JsonKey(name: 'is_first_half_finished') bool isFirstHalfFinished,
-      @JsonKey(name: 'is_second_half_finished') bool isSecondHalfFinished,
       @JsonKey(name: 'game_started') bool gameStarted,
       @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'goal_events', defaultValue: [])
+      List<GoalEventModel> goalEvents,
       @JsonKey(name: 'league_id') int leagueId});
 }
 
@@ -274,16 +258,14 @@ class __$$MatchModelImplCopyWithImpl<$Res>
     Object? awayClubAvatar = null,
     Object? homeScore = null,
     Object? awayScore = null,
-    Object? matchTime = null,
+    Object? matchTime = freezed,
     Object? firstHalfStartedAt = freezed,
     Object? firstHalfFinishedAt = freezed,
     Object? secondHalfStartedAt = freezed,
     Object? secondHalfFinishedAt = freezed,
-    Object? goalEvents = null,
-    Object? isFirstHalfFinished = null,
-    Object? isSecondHalfFinished = null,
     Object? gameStarted = null,
     Object? title = null,
+    Object? goalEvents = null,
     Object? leagueId = null,
   }) {
     return _then(_$MatchModelImpl(
@@ -323,10 +305,10 @@ class __$$MatchModelImplCopyWithImpl<$Res>
           ? _value.awayScore
           : awayScore // ignore: cast_nullable_to_non_nullable
               as int,
-      matchTime: null == matchTime
+      matchTime: freezed == matchTime
           ? _value.matchTime
           : matchTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       firstHalfStartedAt: freezed == firstHalfStartedAt
           ? _value.firstHalfStartedAt
           : firstHalfStartedAt // ignore: cast_nullable_to_non_nullable
@@ -343,18 +325,6 @@ class __$$MatchModelImplCopyWithImpl<$Res>
           ? _value.secondHalfFinishedAt
           : secondHalfFinishedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      goalEvents: null == goalEvents
-          ? _value._goalEvents
-          : goalEvents // ignore: cast_nullable_to_non_nullable
-              as List<GoalEventModel>,
-      isFirstHalfFinished: null == isFirstHalfFinished
-          ? _value.isFirstHalfFinished
-          : isFirstHalfFinished // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSecondHalfFinished: null == isSecondHalfFinished
-          ? _value.isSecondHalfFinished
-          : isSecondHalfFinished // ignore: cast_nullable_to_non_nullable
-              as bool,
       gameStarted: null == gameStarted
           ? _value.gameStarted
           : gameStarted // ignore: cast_nullable_to_non_nullable
@@ -363,6 +333,10 @@ class __$$MatchModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      goalEvents: null == goalEvents
+          ? _value._goalEvents
+          : goalEvents // ignore: cast_nullable_to_non_nullable
+              as List<GoalEventModel>,
       leagueId: null == leagueId
           ? _value.leagueId
           : leagueId // ignore: cast_nullable_to_non_nullable
@@ -376,10 +350,10 @@ class __$$MatchModelImplCopyWithImpl<$Res>
 class _$MatchModelImpl implements _MatchModel {
   const _$MatchModelImpl(
       {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'home_club_id') required this.homeClubId,
+      @JsonKey(name: 'home_club') required this.homeClubId,
       @JsonKey(name: 'home_club_name') required this.homeClubName,
       @JsonKey(name: 'home_club_avatar') required this.homeClubAvatar,
-      @JsonKey(name: 'away_club_id') required this.awayClubId,
+      @JsonKey(name: 'away_club') required this.awayClubId,
       @JsonKey(name: 'away_club_name') required this.awayClubName,
       @JsonKey(name: 'away_club_avatar') required this.awayClubAvatar,
       @JsonKey(name: 'home_score') required this.homeScore,
@@ -389,14 +363,10 @@ class _$MatchModelImpl implements _MatchModel {
       @JsonKey(name: 'first_half_finished_at') this.firstHalfFinishedAt,
       @JsonKey(name: 'second_half_started_at') this.secondHalfStartedAt,
       @JsonKey(name: 'second_half_finished_at') this.secondHalfFinishedAt,
-      @JsonKey(name: 'goal_events')
-      required final List<GoalEventModel> goalEvents,
-      @JsonKey(name: 'is_first_half_finished')
-      required this.isFirstHalfFinished,
-      @JsonKey(name: 'is_second_half_finished')
-      required this.isSecondHalfFinished,
       @JsonKey(name: 'game_started') required this.gameStarted,
       @JsonKey(name: 'title') required this.title,
+      @JsonKey(name: 'goal_events', defaultValue: [])
+      required final List<GoalEventModel> goalEvents,
       @JsonKey(name: 'league_id') required this.leagueId})
       : _goalEvents = goalEvents;
 
@@ -407,7 +377,7 @@ class _$MatchModelImpl implements _MatchModel {
   @JsonKey(name: 'id')
   final int id;
   @override
-  @JsonKey(name: 'home_club_id')
+  @JsonKey(name: 'home_club')
   final int homeClubId;
   @override
   @JsonKey(name: 'home_club_name')
@@ -416,7 +386,7 @@ class _$MatchModelImpl implements _MatchModel {
   @JsonKey(name: 'home_club_avatar')
   final String homeClubAvatar;
   @override
-  @JsonKey(name: 'away_club_id')
+  @JsonKey(name: 'away_club')
   final int awayClubId;
   @override
   @JsonKey(name: 'away_club_name')
@@ -432,7 +402,7 @@ class _$MatchModelImpl implements _MatchModel {
   final int awayScore;
   @override
   @JsonKey(name: 'match_time')
-  final DateTime matchTime;
+  final DateTime? matchTime;
   @override
   @JsonKey(name: 'first_half_started_at')
   final DateTime? firstHalfStartedAt;
@@ -445,9 +415,15 @@ class _$MatchModelImpl implements _MatchModel {
   @override
   @JsonKey(name: 'second_half_finished_at')
   final DateTime? secondHalfFinishedAt;
+  @override
+  @JsonKey(name: 'game_started')
+  final bool gameStarted;
+  @override
+  @JsonKey(name: 'title')
+  final String title;
   final List<GoalEventModel> _goalEvents;
   @override
-  @JsonKey(name: 'goal_events')
+  @JsonKey(name: 'goal_events', defaultValue: [])
   List<GoalEventModel> get goalEvents {
     if (_goalEvents is EqualUnmodifiableListView) return _goalEvents;
     // ignore: implicit_dynamic_type
@@ -455,24 +431,12 @@ class _$MatchModelImpl implements _MatchModel {
   }
 
   @override
-  @JsonKey(name: 'is_first_half_finished')
-  final bool isFirstHalfFinished;
-  @override
-  @JsonKey(name: 'is_second_half_finished')
-  final bool isSecondHalfFinished;
-  @override
-  @JsonKey(name: 'game_started')
-  final bool gameStarted;
-  @override
-  @JsonKey(name: 'title')
-  final String title;
-  @override
   @JsonKey(name: 'league_id')
   final int leagueId;
 
   @override
   String toString() {
-    return 'MatchModel(id: $id, homeClubId: $homeClubId, homeClubName: $homeClubName, homeClubAvatar: $homeClubAvatar, awayClubId: $awayClubId, awayClubName: $awayClubName, awayClubAvatar: $awayClubAvatar, homeScore: $homeScore, awayScore: $awayScore, matchTime: $matchTime, firstHalfStartedAt: $firstHalfStartedAt, firstHalfFinishedAt: $firstHalfFinishedAt, secondHalfStartedAt: $secondHalfStartedAt, secondHalfFinishedAt: $secondHalfFinishedAt, goalEvents: $goalEvents, isFirstHalfFinished: $isFirstHalfFinished, isSecondHalfFinished: $isSecondHalfFinished, gameStarted: $gameStarted, title: $title, leagueId: $leagueId)';
+    return 'MatchModel(id: $id, homeClubId: $homeClubId, homeClubName: $homeClubName, homeClubAvatar: $homeClubAvatar, awayClubId: $awayClubId, awayClubName: $awayClubName, awayClubAvatar: $awayClubAvatar, homeScore: $homeScore, awayScore: $awayScore, matchTime: $matchTime, firstHalfStartedAt: $firstHalfStartedAt, firstHalfFinishedAt: $firstHalfFinishedAt, secondHalfStartedAt: $secondHalfStartedAt, secondHalfFinishedAt: $secondHalfFinishedAt, gameStarted: $gameStarted, title: $title, goalEvents: $goalEvents, leagueId: $leagueId)';
   }
 
   @override
@@ -507,44 +471,37 @@ class _$MatchModelImpl implements _MatchModel {
                 other.secondHalfStartedAt == secondHalfStartedAt) &&
             (identical(other.secondHalfFinishedAt, secondHalfFinishedAt) ||
                 other.secondHalfFinishedAt == secondHalfFinishedAt) &&
-            const DeepCollectionEquality()
-                .equals(other._goalEvents, _goalEvents) &&
-            (identical(other.isFirstHalfFinished, isFirstHalfFinished) ||
-                other.isFirstHalfFinished == isFirstHalfFinished) &&
-            (identical(other.isSecondHalfFinished, isSecondHalfFinished) ||
-                other.isSecondHalfFinished == isSecondHalfFinished) &&
             (identical(other.gameStarted, gameStarted) ||
                 other.gameStarted == gameStarted) &&
             (identical(other.title, title) || other.title == title) &&
+            const DeepCollectionEquality()
+                .equals(other._goalEvents, _goalEvents) &&
             (identical(other.leagueId, leagueId) ||
                 other.leagueId == leagueId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        homeClubId,
-        homeClubName,
-        homeClubAvatar,
-        awayClubId,
-        awayClubName,
-        awayClubAvatar,
-        homeScore,
-        awayScore,
-        matchTime,
-        firstHalfStartedAt,
-        firstHalfFinishedAt,
-        secondHalfStartedAt,
-        secondHalfFinishedAt,
-        const DeepCollectionEquality().hash(_goalEvents),
-        isFirstHalfFinished,
-        isSecondHalfFinished,
-        gameStarted,
-        title,
-        leagueId
-      ]);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      homeClubId,
+      homeClubName,
+      homeClubAvatar,
+      awayClubId,
+      awayClubName,
+      awayClubAvatar,
+      homeScore,
+      awayScore,
+      matchTime,
+      firstHalfStartedAt,
+      firstHalfFinishedAt,
+      secondHalfStartedAt,
+      secondHalfFinishedAt,
+      gameStarted,
+      title,
+      const DeepCollectionEquality().hash(_goalEvents),
+      leagueId);
 
   /// Create a copy of MatchModel
   /// with the given fields replaced by the non-null parameter values.
@@ -565,15 +522,15 @@ class _$MatchModelImpl implements _MatchModel {
 abstract class _MatchModel implements MatchModel {
   const factory _MatchModel(
       {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'home_club_id') required final int homeClubId,
+      @JsonKey(name: 'home_club') required final int homeClubId,
       @JsonKey(name: 'home_club_name') required final String homeClubName,
       @JsonKey(name: 'home_club_avatar') required final String homeClubAvatar,
-      @JsonKey(name: 'away_club_id') required final int awayClubId,
+      @JsonKey(name: 'away_club') required final int awayClubId,
       @JsonKey(name: 'away_club_name') required final String awayClubName,
       @JsonKey(name: 'away_club_avatar') required final String awayClubAvatar,
       @JsonKey(name: 'home_score') required final int homeScore,
       @JsonKey(name: 'away_score') required final int awayScore,
-      @JsonKey(name: 'match_time') required final DateTime matchTime,
+      @JsonKey(name: 'match_time') required final DateTime? matchTime,
       @JsonKey(name: 'first_half_started_at')
       final DateTime? firstHalfStartedAt,
       @JsonKey(name: 'first_half_finished_at')
@@ -582,14 +539,10 @@ abstract class _MatchModel implements MatchModel {
       final DateTime? secondHalfStartedAt,
       @JsonKey(name: 'second_half_finished_at')
       final DateTime? secondHalfFinishedAt,
-      @JsonKey(name: 'goal_events')
-      required final List<GoalEventModel> goalEvents,
-      @JsonKey(name: 'is_first_half_finished')
-      required final bool isFirstHalfFinished,
-      @JsonKey(name: 'is_second_half_finished')
-      required final bool isSecondHalfFinished,
       @JsonKey(name: 'game_started') required final bool gameStarted,
       @JsonKey(name: 'title') required final String title,
+      @JsonKey(name: 'goal_events', defaultValue: [])
+      required final List<GoalEventModel> goalEvents,
       @JsonKey(name: 'league_id')
       required final int leagueId}) = _$MatchModelImpl;
 
@@ -600,7 +553,7 @@ abstract class _MatchModel implements MatchModel {
   @JsonKey(name: 'id')
   int get id;
   @override
-  @JsonKey(name: 'home_club_id')
+  @JsonKey(name: 'home_club')
   int get homeClubId;
   @override
   @JsonKey(name: 'home_club_name')
@@ -609,7 +562,7 @@ abstract class _MatchModel implements MatchModel {
   @JsonKey(name: 'home_club_avatar')
   String get homeClubAvatar;
   @override
-  @JsonKey(name: 'away_club_id')
+  @JsonKey(name: 'away_club')
   int get awayClubId;
   @override
   @JsonKey(name: 'away_club_name')
@@ -625,7 +578,7 @@ abstract class _MatchModel implements MatchModel {
   int get awayScore;
   @override
   @JsonKey(name: 'match_time')
-  DateTime get matchTime;
+  DateTime? get matchTime;
   @override
   @JsonKey(name: 'first_half_started_at')
   DateTime? get firstHalfStartedAt;
@@ -639,20 +592,14 @@ abstract class _MatchModel implements MatchModel {
   @JsonKey(name: 'second_half_finished_at')
   DateTime? get secondHalfFinishedAt;
   @override
-  @JsonKey(name: 'goal_events')
-  List<GoalEventModel> get goalEvents;
-  @override
-  @JsonKey(name: 'is_first_half_finished')
-  bool get isFirstHalfFinished;
-  @override
-  @JsonKey(name: 'is_second_half_finished')
-  bool get isSecondHalfFinished;
-  @override
   @JsonKey(name: 'game_started')
   bool get gameStarted;
   @override
   @JsonKey(name: 'title')
   String get title;
+  @override
+  @JsonKey(name: 'goal_events', defaultValue: [])
+  List<GoalEventModel> get goalEvents;
   @override
   @JsonKey(name: 'league_id')
   int get leagueId;

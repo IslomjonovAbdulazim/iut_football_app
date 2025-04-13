@@ -10,8 +10,8 @@ _$ClubModelImpl _$$ClubModelImplFromJson(Map<String, dynamic> json) =>
     _$ClubModelImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
-      logoUrl: json['logo_url'] as String,
-      leagueId: (json['league_id'] as num).toInt(),
+      logoUrl: json['logo'] as String,
+      leagueId: (json['league'] as num).toInt(),
       players: (json['players'] as List<dynamic>)
           .map((e) => PlayerModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -30,8 +30,8 @@ Map<String, dynamic> _$$ClubModelImplToJson(_$ClubModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'logo_url': instance.logoUrl,
-      'league_id': instance.leagueId,
+      'logo': instance.logoUrl,
+      'league': instance.leagueId,
       'players': instance.players,
       'matches': instance.matches,
       'matches_played': instance.matchesPlayed,

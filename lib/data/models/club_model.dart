@@ -10,8 +10,8 @@ class ClubModel with _$ClubModel {
   const factory ClubModel({
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'name') required String name,
-    @JsonKey(name: 'logo_url') required String logoUrl,
-    @JsonKey(name: 'league_id') required int leagueId,
+    @JsonKey(name: 'logo') required String logoUrl,
+    @JsonKey(name: 'league') required int leagueId,
     @JsonKey(name: 'players') required List<PlayerModel> players,
     @JsonKey(name: 'matches') required List<MatchModel> matches,
     @JsonKey(name: 'matches_played') required int matchesPlayed,

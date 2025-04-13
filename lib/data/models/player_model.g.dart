@@ -14,9 +14,6 @@ _$PlayerModelImpl _$$PlayerModelImplFromJson(Map<String, dynamic> json) =>
       avatarUrl: json['avatar_url'] as String,
       iutStudentId: (json['iut_student_id'] as num).toInt(),
       goals: (json['goals'] as num).toInt(),
-      goalEvents: (json['goal_events'] as List<dynamic>)
-          .map((e) => GoalEventModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
     );
 
 Map<String, dynamic> _$$PlayerModelImplToJson(_$PlayerModelImpl instance) =>
@@ -27,5 +24,4 @@ Map<String, dynamic> _$$PlayerModelImplToJson(_$PlayerModelImpl instance) =>
       'avatar_url': instance.avatarUrl,
       'iut_student_id': instance.iutStudentId,
       'goals': instance.goals,
-      'goal_events': instance.goalEvents,
     };

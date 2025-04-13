@@ -22,8 +22,10 @@ void main() async {
   await GetStorage.init();
   await Get.putAsync<TokenService>(() async => await TokenService().init());
   Get.put(ThemeController());
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-      overlays: SystemUiOverlay.values);
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: SystemUiOverlay.values,
+  );
   runApp(
     DevicePreview(
       enabled: kIsWeb,
