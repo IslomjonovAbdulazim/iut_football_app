@@ -30,7 +30,20 @@ class MatchDetailsController extends GetxController {
       opponentClubId: clubId,
       matchId: match.id,
     );
-    print(ApiConstants.baseURL + ApiConstants.goalScored);
+    await Dio().post(
+      ApiConstants.baseURL + ApiConstants.goalScored,
+      data: goal.toJson(),
+    );
+    isLoading.value = false;
+  }
+
+  Future<void> changeStatus(int matchId) async {
+    if (isLoading.value) return;
+    isLoading.value = true;
+    final ChangeStatusModel goal = ChangeStatusModel(
+      matchId: matchId,
+      time: DateTime.now(),
+    );
     await Dio().post(
       ApiConstants.baseURL + ApiConstants.goalScored,
       data: goal.toJson(),

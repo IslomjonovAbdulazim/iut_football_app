@@ -74,17 +74,17 @@ extension MatchModelStatusExtension on MatchModel {
       secondHalfStartedAt != null && secondHalfFinishedAt == null;
 
   /// Time formatters
-  String? get formattedMatchTime =>
-      matchTime != null ? DateFormat('HH:mm').format(matchTime!) : null;
+  String get formattedMatchTime =>
+      matchTime != null ? DateFormat('HH:mm').format(matchTime!) : "-";
 
-  String? get formattedFirstHalfTime =>
-      firstHalfStartedAt != null ? DateFormat('HH:mm').format(firstHalfStartedAt!) : null;
+  String get formattedFirstHalfTime =>
+      firstHalfStartedAt != null ? DateFormat('HH:mm').format(firstHalfStartedAt!) : "-";
 
-  String? get formattedSecondHalfTime =>
-      secondHalfStartedAt != null ? DateFormat('HH:mm').format(secondHalfStartedAt!) : null;
+  String get formattedSecondHalfTime =>
+      secondHalfStartedAt != null ? DateFormat('HH:mm').format(secondHalfStartedAt!) : "-";
 
-  String? get formattedFullTime =>
-      secondHalfFinishedAt != null ? DateFormat('HH:mm').format(secondHalfFinishedAt!) : null;
+  String get formattedFullTime =>
+      secondHalfFinishedAt != null ? DateFormat('HH:mm').format(secondHalfFinishedAt!) : "-";
 
   /// ✅ NEW: Half durations
   String get firstHalfDuration {
@@ -101,5 +101,33 @@ extension MatchModelStatusExtension on MatchModel {
       return "${duration.inMinutes} min";
     }
     return "-";
+  }
+
+  String get confirmationText {
+    if (firstHalfStartedAt == null) {
+      return "Are you sure you want to start the game?";
+    } else if (firstHalfFinishedAt == null) {
+      return "Are you sure you want to end the first half?";
+    } else if (secondHalfStartedAt == null) {
+      return "Are you sure you want to start the second half?";
+    } else if (secondHalfFinishedAt == null) {
+      return "Are you sure you want to end the second half?";
+    } else {
+      return "The game has already finished.";
+    }
+  }
+
+  String get adminActionButtonText {
+    if (firstHalfStartedAt == null) {
+      return "Start";
+    } else if (firstHalfFinishedAt == null) {
+      return "End 1st Half";
+    } else if (secondHalfStartedAt == null) {
+      return "Start 2nd Half";
+    } else if (secondHalfFinishedAt == null) {
+      return "End 2nd Half";
+    } else {
+      return "Finished";
+    }
   }
 }

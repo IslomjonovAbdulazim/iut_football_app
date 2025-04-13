@@ -192,11 +192,6 @@ class _ScoreSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isAdmin = true;
-    final status = match.secondHalfFinishedAt != null
-        ? "Finished"
-        : match.gameStarted
-            ? "Live"
-            : "Upcoming";
 
     return Column(
       children: [
@@ -206,19 +201,19 @@ class _ScoreSection extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
           decoration: BoxDecoration(
-              color: (status == "Live"
+              color: (match.isLive
                       ? Colors.red
-                      : status == "Upcoming"
+                      : match.isFinished
                           ? Colors.orange
                           : Colors.green)
                   .withOpacity(.2),
               borderRadius: BorderRadius.circular(8)),
           child: Text(
-            status,
+            match.matchStatus,
             style: TextStyle(
-              color: status == "Live"
+              color: match.isLive
                   ? Colors.red
-                  : status == "Upcoming"
+                  : match.isFinished
                       ? Colors.orange
                       : Colors.green,
               fontSize: 14,
@@ -242,7 +237,7 @@ class _ScoreSection extends StatelessWidget {
               context: context,
               dialogType: DialogType.info,
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-              title: "Are you sure to start the game",
+              title: match.confirmationText,
               titleTextStyle: context.title,
               desc:
                   "This action cannot be undone. If you're sure, please press Confirm.",
@@ -274,7 +269,7 @@ class _ScoreSection extends StatelessWidget {
             ).show();
           },
           child: Text(
-            "Status",
+            match.adminActionButtonText,
             style: context.name.copyWith(
               color: context.backgroundColor,
             ),

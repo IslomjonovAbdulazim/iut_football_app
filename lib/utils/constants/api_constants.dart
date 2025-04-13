@@ -14,5 +14,6 @@ class ApiConstants {
 
   // RestApi
   static const String goalScored = "create-goal/";
+  static const String changeStatus = "change-status/";
 
 }
