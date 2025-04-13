@@ -103,18 +103,18 @@ class ClubStandingsWidget extends StatelessWidget {
                     ),
 
                     // Points
-                    SizedBox(
-                      width: 50,
-                      child: Row(
-                        children: [
-                          Container(
-                            color: Colors.red,
-                            width: 15,
-                            child: Text("${standing.wins}"),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // SizedBox(
+                    //   width: 50,
+                    //   child: Row(
+                    //     children: [
+                    //       Container(
+                    //         color: Colors.red,
+                    //         width: 15,
+                    //         child: Text("${standing.wins}"),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     Text(
                       "${standing.points} pts",
                       style: context.biggerName,

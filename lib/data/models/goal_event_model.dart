@@ -6,15 +6,15 @@ part 'goal_event_model.g.dart';
 @freezed
 class GoalEventModel with _$GoalEventModel {
   const factory GoalEventModel({
-    @JsonKey(name: 'player') required int playerId,
-    @JsonKey(name: 'player_name') required String? playerName,
-    @JsonKey(name: 'player_avatar') required String playerAvatar,
-    @JsonKey(name: 'club_id') required int clubId,
-    @JsonKey(name: 'club_name') required String clubName,
-    @JsonKey(name: 'club_avatar') required String clubAvatar,
-    @JsonKey(name: 'minute') required int minute,
-    @JsonKey(name: 'match') required int matchId,
-    @JsonKey(name: 'match_detail') required String matchDetail,
+    @JsonKey(name: 'player', defaultValue: 0) required int playerId,
+    @JsonKey(name: 'player_name') String? playerName,
+    @JsonKey(name: 'player_avatar', defaultValue: '') required String playerAvatar,
+    @JsonKey(name: 'club_id', defaultValue: 0) required int clubId,
+    @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') required String clubName,
+    @JsonKey(name: 'club_avatar', defaultValue: '') required String clubAvatar,
+    @JsonKey(name: 'minute', defaultValue: 0) required int minute,
+    @JsonKey(name: 'match', defaultValue: 0) required int matchId,
+    @JsonKey(name: 'match_detail', defaultValue: '') required String matchDetail,
   }) = _GoalEventModel;
 
   factory GoalEventModel.fromJson(Map<String, dynamic> json) =>
