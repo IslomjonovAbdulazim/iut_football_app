@@ -40,6 +40,8 @@ mixin _$GoalEventModel {
   int get matchId => throw _privateConstructorUsedError;
   @JsonKey(name: 'match_detail', defaultValue: '')
   String get matchDetail => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_first_half', defaultValue: true)
+  bool get isFirstHalf => throw _privateConstructorUsedError;
 
   /// Serializes this GoalEventModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -67,7 +69,8 @@ abstract class $GoalEventModelCopyWith<$Res> {
       @JsonKey(name: 'minute', defaultValue: 0) int minute,
       @JsonKey(name: 'league', defaultValue: 0) int league,
       @JsonKey(name: 'match', defaultValue: 0) int matchId,
-      @JsonKey(name: 'match_detail', defaultValue: '') String matchDetail});
+      @JsonKey(name: 'match_detail', defaultValue: '') String matchDetail,
+      @JsonKey(name: 'is_first_half', defaultValue: true) bool isFirstHalf});
 }
 
 /// @nodoc
@@ -95,6 +98,7 @@ class _$GoalEventModelCopyWithImpl<$Res, $Val extends GoalEventModel>
     Object? league = null,
     Object? matchId = null,
     Object? matchDetail = null,
+    Object? isFirstHalf = null,
   }) {
     return _then(_value.copyWith(
       playerId: null == playerId
@@ -137,6 +141,10 @@ class _$GoalEventModelCopyWithImpl<$Res, $Val extends GoalEventModel>
           ? _value.matchDetail
           : matchDetail // ignore: cast_nullable_to_non_nullable
               as String,
+      isFirstHalf: null == isFirstHalf
+          ? _value.isFirstHalf
+          : isFirstHalf // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -159,7 +167,8 @@ abstract class _$$GoalEventModelImplCopyWith<$Res>
       @JsonKey(name: 'minute', defaultValue: 0) int minute,
       @JsonKey(name: 'league', defaultValue: 0) int league,
       @JsonKey(name: 'match', defaultValue: 0) int matchId,
-      @JsonKey(name: 'match_detail', defaultValue: '') String matchDetail});
+      @JsonKey(name: 'match_detail', defaultValue: '') String matchDetail,
+      @JsonKey(name: 'is_first_half', defaultValue: true) bool isFirstHalf});
 }
 
 /// @nodoc
@@ -185,6 +194,7 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
     Object? league = null,
     Object? matchId = null,
     Object? matchDetail = null,
+    Object? isFirstHalf = null,
   }) {
     return _then(_$GoalEventModelImpl(
       playerId: null == playerId
@@ -227,6 +237,10 @@ class __$$GoalEventModelImplCopyWithImpl<$Res>
           ? _value.matchDetail
           : matchDetail // ignore: cast_nullable_to_non_nullable
               as String,
+      isFirstHalf: null == isFirstHalf
+          ? _value.isFirstHalf
+          : isFirstHalf // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -247,7 +261,9 @@ class _$GoalEventModelImpl implements _GoalEventModel {
       @JsonKey(name: 'league', defaultValue: 0) required this.league,
       @JsonKey(name: 'match', defaultValue: 0) required this.matchId,
       @JsonKey(name: 'match_detail', defaultValue: '')
-      required this.matchDetail});
+      required this.matchDetail,
+      @JsonKey(name: 'is_first_half', defaultValue: true)
+      required this.isFirstHalf});
 
   factory _$GoalEventModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$GoalEventModelImplFromJson(json);
@@ -282,10 +298,13 @@ class _$GoalEventModelImpl implements _GoalEventModel {
   @override
   @JsonKey(name: 'match_detail', defaultValue: '')
   final String matchDetail;
+  @override
+  @JsonKey(name: 'is_first_half', defaultValue: true)
+  final bool isFirstHalf;
 
   @override
   String toString() {
-    return 'GoalEventModel(playerId: $playerId, playerName: $playerName, playerAvatar: $playerAvatar, clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, minute: $minute, league: $league, matchId: $matchId, matchDetail: $matchDetail)';
+    return 'GoalEventModel(playerId: $playerId, playerName: $playerName, playerAvatar: $playerAvatar, clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, minute: $minute, league: $league, matchId: $matchId, matchDetail: $matchDetail, isFirstHalf: $isFirstHalf)';
   }
 
   @override
@@ -308,7 +327,9 @@ class _$GoalEventModelImpl implements _GoalEventModel {
             (identical(other.league, league) || other.league == league) &&
             (identical(other.matchId, matchId) || other.matchId == matchId) &&
             (identical(other.matchDetail, matchDetail) ||
-                other.matchDetail == matchDetail));
+                other.matchDetail == matchDetail) &&
+            (identical(other.isFirstHalf, isFirstHalf) ||
+                other.isFirstHalf == isFirstHalf));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -324,7 +345,8 @@ class _$GoalEventModelImpl implements _GoalEventModel {
       minute,
       league,
       matchId,
-      matchDetail);
+      matchDetail,
+      isFirstHalf);
 
   /// Create a copy of GoalEventModel
   /// with the given fields replaced by the non-null parameter values.
@@ -358,7 +380,9 @@ abstract class _GoalEventModel implements GoalEventModel {
       @JsonKey(name: 'league', defaultValue: 0) required final int league,
       @JsonKey(name: 'match', defaultValue: 0) required final int matchId,
       @JsonKey(name: 'match_detail', defaultValue: '')
-      required final String matchDetail}) = _$GoalEventModelImpl;
+      required final String matchDetail,
+      @JsonKey(name: 'is_first_half', defaultValue: true)
+      required final bool isFirstHalf}) = _$GoalEventModelImpl;
 
   factory _GoalEventModel.fromJson(Map<String, dynamic> json) =
       _$GoalEventModelImpl.fromJson;
@@ -393,6 +417,9 @@ abstract class _GoalEventModel implements GoalEventModel {
   @override
   @JsonKey(name: 'match_detail', defaultValue: '')
   String get matchDetail;
+  @override
+  @JsonKey(name: 'is_first_half', defaultValue: true)
+  bool get isFirstHalf;
 
   /// Create a copy of GoalEventModel
   /// with the given fields replaced by the non-null parameter values.

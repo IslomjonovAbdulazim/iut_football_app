@@ -16,6 +16,7 @@ class GoalEventModel with _$GoalEventModel {
     @JsonKey(name: 'league', defaultValue: 0) required int league,
     @JsonKey(name: 'match', defaultValue: 0) required int matchId,
     @JsonKey(name: 'match_detail', defaultValue: '') required String matchDetail,
+    @JsonKey(name: 'is_first_half', defaultValue: true) required bool isFirstHalf,
   }) = _GoalEventModel;
 
   factory GoalEventModel.fromJson(Map<String, dynamic> json) =>

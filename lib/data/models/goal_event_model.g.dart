@@ -18,6 +18,7 @@ _$GoalEventModelImpl _$$GoalEventModelImplFromJson(Map<String, dynamic> json) =>
       league: (json['league'] as num?)?.toInt() ?? 0,
       matchId: (json['match'] as num?)?.toInt() ?? 0,
       matchDetail: json['match_detail'] as String? ?? '',
+      isFirstHalf: json['is_first_half'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$$GoalEventModelImplToJson(
@@ -33,4 +34,5 @@ Map<String, dynamic> _$$GoalEventModelImplToJson(
       'league': instance.league,
       'match': instance.matchId,
       'match_detail': instance.matchDetail,
+      'is_first_half': instance.isFirstHalf,
     };
