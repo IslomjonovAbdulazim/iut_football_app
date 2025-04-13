@@ -20,29 +20,29 @@ ClubModel _$ClubModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ClubModel {
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Club')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'logo')
+  @JsonKey(name: 'logo', defaultValue: '')
   String get logoUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'league')
+  @JsonKey(name: 'league', defaultValue: 0)
   int get leagueId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'players')
+  @JsonKey(name: 'players', defaultValue: [])
   List<PlayerModel> get players => throw _privateConstructorUsedError;
-  @JsonKey(name: 'matches')
+  @JsonKey(name: 'matches', defaultValue: [])
   List<MatchModel> get matches => throw _privateConstructorUsedError;
-  @JsonKey(name: 'matches_played')
+  @JsonKey(name: 'matches_played', defaultValue: 0)
   int get matchesPlayed => throw _privateConstructorUsedError;
-  @JsonKey(name: 'wins')
+  @JsonKey(name: 'wins', defaultValue: 0)
   int get wins => throw _privateConstructorUsedError;
-  @JsonKey(name: 'draws')
+  @JsonKey(name: 'draws', defaultValue: 0)
   int get draws => throw _privateConstructorUsedError;
-  @JsonKey(name: 'losses')
+  @JsonKey(name: 'losses', defaultValue: 0)
   int get losses => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goals_scored')
+  @JsonKey(name: 'goals_scored', defaultValue: 0)
   int get goalsScored => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goals_conceded')
+  @JsonKey(name: 'goals_conceded', defaultValue: 0)
   int get goalsConceded => throw _privateConstructorUsedError;
 
   /// Serializes this ClubModel to a JSON map.
@@ -61,18 +61,18 @@ abstract class $ClubModelCopyWith<$Res> {
       _$ClubModelCopyWithImpl<$Res, ClubModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'logo') String logoUrl,
-      @JsonKey(name: 'league') int leagueId,
-      @JsonKey(name: 'players') List<PlayerModel> players,
-      @JsonKey(name: 'matches') List<MatchModel> matches,
-      @JsonKey(name: 'matches_played') int matchesPlayed,
-      @JsonKey(name: 'wins') int wins,
-      @JsonKey(name: 'draws') int draws,
-      @JsonKey(name: 'losses') int losses,
-      @JsonKey(name: 'goals_scored') int goalsScored,
-      @JsonKey(name: 'goals_conceded') int goalsConceded});
+      {@JsonKey(name: 'id', defaultValue: 0) int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Club') String name,
+      @JsonKey(name: 'logo', defaultValue: '') String logoUrl,
+      @JsonKey(name: 'league', defaultValue: 0) int leagueId,
+      @JsonKey(name: 'players', defaultValue: []) List<PlayerModel> players,
+      @JsonKey(name: 'matches', defaultValue: []) List<MatchModel> matches,
+      @JsonKey(name: 'matches_played', defaultValue: 0) int matchesPlayed,
+      @JsonKey(name: 'wins', defaultValue: 0) int wins,
+      @JsonKey(name: 'draws', defaultValue: 0) int draws,
+      @JsonKey(name: 'losses', defaultValue: 0) int losses,
+      @JsonKey(name: 'goals_scored', defaultValue: 0) int goalsScored,
+      @JsonKey(name: 'goals_conceded', defaultValue: 0) int goalsConceded});
 }
 
 /// @nodoc
@@ -165,18 +165,18 @@ abstract class _$$ClubModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'logo') String logoUrl,
-      @JsonKey(name: 'league') int leagueId,
-      @JsonKey(name: 'players') List<PlayerModel> players,
-      @JsonKey(name: 'matches') List<MatchModel> matches,
-      @JsonKey(name: 'matches_played') int matchesPlayed,
-      @JsonKey(name: 'wins') int wins,
-      @JsonKey(name: 'draws') int draws,
-      @JsonKey(name: 'losses') int losses,
-      @JsonKey(name: 'goals_scored') int goalsScored,
-      @JsonKey(name: 'goals_conceded') int goalsConceded});
+      {@JsonKey(name: 'id', defaultValue: 0) int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Club') String name,
+      @JsonKey(name: 'logo', defaultValue: '') String logoUrl,
+      @JsonKey(name: 'league', defaultValue: 0) int leagueId,
+      @JsonKey(name: 'players', defaultValue: []) List<PlayerModel> players,
+      @JsonKey(name: 'matches', defaultValue: []) List<MatchModel> matches,
+      @JsonKey(name: 'matches_played', defaultValue: 0) int matchesPlayed,
+      @JsonKey(name: 'wins', defaultValue: 0) int wins,
+      @JsonKey(name: 'draws', defaultValue: 0) int draws,
+      @JsonKey(name: 'losses', defaultValue: 0) int losses,
+      @JsonKey(name: 'goals_scored', defaultValue: 0) int goalsScored,
+      @JsonKey(name: 'goals_conceded', defaultValue: 0) int goalsConceded});
 }
 
 /// @nodoc
@@ -262,18 +262,22 @@ class __$$ClubModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ClubModelImpl implements _ClubModel {
   const _$ClubModelImpl(
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'logo') required this.logoUrl,
-      @JsonKey(name: 'league') required this.leagueId,
-      @JsonKey(name: 'players') required final List<PlayerModel> players,
-      @JsonKey(name: 'matches') required final List<MatchModel> matches,
-      @JsonKey(name: 'matches_played') required this.matchesPlayed,
-      @JsonKey(name: 'wins') required this.wins,
-      @JsonKey(name: 'draws') required this.draws,
-      @JsonKey(name: 'losses') required this.losses,
-      @JsonKey(name: 'goals_scored') required this.goalsScored,
-      @JsonKey(name: 'goals_conceded') required this.goalsConceded})
+      {@JsonKey(name: 'id', defaultValue: 0) required this.id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Club') required this.name,
+      @JsonKey(name: 'logo', defaultValue: '') required this.logoUrl,
+      @JsonKey(name: 'league', defaultValue: 0) required this.leagueId,
+      @JsonKey(name: 'players', defaultValue: [])
+      required final List<PlayerModel> players,
+      @JsonKey(name: 'matches', defaultValue: [])
+      required final List<MatchModel> matches,
+      @JsonKey(name: 'matches_played', defaultValue: 0)
+      required this.matchesPlayed,
+      @JsonKey(name: 'wins', defaultValue: 0) required this.wins,
+      @JsonKey(name: 'draws', defaultValue: 0) required this.draws,
+      @JsonKey(name: 'losses', defaultValue: 0) required this.losses,
+      @JsonKey(name: 'goals_scored', defaultValue: 0) required this.goalsScored,
+      @JsonKey(name: 'goals_conceded', defaultValue: 0)
+      required this.goalsConceded})
       : _players = players,
         _matches = matches;
 
@@ -281,20 +285,20 @@ class _$ClubModelImpl implements _ClubModel {
       _$$ClubModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   final int id;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Club')
   final String name;
   @override
-  @JsonKey(name: 'logo')
+  @JsonKey(name: 'logo', defaultValue: '')
   final String logoUrl;
   @override
-  @JsonKey(name: 'league')
+  @JsonKey(name: 'league', defaultValue: 0)
   final int leagueId;
   final List<PlayerModel> _players;
   @override
-  @JsonKey(name: 'players')
+  @JsonKey(name: 'players', defaultValue: [])
   List<PlayerModel> get players {
     if (_players is EqualUnmodifiableListView) return _players;
     // ignore: implicit_dynamic_type
@@ -303,7 +307,7 @@ class _$ClubModelImpl implements _ClubModel {
 
   final List<MatchModel> _matches;
   @override
-  @JsonKey(name: 'matches')
+  @JsonKey(name: 'matches', defaultValue: [])
   List<MatchModel> get matches {
     if (_matches is EqualUnmodifiableListView) return _matches;
     // ignore: implicit_dynamic_type
@@ -311,22 +315,22 @@ class _$ClubModelImpl implements _ClubModel {
   }
 
   @override
-  @JsonKey(name: 'matches_played')
+  @JsonKey(name: 'matches_played', defaultValue: 0)
   final int matchesPlayed;
   @override
-  @JsonKey(name: 'wins')
+  @JsonKey(name: 'wins', defaultValue: 0)
   final int wins;
   @override
-  @JsonKey(name: 'draws')
+  @JsonKey(name: 'draws', defaultValue: 0)
   final int draws;
   @override
-  @JsonKey(name: 'losses')
+  @JsonKey(name: 'losses', defaultValue: 0)
   final int losses;
   @override
-  @JsonKey(name: 'goals_scored')
+  @JsonKey(name: 'goals_scored', defaultValue: 0)
   final int goalsScored;
   @override
-  @JsonKey(name: 'goals_conceded')
+  @JsonKey(name: 'goals_conceded', defaultValue: 0)
   final int goalsConceded;
 
   @override
@@ -392,58 +396,63 @@ class _$ClubModelImpl implements _ClubModel {
 
 abstract class _ClubModel implements ClubModel {
   const factory _ClubModel(
-          {@JsonKey(name: 'id') required final int id,
-          @JsonKey(name: 'name') required final String name,
-          @JsonKey(name: 'logo') required final String logoUrl,
-          @JsonKey(name: 'league') required final int leagueId,
-          @JsonKey(name: 'players') required final List<PlayerModel> players,
-          @JsonKey(name: 'matches') required final List<MatchModel> matches,
-          @JsonKey(name: 'matches_played') required final int matchesPlayed,
-          @JsonKey(name: 'wins') required final int wins,
-          @JsonKey(name: 'draws') required final int draws,
-          @JsonKey(name: 'losses') required final int losses,
-          @JsonKey(name: 'goals_scored') required final int goalsScored,
-          @JsonKey(name: 'goals_conceded') required final int goalsConceded}) =
-      _$ClubModelImpl;
+      {@JsonKey(name: 'id', defaultValue: 0) required final int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Club')
+      required final String name,
+      @JsonKey(name: 'logo', defaultValue: '') required final String logoUrl,
+      @JsonKey(name: 'league', defaultValue: 0) required final int leagueId,
+      @JsonKey(name: 'players', defaultValue: [])
+      required final List<PlayerModel> players,
+      @JsonKey(name: 'matches', defaultValue: [])
+      required final List<MatchModel> matches,
+      @JsonKey(name: 'matches_played', defaultValue: 0)
+      required final int matchesPlayed,
+      @JsonKey(name: 'wins', defaultValue: 0) required final int wins,
+      @JsonKey(name: 'draws', defaultValue: 0) required final int draws,
+      @JsonKey(name: 'losses', defaultValue: 0) required final int losses,
+      @JsonKey(name: 'goals_scored', defaultValue: 0)
+      required final int goalsScored,
+      @JsonKey(name: 'goals_conceded', defaultValue: 0)
+      required final int goalsConceded}) = _$ClubModelImpl;
 
   factory _ClubModel.fromJson(Map<String, dynamic> json) =
       _$ClubModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get id;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Club')
   String get name;
   @override
-  @JsonKey(name: 'logo')
+  @JsonKey(name: 'logo', defaultValue: '')
   String get logoUrl;
   @override
-  @JsonKey(name: 'league')
+  @JsonKey(name: 'league', defaultValue: 0)
   int get leagueId;
   @override
-  @JsonKey(name: 'players')
+  @JsonKey(name: 'players', defaultValue: [])
   List<PlayerModel> get players;
   @override
-  @JsonKey(name: 'matches')
+  @JsonKey(name: 'matches', defaultValue: [])
   List<MatchModel> get matches;
   @override
-  @JsonKey(name: 'matches_played')
+  @JsonKey(name: 'matches_played', defaultValue: 0)
   int get matchesPlayed;
   @override
-  @JsonKey(name: 'wins')
+  @JsonKey(name: 'wins', defaultValue: 0)
   int get wins;
   @override
-  @JsonKey(name: 'draws')
+  @JsonKey(name: 'draws', defaultValue: 0)
   int get draws;
   @override
-  @JsonKey(name: 'losses')
+  @JsonKey(name: 'losses', defaultValue: 0)
   int get losses;
   @override
-  @JsonKey(name: 'goals_scored')
+  @JsonKey(name: 'goals_scored', defaultValue: 0)
   int get goalsScored;
   @override
-  @JsonKey(name: 'goals_conceded')
+  @JsonKey(name: 'goals_conceded', defaultValue: 0)
   int get goalsConceded;
 
   /// Create a copy of ClubModel

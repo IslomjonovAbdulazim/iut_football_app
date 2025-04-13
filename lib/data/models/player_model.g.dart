@@ -8,12 +8,12 @@ part of 'player_model.dart';
 
 _$PlayerModelImpl _$$PlayerModelImplFromJson(Map<String, dynamic> json) =>
     _$PlayerModelImpl(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      clubId: (json['club_id'] as num).toInt(),
-      avatarUrl: json['avatar_url'] as String,
-      iutStudentId: (json['iut_student_id'] as num).toInt(),
-      goals: (json['goals'] as num).toInt(),
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      name: json['name'] as String? ?? 'Unknown Player',
+      clubId: (json['club_id'] as num?)?.toInt() ?? 0,
+      avatarUrl: json['avatar_url'] as String? ?? '',
+      iutStudentId: (json['iut_student_id'] as num?)?.toInt() ?? 0,
+      goals: (json['goals'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$PlayerModelImplToJson(_$PlayerModelImpl instance) =>

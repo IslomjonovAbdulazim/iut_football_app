@@ -9,16 +9,17 @@ part of 'player_detail_model.dart';
 _$PlayerDetailModelImpl _$$PlayerDetailModelImplFromJson(
         Map<String, dynamic> json) =>
     _$PlayerDetailModelImpl(
-      playerId: (json['player_id'] as num).toInt(),
-      playerName: json['player_name'] as String,
-      playerAvatar: json['player_avatar'] as String,
-      clubId: (json['club_id'] as num).toInt(),
-      clubName: json['club_name'] as String,
-      clubAvatar: json['club_avatar'] as String,
-      goals: (json['goals'] as List<dynamic>)
-          .map(
-              (e) => PlayerGoalByMatchModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
+      playerName: json['player_name'] as String? ?? 'Unknown Player',
+      playerAvatar: json['player_avatar'] as String? ?? '',
+      clubId: (json['club_id'] as num?)?.toInt() ?? 0,
+      clubName: json['club_name'] as String? ?? 'Unknown Club',
+      clubAvatar: json['club_avatar'] as String? ?? '',
+      goals: (json['goals'] as List<dynamic>?)
+              ?.map((e) =>
+                  PlayerGoalByMatchModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$$PlayerDetailModelImplToJson(

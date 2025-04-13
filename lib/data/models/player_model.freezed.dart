@@ -20,17 +20,17 @@ PlayerModel _$PlayerModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlayerModel {
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'club_id', defaultValue: 0)
   int get clubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'avatar_url')
+  @JsonKey(name: 'avatar_url', defaultValue: '')
   String get avatarUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'iut_student_id')
+  @JsonKey(name: 'iut_student_id', defaultValue: 0)
   int get iutStudentId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goals')
+  @JsonKey(name: 'goals', defaultValue: 0)
   int get goals => throw _privateConstructorUsedError;
 
   /// Serializes this PlayerModel to a JSON map.
@@ -50,12 +50,12 @@ abstract class $PlayerModelCopyWith<$Res> {
       _$PlayerModelCopyWithImpl<$Res, PlayerModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'club_id') int clubId,
-      @JsonKey(name: 'avatar_url') String avatarUrl,
-      @JsonKey(name: 'iut_student_id') int iutStudentId,
-      @JsonKey(name: 'goals') int goals});
+      {@JsonKey(name: 'id', defaultValue: 0) int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player') String name,
+      @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
+      @JsonKey(name: 'avatar_url', defaultValue: '') String avatarUrl,
+      @JsonKey(name: 'iut_student_id', defaultValue: 0) int iutStudentId,
+      @JsonKey(name: 'goals', defaultValue: 0) int goals});
 }
 
 /// @nodoc
@@ -118,12 +118,12 @@ abstract class _$$PlayerModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'club_id') int clubId,
-      @JsonKey(name: 'avatar_url') String avatarUrl,
-      @JsonKey(name: 'iut_student_id') int iutStudentId,
-      @JsonKey(name: 'goals') int goals});
+      {@JsonKey(name: 'id', defaultValue: 0) int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player') String name,
+      @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
+      @JsonKey(name: 'avatar_url', defaultValue: '') String avatarUrl,
+      @JsonKey(name: 'iut_student_id', defaultValue: 0) int iutStudentId,
+      @JsonKey(name: 'goals', defaultValue: 0) int goals});
 }
 
 /// @nodoc
@@ -179,33 +179,34 @@ class __$$PlayerModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlayerModelImpl implements _PlayerModel {
   const _$PlayerModelImpl(
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'club_id') required this.clubId,
-      @JsonKey(name: 'avatar_url') required this.avatarUrl,
-      @JsonKey(name: 'iut_student_id') required this.iutStudentId,
-      @JsonKey(name: 'goals') required this.goals});
+      {@JsonKey(name: 'id', defaultValue: 0) required this.id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player') required this.name,
+      @JsonKey(name: 'club_id', defaultValue: 0) required this.clubId,
+      @JsonKey(name: 'avatar_url', defaultValue: '') required this.avatarUrl,
+      @JsonKey(name: 'iut_student_id', defaultValue: 0)
+      required this.iutStudentId,
+      @JsonKey(name: 'goals', defaultValue: 0) required this.goals});
 
   factory _$PlayerModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlayerModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   final int id;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   final String name;
   @override
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'club_id', defaultValue: 0)
   final int clubId;
   @override
-  @JsonKey(name: 'avatar_url')
+  @JsonKey(name: 'avatar_url', defaultValue: '')
   final String avatarUrl;
   @override
-  @JsonKey(name: 'iut_student_id')
+  @JsonKey(name: 'iut_student_id', defaultValue: 0)
   final int iutStudentId;
   @override
-  @JsonKey(name: 'goals')
+  @JsonKey(name: 'goals', defaultValue: 0)
   final int goals;
 
   @override
@@ -251,33 +252,37 @@ class _$PlayerModelImpl implements _PlayerModel {
 
 abstract class _PlayerModel implements PlayerModel {
   const factory _PlayerModel(
-      {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'name') required final String name,
-      @JsonKey(name: 'club_id') required final int clubId,
-      @JsonKey(name: 'avatar_url') required final String avatarUrl,
-      @JsonKey(name: 'iut_student_id') required final int iutStudentId,
-      @JsonKey(name: 'goals') required final int goals}) = _$PlayerModelImpl;
+          {@JsonKey(name: 'id', defaultValue: 0) required final int id,
+          @JsonKey(name: 'name', defaultValue: 'Unknown Player')
+          required final String name,
+          @JsonKey(name: 'club_id', defaultValue: 0) required final int clubId,
+          @JsonKey(name: 'avatar_url', defaultValue: '')
+          required final String avatarUrl,
+          @JsonKey(name: 'iut_student_id', defaultValue: 0)
+          required final int iutStudentId,
+          @JsonKey(name: 'goals', defaultValue: 0) required final int goals}) =
+      _$PlayerModelImpl;
 
   factory _PlayerModel.fromJson(Map<String, dynamic> json) =
       _$PlayerModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get id;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   String get name;
   @override
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'club_id', defaultValue: 0)
   int get clubId;
   @override
-  @JsonKey(name: 'avatar_url')
+  @JsonKey(name: 'avatar_url', defaultValue: '')
   String get avatarUrl;
   @override
-  @JsonKey(name: 'iut_student_id')
+  @JsonKey(name: 'iut_student_id', defaultValue: 0)
   int get iutStudentId;
   @override
-  @JsonKey(name: 'goals')
+  @JsonKey(name: 'goals', defaultValue: 0)
   int get goals;
 
   /// Create a copy of PlayerModel

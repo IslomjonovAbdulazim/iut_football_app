@@ -8,15 +8,15 @@ part of 'match_model.dart';
 
 _$MatchModelImpl _$$MatchModelImplFromJson(Map<String, dynamic> json) =>
     _$MatchModelImpl(
-      id: (json['id'] as num).toInt(),
-      homeClubId: (json['home_club'] as num).toInt(),
-      homeClubName: json['home_club_name'] as String,
-      homeClubAvatar: json['home_club_avatar'] as String,
-      awayClubId: (json['away_club'] as num).toInt(),
-      awayClubName: json['away_club_name'] as String,
-      awayClubAvatar: json['away_club_avatar'] as String,
-      homeScore: (json['home_score'] as num).toInt(),
-      awayScore: (json['away_score'] as num).toInt(),
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      homeClubId: (json['home_club'] as num?)?.toInt() ?? 0,
+      homeClubName: json['home_club_name'] as String? ?? 'Home Club',
+      homeClubAvatar: json['home_club_avatar'] as String? ?? '',
+      awayClubId: (json['away_club'] as num?)?.toInt() ?? 0,
+      awayClubName: json['away_club_name'] as String? ?? 'Away Club',
+      awayClubAvatar: json['away_club_avatar'] as String? ?? '',
+      homeScore: (json['home_score'] as num?)?.toInt() ?? 0,
+      awayScore: (json['away_score'] as num?)?.toInt() ?? 0,
       matchTime: json['match_time'] == null
           ? null
           : DateTime.parse(json['match_time'] as String),
@@ -32,13 +32,13 @@ _$MatchModelImpl _$$MatchModelImplFromJson(Map<String, dynamic> json) =>
       secondHalfFinishedAt: json['second_half_finished_at'] == null
           ? null
           : DateTime.parse(json['second_half_finished_at'] as String),
-      gameStarted: json['game_started'] as bool,
-      title: json['title'] as String,
+      gameStarted: json['game_started'] as bool? ?? false,
+      title: json['title'] as String? ?? 'Match Title',
       goalEvents: (json['goal_events'] as List<dynamic>?)
               ?.map((e) => GoalEventModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
-      leagueId: (json['league_id'] as num).toInt(),
+      leagueId: (json['league_id'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$MatchModelImplToJson(_$MatchModelImpl instance) =>

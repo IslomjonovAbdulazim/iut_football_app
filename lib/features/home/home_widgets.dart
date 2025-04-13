@@ -84,7 +84,7 @@ class _Top3AndBottom2 extends StatelessWidget {
   }
 }
 
-class _TopScorers extends StatelessWidget {
+class _TopScorers extends GetView<HomeController> {
   const _TopScorers({super.key});
 
   @override
@@ -110,11 +110,28 @@ class _TopScorers extends StatelessWidget {
             ),
           ],
         ),
-        ...List.generate(3, (index) {
-          return TopScorerWidget(
-            MockData.sampleStats[index],
-          );
-        }),
+        StreamBuilder(
+          stream: controller.getStats(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator.adaptive(
+                  backgroundColor: context.textPrimary,
+                ),
+              );
+            } else if (snapshot.hasError || snapshot.data == null) {
+              return Text(snapshot.error.toString(), style: context.title);
+            } else {
+              return Column(
+                children: snapshot.data!
+                    .map(
+                      (model) => TopScorerWidget(model),
+                )
+                    .toList(),
+              );
+            }
+          },
+        ),
       ],
     );
   }

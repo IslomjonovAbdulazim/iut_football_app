@@ -6,13 +6,14 @@ part 'stats_model.g.dart';
 @freezed
 class StatsModel with _$StatsModel {
   const factory StatsModel({
-    @JsonKey(name: 'player_id') required int playerId,
-    @JsonKey(name: 'player_name') required String playerName,
-    @JsonKey(name: 'avatar_url') required String avatarUrl,
-    @JsonKey(name: 'club_id') required int clubId,
-    @JsonKey(name: 'club_name') required String clubName,
-    @JsonKey(name: 'club_logo_url') required String clubLogoUrl,
-    @JsonKey(name: 'goals') required int goals,
+    @JsonKey(name: 'id', defaultValue: -1) required int playerId,
+    @JsonKey(name: 'name', defaultValue: 'Unknown Player') required String playerName,
+    @JsonKey(name: 'avatar', defaultValue: '') required String avatarUrl,
+    @JsonKey(name: 'club_id', defaultValue: -1) required int clubId,
+    @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') required String clubName,
+    @JsonKey(name: 'club_avatar', defaultValue: '') required String clubLogoUrl,
+    @JsonKey(name: 'goals', defaultValue: 0) required int goals,
+    @JsonKey(name: 'matches_played', defaultValue: 0) required int matchesPlayed,
   }) = _StatsModel;
 
   factory StatsModel.fromJson(Map<String, dynamic> json) =>

@@ -20,23 +20,23 @@ MatchModel _$MatchModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MatchModel {
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'home_club')
+  @JsonKey(name: 'home_club', defaultValue: 0)
   int get homeClubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'home_club_name')
+  @JsonKey(name: 'home_club_name', defaultValue: 'Home Club')
   String get homeClubName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'home_club_avatar')
+  @JsonKey(name: 'home_club_avatar', defaultValue: '')
   String get homeClubAvatar => throw _privateConstructorUsedError;
-  @JsonKey(name: 'away_club')
+  @JsonKey(name: 'away_club', defaultValue: 0)
   int get awayClubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'away_club_name')
+  @JsonKey(name: 'away_club_name', defaultValue: 'Away Club')
   String get awayClubName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'away_club_avatar')
+  @JsonKey(name: 'away_club_avatar', defaultValue: '')
   String get awayClubAvatar => throw _privateConstructorUsedError;
-  @JsonKey(name: 'home_score')
+  @JsonKey(name: 'home_score', defaultValue: 0)
   int get homeScore => throw _privateConstructorUsedError;
-  @JsonKey(name: 'away_score')
+  @JsonKey(name: 'away_score', defaultValue: 0)
   int get awayScore => throw _privateConstructorUsedError;
   @JsonKey(name: 'match_time')
   DateTime? get matchTime => throw _privateConstructorUsedError;
@@ -48,13 +48,13 @@ mixin _$MatchModel {
   DateTime? get secondHalfStartedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'second_half_finished_at')
   DateTime? get secondHalfFinishedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'game_started')
+  @JsonKey(name: 'game_started', defaultValue: false)
   bool get gameStarted => throw _privateConstructorUsedError;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', defaultValue: 'Match Title')
   String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'goal_events', defaultValue: [])
   List<GoalEventModel> get goalEvents => throw _privateConstructorUsedError;
-  @JsonKey(name: 'league_id')
+  @JsonKey(name: 'league_id', defaultValue: 0)
   int get leagueId => throw _privateConstructorUsedError;
 
   /// Serializes this MatchModel to a JSON map.
@@ -74,25 +74,29 @@ abstract class $MatchModelCopyWith<$Res> {
       _$MatchModelCopyWithImpl<$Res, MatchModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'home_club') int homeClubId,
-      @JsonKey(name: 'home_club_name') String homeClubName,
-      @JsonKey(name: 'home_club_avatar') String homeClubAvatar,
-      @JsonKey(name: 'away_club') int awayClubId,
-      @JsonKey(name: 'away_club_name') String awayClubName,
-      @JsonKey(name: 'away_club_avatar') String awayClubAvatar,
-      @JsonKey(name: 'home_score') int homeScore,
-      @JsonKey(name: 'away_score') int awayScore,
+      {@JsonKey(name: 'id', defaultValue: 0) int id,
+      @JsonKey(name: 'home_club', defaultValue: 0) int homeClubId,
+      @JsonKey(name: 'home_club_name', defaultValue: 'Home Club')
+      String homeClubName,
+      @JsonKey(name: 'home_club_avatar', defaultValue: '')
+      String homeClubAvatar,
+      @JsonKey(name: 'away_club', defaultValue: 0) int awayClubId,
+      @JsonKey(name: 'away_club_name', defaultValue: 'Away Club')
+      String awayClubName,
+      @JsonKey(name: 'away_club_avatar', defaultValue: '')
+      String awayClubAvatar,
+      @JsonKey(name: 'home_score', defaultValue: 0) int homeScore,
+      @JsonKey(name: 'away_score', defaultValue: 0) int awayScore,
       @JsonKey(name: 'match_time') DateTime? matchTime,
       @JsonKey(name: 'first_half_started_at') DateTime? firstHalfStartedAt,
       @JsonKey(name: 'first_half_finished_at') DateTime? firstHalfFinishedAt,
       @JsonKey(name: 'second_half_started_at') DateTime? secondHalfStartedAt,
       @JsonKey(name: 'second_half_finished_at') DateTime? secondHalfFinishedAt,
-      @JsonKey(name: 'game_started') bool gameStarted,
-      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'game_started', defaultValue: false) bool gameStarted,
+      @JsonKey(name: 'title', defaultValue: 'Match Title') String title,
       @JsonKey(name: 'goal_events', defaultValue: [])
       List<GoalEventModel> goalEvents,
-      @JsonKey(name: 'league_id') int leagueId});
+      @JsonKey(name: 'league_id', defaultValue: 0) int leagueId});
 }
 
 /// @nodoc
@@ -215,25 +219,29 @@ abstract class _$$MatchModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'home_club') int homeClubId,
-      @JsonKey(name: 'home_club_name') String homeClubName,
-      @JsonKey(name: 'home_club_avatar') String homeClubAvatar,
-      @JsonKey(name: 'away_club') int awayClubId,
-      @JsonKey(name: 'away_club_name') String awayClubName,
-      @JsonKey(name: 'away_club_avatar') String awayClubAvatar,
-      @JsonKey(name: 'home_score') int homeScore,
-      @JsonKey(name: 'away_score') int awayScore,
+      {@JsonKey(name: 'id', defaultValue: 0) int id,
+      @JsonKey(name: 'home_club', defaultValue: 0) int homeClubId,
+      @JsonKey(name: 'home_club_name', defaultValue: 'Home Club')
+      String homeClubName,
+      @JsonKey(name: 'home_club_avatar', defaultValue: '')
+      String homeClubAvatar,
+      @JsonKey(name: 'away_club', defaultValue: 0) int awayClubId,
+      @JsonKey(name: 'away_club_name', defaultValue: 'Away Club')
+      String awayClubName,
+      @JsonKey(name: 'away_club_avatar', defaultValue: '')
+      String awayClubAvatar,
+      @JsonKey(name: 'home_score', defaultValue: 0) int homeScore,
+      @JsonKey(name: 'away_score', defaultValue: 0) int awayScore,
       @JsonKey(name: 'match_time') DateTime? matchTime,
       @JsonKey(name: 'first_half_started_at') DateTime? firstHalfStartedAt,
       @JsonKey(name: 'first_half_finished_at') DateTime? firstHalfFinishedAt,
       @JsonKey(name: 'second_half_started_at') DateTime? secondHalfStartedAt,
       @JsonKey(name: 'second_half_finished_at') DateTime? secondHalfFinishedAt,
-      @JsonKey(name: 'game_started') bool gameStarted,
-      @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'game_started', defaultValue: false) bool gameStarted,
+      @JsonKey(name: 'title', defaultValue: 'Match Title') String title,
       @JsonKey(name: 'goal_events', defaultValue: [])
       List<GoalEventModel> goalEvents,
-      @JsonKey(name: 'league_id') int leagueId});
+      @JsonKey(name: 'league_id', defaultValue: 0) int leagueId});
 }
 
 /// @nodoc
@@ -349,56 +357,61 @@ class __$$MatchModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MatchModelImpl implements _MatchModel {
   const _$MatchModelImpl(
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'home_club') required this.homeClubId,
-      @JsonKey(name: 'home_club_name') required this.homeClubName,
-      @JsonKey(name: 'home_club_avatar') required this.homeClubAvatar,
-      @JsonKey(name: 'away_club') required this.awayClubId,
-      @JsonKey(name: 'away_club_name') required this.awayClubName,
-      @JsonKey(name: 'away_club_avatar') required this.awayClubAvatar,
-      @JsonKey(name: 'home_score') required this.homeScore,
-      @JsonKey(name: 'away_score') required this.awayScore,
-      @JsonKey(name: 'match_time') required this.matchTime,
+      {@JsonKey(name: 'id', defaultValue: 0) required this.id,
+      @JsonKey(name: 'home_club', defaultValue: 0) required this.homeClubId,
+      @JsonKey(name: 'home_club_name', defaultValue: 'Home Club')
+      required this.homeClubName,
+      @JsonKey(name: 'home_club_avatar', defaultValue: '')
+      required this.homeClubAvatar,
+      @JsonKey(name: 'away_club', defaultValue: 0) required this.awayClubId,
+      @JsonKey(name: 'away_club_name', defaultValue: 'Away Club')
+      required this.awayClubName,
+      @JsonKey(name: 'away_club_avatar', defaultValue: '')
+      required this.awayClubAvatar,
+      @JsonKey(name: 'home_score', defaultValue: 0) required this.homeScore,
+      @JsonKey(name: 'away_score', defaultValue: 0) required this.awayScore,
+      @JsonKey(name: 'match_time') this.matchTime,
       @JsonKey(name: 'first_half_started_at') this.firstHalfStartedAt,
       @JsonKey(name: 'first_half_finished_at') this.firstHalfFinishedAt,
       @JsonKey(name: 'second_half_started_at') this.secondHalfStartedAt,
       @JsonKey(name: 'second_half_finished_at') this.secondHalfFinishedAt,
-      @JsonKey(name: 'game_started') required this.gameStarted,
-      @JsonKey(name: 'title') required this.title,
+      @JsonKey(name: 'game_started', defaultValue: false)
+      required this.gameStarted,
+      @JsonKey(name: 'title', defaultValue: 'Match Title') required this.title,
       @JsonKey(name: 'goal_events', defaultValue: [])
       required final List<GoalEventModel> goalEvents,
-      @JsonKey(name: 'league_id') required this.leagueId})
+      @JsonKey(name: 'league_id', defaultValue: 0) required this.leagueId})
       : _goalEvents = goalEvents;
 
   factory _$MatchModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$MatchModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   final int id;
   @override
-  @JsonKey(name: 'home_club')
+  @JsonKey(name: 'home_club', defaultValue: 0)
   final int homeClubId;
   @override
-  @JsonKey(name: 'home_club_name')
+  @JsonKey(name: 'home_club_name', defaultValue: 'Home Club')
   final String homeClubName;
   @override
-  @JsonKey(name: 'home_club_avatar')
+  @JsonKey(name: 'home_club_avatar', defaultValue: '')
   final String homeClubAvatar;
   @override
-  @JsonKey(name: 'away_club')
+  @JsonKey(name: 'away_club', defaultValue: 0)
   final int awayClubId;
   @override
-  @JsonKey(name: 'away_club_name')
+  @JsonKey(name: 'away_club_name', defaultValue: 'Away Club')
   final String awayClubName;
   @override
-  @JsonKey(name: 'away_club_avatar')
+  @JsonKey(name: 'away_club_avatar', defaultValue: '')
   final String awayClubAvatar;
   @override
-  @JsonKey(name: 'home_score')
+  @JsonKey(name: 'home_score', defaultValue: 0)
   final int homeScore;
   @override
-  @JsonKey(name: 'away_score')
+  @JsonKey(name: 'away_score', defaultValue: 0)
   final int awayScore;
   @override
   @JsonKey(name: 'match_time')
@@ -416,10 +429,10 @@ class _$MatchModelImpl implements _MatchModel {
   @JsonKey(name: 'second_half_finished_at')
   final DateTime? secondHalfFinishedAt;
   @override
-  @JsonKey(name: 'game_started')
+  @JsonKey(name: 'game_started', defaultValue: false)
   final bool gameStarted;
   @override
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', defaultValue: 'Match Title')
   final String title;
   final List<GoalEventModel> _goalEvents;
   @override
@@ -431,7 +444,7 @@ class _$MatchModelImpl implements _MatchModel {
   }
 
   @override
-  @JsonKey(name: 'league_id')
+  @JsonKey(name: 'league_id', defaultValue: 0)
   final int leagueId;
 
   @override
@@ -521,16 +534,24 @@ class _$MatchModelImpl implements _MatchModel {
 
 abstract class _MatchModel implements MatchModel {
   const factory _MatchModel(
-      {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'home_club') required final int homeClubId,
-      @JsonKey(name: 'home_club_name') required final String homeClubName,
-      @JsonKey(name: 'home_club_avatar') required final String homeClubAvatar,
-      @JsonKey(name: 'away_club') required final int awayClubId,
-      @JsonKey(name: 'away_club_name') required final String awayClubName,
-      @JsonKey(name: 'away_club_avatar') required final String awayClubAvatar,
-      @JsonKey(name: 'home_score') required final int homeScore,
-      @JsonKey(name: 'away_score') required final int awayScore,
-      @JsonKey(name: 'match_time') required final DateTime? matchTime,
+      {@JsonKey(name: 'id', defaultValue: 0) required final int id,
+      @JsonKey(name: 'home_club', defaultValue: 0)
+      required final int homeClubId,
+      @JsonKey(name: 'home_club_name', defaultValue: 'Home Club')
+      required final String homeClubName,
+      @JsonKey(name: 'home_club_avatar', defaultValue: '')
+      required final String homeClubAvatar,
+      @JsonKey(name: 'away_club', defaultValue: 0)
+      required final int awayClubId,
+      @JsonKey(name: 'away_club_name', defaultValue: 'Away Club')
+      required final String awayClubName,
+      @JsonKey(name: 'away_club_avatar', defaultValue: '')
+      required final String awayClubAvatar,
+      @JsonKey(name: 'home_score', defaultValue: 0)
+      required final int homeScore,
+      @JsonKey(name: 'away_score', defaultValue: 0)
+      required final int awayScore,
+      @JsonKey(name: 'match_time') final DateTime? matchTime,
       @JsonKey(name: 'first_half_started_at')
       final DateTime? firstHalfStartedAt,
       @JsonKey(name: 'first_half_finished_at')
@@ -539,42 +560,44 @@ abstract class _MatchModel implements MatchModel {
       final DateTime? secondHalfStartedAt,
       @JsonKey(name: 'second_half_finished_at')
       final DateTime? secondHalfFinishedAt,
-      @JsonKey(name: 'game_started') required final bool gameStarted,
-      @JsonKey(name: 'title') required final String title,
+      @JsonKey(name: 'game_started', defaultValue: false)
+      required final bool gameStarted,
+      @JsonKey(name: 'title', defaultValue: 'Match Title')
+      required final String title,
       @JsonKey(name: 'goal_events', defaultValue: [])
       required final List<GoalEventModel> goalEvents,
-      @JsonKey(name: 'league_id')
+      @JsonKey(name: 'league_id', defaultValue: 0)
       required final int leagueId}) = _$MatchModelImpl;
 
   factory _MatchModel.fromJson(Map<String, dynamic> json) =
       _$MatchModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get id;
   @override
-  @JsonKey(name: 'home_club')
+  @JsonKey(name: 'home_club', defaultValue: 0)
   int get homeClubId;
   @override
-  @JsonKey(name: 'home_club_name')
+  @JsonKey(name: 'home_club_name', defaultValue: 'Home Club')
   String get homeClubName;
   @override
-  @JsonKey(name: 'home_club_avatar')
+  @JsonKey(name: 'home_club_avatar', defaultValue: '')
   String get homeClubAvatar;
   @override
-  @JsonKey(name: 'away_club')
+  @JsonKey(name: 'away_club', defaultValue: 0)
   int get awayClubId;
   @override
-  @JsonKey(name: 'away_club_name')
+  @JsonKey(name: 'away_club_name', defaultValue: 'Away Club')
   String get awayClubName;
   @override
-  @JsonKey(name: 'away_club_avatar')
+  @JsonKey(name: 'away_club_avatar', defaultValue: '')
   String get awayClubAvatar;
   @override
-  @JsonKey(name: 'home_score')
+  @JsonKey(name: 'home_score', defaultValue: 0)
   int get homeScore;
   @override
-  @JsonKey(name: 'away_score')
+  @JsonKey(name: 'away_score', defaultValue: 0)
   int get awayScore;
   @override
   @JsonKey(name: 'match_time')
@@ -592,16 +615,16 @@ abstract class _MatchModel implements MatchModel {
   @JsonKey(name: 'second_half_finished_at')
   DateTime? get secondHalfFinishedAt;
   @override
-  @JsonKey(name: 'game_started')
+  @JsonKey(name: 'game_started', defaultValue: false)
   bool get gameStarted;
   @override
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', defaultValue: 'Match Title')
   String get title;
   @override
   @JsonKey(name: 'goal_events', defaultValue: [])
   List<GoalEventModel> get goalEvents;
   @override
-  @JsonKey(name: 'league_id')
+  @JsonKey(name: 'league_id', defaultValue: 0)
   int get leagueId;
 
   /// Create a copy of MatchModel

@@ -20,20 +20,22 @@ StatsModel _$StatsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StatsModel {
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'id', defaultValue: -1)
   int get playerId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'player_name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   String get playerName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'avatar_url')
+  @JsonKey(name: 'avatar', defaultValue: '')
   String get avatarUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'club_id', defaultValue: -1)
   int get clubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_name')
+  @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
   String get clubName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'club_logo_url')
+  @JsonKey(name: 'club_avatar', defaultValue: '')
   String get clubLogoUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goals')
+  @JsonKey(name: 'goals', defaultValue: 0)
   int get goals => throw _privateConstructorUsedError;
+  @JsonKey(name: 'matches_played', defaultValue: 0)
+  int get matchesPlayed => throw _privateConstructorUsedError;
 
   /// Serializes this StatsModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,13 +54,14 @@ abstract class $StatsModelCopyWith<$Res> {
       _$StatsModelCopyWithImpl<$Res, StatsModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'player_id') int playerId,
-      @JsonKey(name: 'player_name') String playerName,
-      @JsonKey(name: 'avatar_url') String avatarUrl,
-      @JsonKey(name: 'club_id') int clubId,
-      @JsonKey(name: 'club_name') String clubName,
-      @JsonKey(name: 'club_logo_url') String clubLogoUrl,
-      @JsonKey(name: 'goals') int goals});
+      {@JsonKey(name: 'id', defaultValue: -1) int playerId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player') String playerName,
+      @JsonKey(name: 'avatar', defaultValue: '') String avatarUrl,
+      @JsonKey(name: 'club_id', defaultValue: -1) int clubId,
+      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') String clubName,
+      @JsonKey(name: 'club_avatar', defaultValue: '') String clubLogoUrl,
+      @JsonKey(name: 'goals', defaultValue: 0) int goals,
+      @JsonKey(name: 'matches_played', defaultValue: 0) int matchesPlayed});
 }
 
 /// @nodoc
@@ -83,6 +86,7 @@ class _$StatsModelCopyWithImpl<$Res, $Val extends StatsModel>
     Object? clubName = null,
     Object? clubLogoUrl = null,
     Object? goals = null,
+    Object? matchesPlayed = null,
   }) {
     return _then(_value.copyWith(
       playerId: null == playerId
@@ -113,6 +117,10 @@ class _$StatsModelCopyWithImpl<$Res, $Val extends StatsModel>
           ? _value.goals
           : goals // ignore: cast_nullable_to_non_nullable
               as int,
+      matchesPlayed: null == matchesPlayed
+          ? _value.matchesPlayed
+          : matchesPlayed // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -126,13 +134,14 @@ abstract class _$$StatsModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'player_id') int playerId,
-      @JsonKey(name: 'player_name') String playerName,
-      @JsonKey(name: 'avatar_url') String avatarUrl,
-      @JsonKey(name: 'club_id') int clubId,
-      @JsonKey(name: 'club_name') String clubName,
-      @JsonKey(name: 'club_logo_url') String clubLogoUrl,
-      @JsonKey(name: 'goals') int goals});
+      {@JsonKey(name: 'id', defaultValue: -1) int playerId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player') String playerName,
+      @JsonKey(name: 'avatar', defaultValue: '') String avatarUrl,
+      @JsonKey(name: 'club_id', defaultValue: -1) int clubId,
+      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club') String clubName,
+      @JsonKey(name: 'club_avatar', defaultValue: '') String clubLogoUrl,
+      @JsonKey(name: 'goals', defaultValue: 0) int goals,
+      @JsonKey(name: 'matches_played', defaultValue: 0) int matchesPlayed});
 }
 
 /// @nodoc
@@ -155,6 +164,7 @@ class __$$StatsModelImplCopyWithImpl<$Res>
     Object? clubName = null,
     Object? clubLogoUrl = null,
     Object? goals = null,
+    Object? matchesPlayed = null,
   }) {
     return _then(_$StatsModelImpl(
       playerId: null == playerId
@@ -185,6 +195,10 @@ class __$$StatsModelImplCopyWithImpl<$Res>
           ? _value.goals
           : goals // ignore: cast_nullable_to_non_nullable
               as int,
+      matchesPlayed: null == matchesPlayed
+          ? _value.matchesPlayed
+          : matchesPlayed // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -193,42 +207,49 @@ class __$$StatsModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$StatsModelImpl implements _StatsModel {
   const _$StatsModelImpl(
-      {@JsonKey(name: 'player_id') required this.playerId,
-      @JsonKey(name: 'player_name') required this.playerName,
-      @JsonKey(name: 'avatar_url') required this.avatarUrl,
-      @JsonKey(name: 'club_id') required this.clubId,
-      @JsonKey(name: 'club_name') required this.clubName,
-      @JsonKey(name: 'club_logo_url') required this.clubLogoUrl,
-      @JsonKey(name: 'goals') required this.goals});
+      {@JsonKey(name: 'id', defaultValue: -1) required this.playerId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player')
+      required this.playerName,
+      @JsonKey(name: 'avatar', defaultValue: '') required this.avatarUrl,
+      @JsonKey(name: 'club_id', defaultValue: -1) required this.clubId,
+      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
+      required this.clubName,
+      @JsonKey(name: 'club_avatar', defaultValue: '') required this.clubLogoUrl,
+      @JsonKey(name: 'goals', defaultValue: 0) required this.goals,
+      @JsonKey(name: 'matches_played', defaultValue: 0)
+      required this.matchesPlayed});
 
   factory _$StatsModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$StatsModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'id', defaultValue: -1)
   final int playerId;
   @override
-  @JsonKey(name: 'player_name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   final String playerName;
   @override
-  @JsonKey(name: 'avatar_url')
+  @JsonKey(name: 'avatar', defaultValue: '')
   final String avatarUrl;
   @override
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'club_id', defaultValue: -1)
   final int clubId;
   @override
-  @JsonKey(name: 'club_name')
+  @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
   final String clubName;
   @override
-  @JsonKey(name: 'club_logo_url')
+  @JsonKey(name: 'club_avatar', defaultValue: '')
   final String clubLogoUrl;
   @override
-  @JsonKey(name: 'goals')
+  @JsonKey(name: 'goals', defaultValue: 0)
   final int goals;
+  @override
+  @JsonKey(name: 'matches_played', defaultValue: 0)
+  final int matchesPlayed;
 
   @override
   String toString() {
-    return 'StatsModel(playerId: $playerId, playerName: $playerName, avatarUrl: $avatarUrl, clubId: $clubId, clubName: $clubName, clubLogoUrl: $clubLogoUrl, goals: $goals)';
+    return 'StatsModel(playerId: $playerId, playerName: $playerName, avatarUrl: $avatarUrl, clubId: $clubId, clubName: $clubName, clubLogoUrl: $clubLogoUrl, goals: $goals, matchesPlayed: $matchesPlayed)';
   }
 
   @override
@@ -247,13 +268,15 @@ class _$StatsModelImpl implements _StatsModel {
                 other.clubName == clubName) &&
             (identical(other.clubLogoUrl, clubLogoUrl) ||
                 other.clubLogoUrl == clubLogoUrl) &&
-            (identical(other.goals, goals) || other.goals == goals));
+            (identical(other.goals, goals) || other.goals == goals) &&
+            (identical(other.matchesPlayed, matchesPlayed) ||
+                other.matchesPlayed == matchesPlayed));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, playerId, playerName, avatarUrl,
-      clubId, clubName, clubLogoUrl, goals);
+      clubId, clubName, clubLogoUrl, goals, matchesPlayed);
 
   /// Create a copy of StatsModel
   /// with the given fields replaced by the non-null parameter values.
@@ -273,38 +296,47 @@ class _$StatsModelImpl implements _StatsModel {
 
 abstract class _StatsModel implements StatsModel {
   const factory _StatsModel(
-      {@JsonKey(name: 'player_id') required final int playerId,
-      @JsonKey(name: 'player_name') required final String playerName,
-      @JsonKey(name: 'avatar_url') required final String avatarUrl,
-      @JsonKey(name: 'club_id') required final int clubId,
-      @JsonKey(name: 'club_name') required final String clubName,
-      @JsonKey(name: 'club_logo_url') required final String clubLogoUrl,
-      @JsonKey(name: 'goals') required final int goals}) = _$StatsModelImpl;
+      {@JsonKey(name: 'id', defaultValue: -1) required final int playerId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player')
+      required final String playerName,
+      @JsonKey(name: 'avatar', defaultValue: '')
+      required final String avatarUrl,
+      @JsonKey(name: 'club_id', defaultValue: -1) required final int clubId,
+      @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
+      required final String clubName,
+      @JsonKey(name: 'club_avatar', defaultValue: '')
+      required final String clubLogoUrl,
+      @JsonKey(name: 'goals', defaultValue: 0) required final int goals,
+      @JsonKey(name: 'matches_played', defaultValue: 0)
+      required final int matchesPlayed}) = _$StatsModelImpl;
 
   factory _StatsModel.fromJson(Map<String, dynamic> json) =
       _$StatsModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'id', defaultValue: -1)
   int get playerId;
   @override
-  @JsonKey(name: 'player_name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Player')
   String get playerName;
   @override
-  @JsonKey(name: 'avatar_url')
+  @JsonKey(name: 'avatar', defaultValue: '')
   String get avatarUrl;
   @override
-  @JsonKey(name: 'club_id')
+  @JsonKey(name: 'club_id', defaultValue: -1)
   int get clubId;
   @override
-  @JsonKey(name: 'club_name')
+  @JsonKey(name: 'club_name', defaultValue: 'Unknown Club')
   String get clubName;
   @override
-  @JsonKey(name: 'club_logo_url')
+  @JsonKey(name: 'club_avatar', defaultValue: '')
   String get clubLogoUrl;
   @override
-  @JsonKey(name: 'goals')
+  @JsonKey(name: 'goals', defaultValue: 0)
   int get goals;
+  @override
+  @JsonKey(name: 'matches_played', defaultValue: 0)
+  int get matchesPlayed;
 
   /// Create a copy of StatsModel
   /// with the given fields replaced by the non-null parameter values.

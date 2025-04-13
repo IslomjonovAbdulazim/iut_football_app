@@ -8,13 +8,14 @@ part of 'league_model.dart';
 
 _$LeagueModelImpl _$$LeagueModelImplFromJson(Map<String, dynamic> json) =>
     _$LeagueModelImpl(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
+      id: (json['id'] as num?)?.toInt() ?? 0,
+      name: json['name'] as String? ?? 'Unknown League',
       startDate: DateTime.parse(json['start_date'] as String),
       endDate: DateTime.parse(json['end_date'] as String),
-      directAdvanceCount: (json['direct_advance_count'] as num).toInt(),
-      qualifierAdvanceCount: (json['qualifier_advance_count'] as num).toInt(),
-      eliminatedCount: (json['eliminated_count'] as num).toInt(),
+      directAdvanceCount: (json['direct_advance_count'] as num?)?.toInt() ?? 0,
+      qualifierAdvanceCount:
+          (json['qualifier_advance_count'] as num?)?.toInt() ?? 0,
+      eliminatedCount: (json['eliminated_count'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$LeagueModelImplToJson(_$LeagueModelImpl instance) =>

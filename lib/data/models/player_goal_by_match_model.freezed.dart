@@ -21,19 +21,19 @@ PlayerGoalByMatchModel _$PlayerGoalByMatchModelFromJson(
 
 /// @nodoc
 mixin _$PlayerGoalByMatchModel {
-  @JsonKey(name: 'match_id')
+  @JsonKey(name: 'match_id', defaultValue: 0)
   int get matchId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'opponent_club_id')
+  @JsonKey(name: 'opponent_club_id', defaultValue: 0)
   int get opponentClubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'opponent_club_name')
+  @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
   String get opponentClubName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'opponent_club_avatar')
+  @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
   String get opponentClubAvatar => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goal_at_minutes')
+  @JsonKey(name: 'goal_at_minutes', defaultValue: [])
   List<int> get goalAtMinutes => throw _privateConstructorUsedError;
-  @JsonKey(name: 'opponent_score')
+  @JsonKey(name: 'opponent_score', defaultValue: 0)
   int get opponentScore => throw _privateConstructorUsedError;
-  @JsonKey(name: 'their_score')
+  @JsonKey(name: 'their_score', defaultValue: 0)
   int get theirScore => throw _privateConstructorUsedError;
 
   /// Serializes this PlayerGoalByMatchModel to a JSON map.
@@ -53,13 +53,16 @@ abstract class $PlayerGoalByMatchModelCopyWith<$Res> {
       _$PlayerGoalByMatchModelCopyWithImpl<$Res, PlayerGoalByMatchModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'match_id') int matchId,
-      @JsonKey(name: 'opponent_club_id') int opponentClubId,
-      @JsonKey(name: 'opponent_club_name') String opponentClubName,
-      @JsonKey(name: 'opponent_club_avatar') String opponentClubAvatar,
-      @JsonKey(name: 'goal_at_minutes') List<int> goalAtMinutes,
-      @JsonKey(name: 'opponent_score') int opponentScore,
-      @JsonKey(name: 'their_score') int theirScore});
+      {@JsonKey(name: 'match_id', defaultValue: 0) int matchId,
+      @JsonKey(name: 'opponent_club_id', defaultValue: 0) int opponentClubId,
+      @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
+      String opponentClubName,
+      @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+      String opponentClubAvatar,
+      @JsonKey(name: 'goal_at_minutes', defaultValue: [])
+      List<int> goalAtMinutes,
+      @JsonKey(name: 'opponent_score', defaultValue: 0) int opponentScore,
+      @JsonKey(name: 'their_score', defaultValue: 0) int theirScore});
 }
 
 /// @nodoc
@@ -129,13 +132,16 @@ abstract class _$$PlayerGoalByMatchModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'match_id') int matchId,
-      @JsonKey(name: 'opponent_club_id') int opponentClubId,
-      @JsonKey(name: 'opponent_club_name') String opponentClubName,
-      @JsonKey(name: 'opponent_club_avatar') String opponentClubAvatar,
-      @JsonKey(name: 'goal_at_minutes') List<int> goalAtMinutes,
-      @JsonKey(name: 'opponent_score') int opponentScore,
-      @JsonKey(name: 'their_score') int theirScore});
+      {@JsonKey(name: 'match_id', defaultValue: 0) int matchId,
+      @JsonKey(name: 'opponent_club_id', defaultValue: 0) int opponentClubId,
+      @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
+      String opponentClubName,
+      @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+      String opponentClubAvatar,
+      @JsonKey(name: 'goal_at_minutes', defaultValue: [])
+      List<int> goalAtMinutes,
+      @JsonKey(name: 'opponent_score', defaultValue: 0) int opponentScore,
+      @JsonKey(name: 'their_score', defaultValue: 0) int theirScore});
 }
 
 /// @nodoc
@@ -198,33 +204,38 @@ class __$$PlayerGoalByMatchModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlayerGoalByMatchModelImpl implements _PlayerGoalByMatchModel {
   const _$PlayerGoalByMatchModelImpl(
-      {@JsonKey(name: 'match_id') required this.matchId,
-      @JsonKey(name: 'opponent_club_id') required this.opponentClubId,
-      @JsonKey(name: 'opponent_club_name') required this.opponentClubName,
-      @JsonKey(name: 'opponent_club_avatar') required this.opponentClubAvatar,
-      @JsonKey(name: 'goal_at_minutes') required final List<int> goalAtMinutes,
-      @JsonKey(name: 'opponent_score') required this.opponentScore,
-      @JsonKey(name: 'their_score') required this.theirScore})
+      {@JsonKey(name: 'match_id', defaultValue: 0) required this.matchId,
+      @JsonKey(name: 'opponent_club_id', defaultValue: 0)
+      required this.opponentClubId,
+      @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
+      required this.opponentClubName,
+      @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
+      required this.opponentClubAvatar,
+      @JsonKey(name: 'goal_at_minutes', defaultValue: [])
+      required final List<int> goalAtMinutes,
+      @JsonKey(name: 'opponent_score', defaultValue: 0)
+      required this.opponentScore,
+      @JsonKey(name: 'their_score', defaultValue: 0) required this.theirScore})
       : _goalAtMinutes = goalAtMinutes;
 
   factory _$PlayerGoalByMatchModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlayerGoalByMatchModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'match_id')
+  @JsonKey(name: 'match_id', defaultValue: 0)
   final int matchId;
   @override
-  @JsonKey(name: 'opponent_club_id')
+  @JsonKey(name: 'opponent_club_id', defaultValue: 0)
   final int opponentClubId;
   @override
-  @JsonKey(name: 'opponent_club_name')
+  @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
   final String opponentClubName;
   @override
-  @JsonKey(name: 'opponent_club_avatar')
+  @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
   final String opponentClubAvatar;
   final List<int> _goalAtMinutes;
   @override
-  @JsonKey(name: 'goal_at_minutes')
+  @JsonKey(name: 'goal_at_minutes', defaultValue: [])
   List<int> get goalAtMinutes {
     if (_goalAtMinutes is EqualUnmodifiableListView) return _goalAtMinutes;
     // ignore: implicit_dynamic_type
@@ -232,10 +243,10 @@ class _$PlayerGoalByMatchModelImpl implements _PlayerGoalByMatchModel {
   }
 
   @override
-  @JsonKey(name: 'opponent_score')
+  @JsonKey(name: 'opponent_score', defaultValue: 0)
   final int opponentScore;
   @override
-  @JsonKey(name: 'their_score')
+  @JsonKey(name: 'their_score', defaultValue: 0)
   final int theirScore;
 
   @override
@@ -294,40 +305,43 @@ class _$PlayerGoalByMatchModelImpl implements _PlayerGoalByMatchModel {
 
 abstract class _PlayerGoalByMatchModel implements PlayerGoalByMatchModel {
   const factory _PlayerGoalByMatchModel(
-      {@JsonKey(name: 'match_id') required final int matchId,
-      @JsonKey(name: 'opponent_club_id') required final int opponentClubId,
-      @JsonKey(name: 'opponent_club_name')
+      {@JsonKey(name: 'match_id', defaultValue: 0) required final int matchId,
+      @JsonKey(name: 'opponent_club_id', defaultValue: 0)
+      required final int opponentClubId,
+      @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
       required final String opponentClubName,
-      @JsonKey(name: 'opponent_club_avatar')
+      @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
       required final String opponentClubAvatar,
-      @JsonKey(name: 'goal_at_minutes') required final List<int> goalAtMinutes,
-      @JsonKey(name: 'opponent_score') required final int opponentScore,
-      @JsonKey(name: 'their_score')
+      @JsonKey(name: 'goal_at_minutes', defaultValue: [])
+      required final List<int> goalAtMinutes,
+      @JsonKey(name: 'opponent_score', defaultValue: 0)
+      required final int opponentScore,
+      @JsonKey(name: 'their_score', defaultValue: 0)
       required final int theirScore}) = _$PlayerGoalByMatchModelImpl;
 
   factory _PlayerGoalByMatchModel.fromJson(Map<String, dynamic> json) =
       _$PlayerGoalByMatchModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'match_id')
+  @JsonKey(name: 'match_id', defaultValue: 0)
   int get matchId;
   @override
-  @JsonKey(name: 'opponent_club_id')
+  @JsonKey(name: 'opponent_club_id', defaultValue: 0)
   int get opponentClubId;
   @override
-  @JsonKey(name: 'opponent_club_name')
+  @JsonKey(name: 'opponent_club_name', defaultValue: 'Opponent')
   String get opponentClubName;
   @override
-  @JsonKey(name: 'opponent_club_avatar')
+  @JsonKey(name: 'opponent_club_avatar', defaultValue: '')
   String get opponentClubAvatar;
   @override
-  @JsonKey(name: 'goal_at_minutes')
+  @JsonKey(name: 'goal_at_minutes', defaultValue: [])
   List<int> get goalAtMinutes;
   @override
-  @JsonKey(name: 'opponent_score')
+  @JsonKey(name: 'opponent_score', defaultValue: 0)
   int get opponentScore;
   @override
-  @JsonKey(name: 'their_score')
+  @JsonKey(name: 'their_score', defaultValue: 0)
   int get theirScore;
 
   /// Create a copy of PlayerGoalByMatchModel

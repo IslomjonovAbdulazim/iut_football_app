@@ -20,19 +20,19 @@ LeagueModel _$LeagueModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LeagueModel {
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown League')
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'start_date')
   DateTime get startDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'end_date')
   DateTime get endDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'direct_advance_count')
+  @JsonKey(name: 'direct_advance_count', defaultValue: 0)
   int get directAdvanceCount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'qualifier_advance_count')
+  @JsonKey(name: 'qualifier_advance_count', defaultValue: 0)
   int get qualifierAdvanceCount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'eliminated_count')
+  @JsonKey(name: 'eliminated_count', defaultValue: 0)
   int get eliminatedCount => throw _privateConstructorUsedError;
 
   /// Serializes this LeagueModel to a JSON map.
@@ -52,13 +52,15 @@ abstract class $LeagueModelCopyWith<$Res> {
       _$LeagueModelCopyWithImpl<$Res, LeagueModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'name') String name,
+      {@JsonKey(name: 'id', defaultValue: 0) int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown League') String name,
       @JsonKey(name: 'start_date') DateTime startDate,
       @JsonKey(name: 'end_date') DateTime endDate,
-      @JsonKey(name: 'direct_advance_count') int directAdvanceCount,
-      @JsonKey(name: 'qualifier_advance_count') int qualifierAdvanceCount,
-      @JsonKey(name: 'eliminated_count') int eliminatedCount});
+      @JsonKey(name: 'direct_advance_count', defaultValue: 0)
+      int directAdvanceCount,
+      @JsonKey(name: 'qualifier_advance_count', defaultValue: 0)
+      int qualifierAdvanceCount,
+      @JsonKey(name: 'eliminated_count', defaultValue: 0) int eliminatedCount});
 }
 
 /// @nodoc
@@ -126,13 +128,15 @@ abstract class _$$LeagueModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int id,
-      @JsonKey(name: 'name') String name,
+      {@JsonKey(name: 'id', defaultValue: 0) int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown League') String name,
       @JsonKey(name: 'start_date') DateTime startDate,
       @JsonKey(name: 'end_date') DateTime endDate,
-      @JsonKey(name: 'direct_advance_count') int directAdvanceCount,
-      @JsonKey(name: 'qualifier_advance_count') int qualifierAdvanceCount,
-      @JsonKey(name: 'eliminated_count') int eliminatedCount});
+      @JsonKey(name: 'direct_advance_count', defaultValue: 0)
+      int directAdvanceCount,
+      @JsonKey(name: 'qualifier_advance_count', defaultValue: 0)
+      int qualifierAdvanceCount,
+      @JsonKey(name: 'eliminated_count', defaultValue: 0) int eliminatedCount});
 }
 
 /// @nodoc
@@ -193,23 +197,25 @@ class __$$LeagueModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$LeagueModelImpl implements _LeagueModel {
   const _$LeagueModelImpl(
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'name') required this.name,
+      {@JsonKey(name: 'id', defaultValue: 0) required this.id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown League') required this.name,
       @JsonKey(name: 'start_date') required this.startDate,
       @JsonKey(name: 'end_date') required this.endDate,
-      @JsonKey(name: 'direct_advance_count') required this.directAdvanceCount,
-      @JsonKey(name: 'qualifier_advance_count')
+      @JsonKey(name: 'direct_advance_count', defaultValue: 0)
+      required this.directAdvanceCount,
+      @JsonKey(name: 'qualifier_advance_count', defaultValue: 0)
       required this.qualifierAdvanceCount,
-      @JsonKey(name: 'eliminated_count') required this.eliminatedCount});
+      @JsonKey(name: 'eliminated_count', defaultValue: 0)
+      required this.eliminatedCount});
 
   factory _$LeagueModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LeagueModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   final int id;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown League')
   final String name;
   @override
   @JsonKey(name: 'start_date')
@@ -218,13 +224,13 @@ class _$LeagueModelImpl implements _LeagueModel {
   @JsonKey(name: 'end_date')
   final DateTime endDate;
   @override
-  @JsonKey(name: 'direct_advance_count')
+  @JsonKey(name: 'direct_advance_count', defaultValue: 0)
   final int directAdvanceCount;
   @override
-  @JsonKey(name: 'qualifier_advance_count')
+  @JsonKey(name: 'qualifier_advance_count', defaultValue: 0)
   final int qualifierAdvanceCount;
   @override
-  @JsonKey(name: 'eliminated_count')
+  @JsonKey(name: 'eliminated_count', defaultValue: 0)
   final int eliminatedCount;
 
   @override
@@ -273,25 +279,26 @@ class _$LeagueModelImpl implements _LeagueModel {
 
 abstract class _LeagueModel implements LeagueModel {
   const factory _LeagueModel(
-      {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'name') required final String name,
+      {@JsonKey(name: 'id', defaultValue: 0) required final int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown League')
+      required final String name,
       @JsonKey(name: 'start_date') required final DateTime startDate,
       @JsonKey(name: 'end_date') required final DateTime endDate,
-      @JsonKey(name: 'direct_advance_count')
+      @JsonKey(name: 'direct_advance_count', defaultValue: 0)
       required final int directAdvanceCount,
-      @JsonKey(name: 'qualifier_advance_count')
+      @JsonKey(name: 'qualifier_advance_count', defaultValue: 0)
       required final int qualifierAdvanceCount,
-      @JsonKey(name: 'eliminated_count')
+      @JsonKey(name: 'eliminated_count', defaultValue: 0)
       required final int eliminatedCount}) = _$LeagueModelImpl;
 
   factory _LeagueModel.fromJson(Map<String, dynamic> json) =
       _$LeagueModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get id;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown League')
   String get name;
   @override
   @JsonKey(name: 'start_date')
@@ -300,13 +307,13 @@ abstract class _LeagueModel implements LeagueModel {
   @JsonKey(name: 'end_date')
   DateTime get endDate;
   @override
-  @JsonKey(name: 'direct_advance_count')
+  @JsonKey(name: 'direct_advance_count', defaultValue: 0)
   int get directAdvanceCount;
   @override
-  @JsonKey(name: 'qualifier_advance_count')
+  @JsonKey(name: 'qualifier_advance_count', defaultValue: 0)
   int get qualifierAdvanceCount;
   @override
-  @JsonKey(name: 'eliminated_count')
+  @JsonKey(name: 'eliminated_count', defaultValue: 0)
   int get eliminatedCount;
 
   /// Create a copy of LeagueModel

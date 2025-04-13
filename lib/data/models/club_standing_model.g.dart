@@ -9,16 +9,16 @@ part of 'club_standing_model.dart';
 _$ClubStandingModelImpl _$$ClubStandingModelImplFromJson(
         Map<String, dynamic> json) =>
     _$ClubStandingModelImpl(
-      clubId: (json['id'] as num).toInt(),
-      clubName: json['name'] as String,
-      clubAvatar: json['logo'] as String,
-      points: (json['points'] as num).toInt(),
-      goalsScored: (json['goals_scored'] as num).toInt(),
-      goalsConceded: (json['goals_conceded'] as num).toInt(),
-      wins: (json['wins'] as num).toInt(),
-      draws: (json['draws'] as num).toInt(),
-      looses: (json['looses'] as num).toInt(),
-      rank: (json['rank'] as num).toInt(),
+      clubId: (json['id'] as num?)?.toInt() ?? 0,
+      clubName: json['name'] as String? ?? 'Unknown Club',
+      clubAvatar: json['logo'] as String? ?? '',
+      points: (json['points'] as num?)?.toInt() ?? 0,
+      goalsScored: (json['goals_scored'] as num?)?.toInt() ?? 0,
+      goalsConceded: (json['goals_conceded'] as num?)?.toInt() ?? 0,
+      wins: (json['wins'] as num?)?.toInt() ?? 0,
+      draws: (json['draws'] as num?)?.toInt() ?? 0,
+      looses: (json['looses'] as num?)?.toInt() ?? 0,
+      rank: (json['rank'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$ClubStandingModelImplToJson(

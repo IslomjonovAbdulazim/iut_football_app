@@ -1,7 +1,7 @@
 part of 'imports.dart';
 
 class StatsController extends GetxController {
-  Stream<List<StatsModel>> connectLeaderboard() {
+  Stream<List<StatsModel>> getStats() {
     final channel = WebSocketChannel.connect(
       Uri.parse(ApiConstants.streamURL + ApiConstants.matches),
     );

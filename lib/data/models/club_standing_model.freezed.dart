@@ -20,25 +20,25 @@ ClubStandingModel _$ClubStandingModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ClubStandingModel {
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get clubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Club')
   String get clubName => throw _privateConstructorUsedError;
-  @JsonKey(name: 'logo')
+  @JsonKey(name: 'logo', defaultValue: '')
   String get clubAvatar => throw _privateConstructorUsedError;
-  @JsonKey(name: 'points')
+  @JsonKey(name: 'points', defaultValue: 0)
   int get points => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goals_scored')
+  @JsonKey(name: 'goals_scored', defaultValue: 0)
   int get goalsScored => throw _privateConstructorUsedError;
-  @JsonKey(name: 'goals_conceded')
+  @JsonKey(name: 'goals_conceded', defaultValue: 0)
   int get goalsConceded => throw _privateConstructorUsedError;
-  @JsonKey(name: 'wins')
+  @JsonKey(name: 'wins', defaultValue: 0)
   int get wins => throw _privateConstructorUsedError;
-  @JsonKey(name: 'draws')
+  @JsonKey(name: 'draws', defaultValue: 0)
   int get draws => throw _privateConstructorUsedError;
-  @JsonKey(name: 'looses')
+  @JsonKey(name: 'looses', defaultValue: 0)
   int get looses => throw _privateConstructorUsedError;
-  @JsonKey(name: 'rank')
+  @JsonKey(name: 'rank', defaultValue: 0)
   int get rank => throw _privateConstructorUsedError;
 
   /// Serializes this ClubStandingModel to a JSON map.
@@ -58,16 +58,16 @@ abstract class $ClubStandingModelCopyWith<$Res> {
       _$ClubStandingModelCopyWithImpl<$Res, ClubStandingModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int clubId,
-      @JsonKey(name: 'name') String clubName,
-      @JsonKey(name: 'logo') String clubAvatar,
-      @JsonKey(name: 'points') int points,
-      @JsonKey(name: 'goals_scored') int goalsScored,
-      @JsonKey(name: 'goals_conceded') int goalsConceded,
-      @JsonKey(name: 'wins') int wins,
-      @JsonKey(name: 'draws') int draws,
-      @JsonKey(name: 'looses') int looses,
-      @JsonKey(name: 'rank') int rank});
+      {@JsonKey(name: 'id', defaultValue: 0) int clubId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Club') String clubName,
+      @JsonKey(name: 'logo', defaultValue: '') String clubAvatar,
+      @JsonKey(name: 'points', defaultValue: 0) int points,
+      @JsonKey(name: 'goals_scored', defaultValue: 0) int goalsScored,
+      @JsonKey(name: 'goals_conceded', defaultValue: 0) int goalsConceded,
+      @JsonKey(name: 'wins', defaultValue: 0) int wins,
+      @JsonKey(name: 'draws', defaultValue: 0) int draws,
+      @JsonKey(name: 'looses', defaultValue: 0) int looses,
+      @JsonKey(name: 'rank', defaultValue: 0) int rank});
 }
 
 /// @nodoc
@@ -150,16 +150,16 @@ abstract class _$$ClubStandingModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') int clubId,
-      @JsonKey(name: 'name') String clubName,
-      @JsonKey(name: 'logo') String clubAvatar,
-      @JsonKey(name: 'points') int points,
-      @JsonKey(name: 'goals_scored') int goalsScored,
-      @JsonKey(name: 'goals_conceded') int goalsConceded,
-      @JsonKey(name: 'wins') int wins,
-      @JsonKey(name: 'draws') int draws,
-      @JsonKey(name: 'looses') int looses,
-      @JsonKey(name: 'rank') int rank});
+      {@JsonKey(name: 'id', defaultValue: 0) int clubId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Club') String clubName,
+      @JsonKey(name: 'logo', defaultValue: '') String clubAvatar,
+      @JsonKey(name: 'points', defaultValue: 0) int points,
+      @JsonKey(name: 'goals_scored', defaultValue: 0) int goalsScored,
+      @JsonKey(name: 'goals_conceded', defaultValue: 0) int goalsConceded,
+      @JsonKey(name: 'wins', defaultValue: 0) int wins,
+      @JsonKey(name: 'draws', defaultValue: 0) int draws,
+      @JsonKey(name: 'looses', defaultValue: 0) int looses,
+      @JsonKey(name: 'rank', defaultValue: 0) int rank});
 }
 
 /// @nodoc
@@ -235,49 +235,51 @@ class __$$ClubStandingModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ClubStandingModelImpl implements _ClubStandingModel {
   const _$ClubStandingModelImpl(
-      {@JsonKey(name: 'id') required this.clubId,
-      @JsonKey(name: 'name') required this.clubName,
-      @JsonKey(name: 'logo') required this.clubAvatar,
-      @JsonKey(name: 'points') required this.points,
-      @JsonKey(name: 'goals_scored') required this.goalsScored,
-      @JsonKey(name: 'goals_conceded') required this.goalsConceded,
-      @JsonKey(name: 'wins') required this.wins,
-      @JsonKey(name: 'draws') required this.draws,
-      @JsonKey(name: 'looses') required this.looses,
-      @JsonKey(name: 'rank') required this.rank});
+      {@JsonKey(name: 'id', defaultValue: 0) required this.clubId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Club')
+      required this.clubName,
+      @JsonKey(name: 'logo', defaultValue: '') required this.clubAvatar,
+      @JsonKey(name: 'points', defaultValue: 0) required this.points,
+      @JsonKey(name: 'goals_scored', defaultValue: 0) required this.goalsScored,
+      @JsonKey(name: 'goals_conceded', defaultValue: 0)
+      required this.goalsConceded,
+      @JsonKey(name: 'wins', defaultValue: 0) required this.wins,
+      @JsonKey(name: 'draws', defaultValue: 0) required this.draws,
+      @JsonKey(name: 'looses', defaultValue: 0) required this.looses,
+      @JsonKey(name: 'rank', defaultValue: 0) required this.rank});
 
   factory _$ClubStandingModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ClubStandingModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   final int clubId;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Club')
   final String clubName;
   @override
-  @JsonKey(name: 'logo')
+  @JsonKey(name: 'logo', defaultValue: '')
   final String clubAvatar;
   @override
-  @JsonKey(name: 'points')
+  @JsonKey(name: 'points', defaultValue: 0)
   final int points;
   @override
-  @JsonKey(name: 'goals_scored')
+  @JsonKey(name: 'goals_scored', defaultValue: 0)
   final int goalsScored;
   @override
-  @JsonKey(name: 'goals_conceded')
+  @JsonKey(name: 'goals_conceded', defaultValue: 0)
   final int goalsConceded;
   @override
-  @JsonKey(name: 'wins')
+  @JsonKey(name: 'wins', defaultValue: 0)
   final int wins;
   @override
-  @JsonKey(name: 'draws')
+  @JsonKey(name: 'draws', defaultValue: 0)
   final int draws;
   @override
-  @JsonKey(name: 'looses')
+  @JsonKey(name: 'looses', defaultValue: 0)
   final int looses;
   @override
-  @JsonKey(name: 'rank')
+  @JsonKey(name: 'rank', defaultValue: 0)
   final int rank;
 
   @override
@@ -330,50 +332,53 @@ class _$ClubStandingModelImpl implements _ClubStandingModel {
 
 abstract class _ClubStandingModel implements ClubStandingModel {
   const factory _ClubStandingModel(
-          {@JsonKey(name: 'id') required final int clubId,
-          @JsonKey(name: 'name') required final String clubName,
-          @JsonKey(name: 'logo') required final String clubAvatar,
-          @JsonKey(name: 'points') required final int points,
-          @JsonKey(name: 'goals_scored') required final int goalsScored,
-          @JsonKey(name: 'goals_conceded') required final int goalsConceded,
-          @JsonKey(name: 'wins') required final int wins,
-          @JsonKey(name: 'draws') required final int draws,
-          @JsonKey(name: 'looses') required final int looses,
-          @JsonKey(name: 'rank') required final int rank}) =
-      _$ClubStandingModelImpl;
+      {@JsonKey(name: 'id', defaultValue: 0) required final int clubId,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Club')
+      required final String clubName,
+      @JsonKey(name: 'logo', defaultValue: '') required final String clubAvatar,
+      @JsonKey(name: 'points', defaultValue: 0) required final int points,
+      @JsonKey(name: 'goals_scored', defaultValue: 0)
+      required final int goalsScored,
+      @JsonKey(name: 'goals_conceded', defaultValue: 0)
+      required final int goalsConceded,
+      @JsonKey(name: 'wins', defaultValue: 0) required final int wins,
+      @JsonKey(name: 'draws', defaultValue: 0) required final int draws,
+      @JsonKey(name: 'looses', defaultValue: 0) required final int looses,
+      @JsonKey(name: 'rank', defaultValue: 0)
+      required final int rank}) = _$ClubStandingModelImpl;
 
   factory _ClubStandingModel.fromJson(Map<String, dynamic> json) =
       _$ClubStandingModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', defaultValue: 0)
   int get clubId;
   @override
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', defaultValue: 'Unknown Club')
   String get clubName;
   @override
-  @JsonKey(name: 'logo')
+  @JsonKey(name: 'logo', defaultValue: '')
   String get clubAvatar;
   @override
-  @JsonKey(name: 'points')
+  @JsonKey(name: 'points', defaultValue: 0)
   int get points;
   @override
-  @JsonKey(name: 'goals_scored')
+  @JsonKey(name: 'goals_scored', defaultValue: 0)
   int get goalsScored;
   @override
-  @JsonKey(name: 'goals_conceded')
+  @JsonKey(name: 'goals_conceded', defaultValue: 0)
   int get goalsConceded;
   @override
-  @JsonKey(name: 'wins')
+  @JsonKey(name: 'wins', defaultValue: 0)
   int get wins;
   @override
-  @JsonKey(name: 'draws')
+  @JsonKey(name: 'draws', defaultValue: 0)
   int get draws;
   @override
-  @JsonKey(name: 'looses')
+  @JsonKey(name: 'looses', defaultValue: 0)
   int get looses;
   @override
-  @JsonKey(name: 'rank')
+  @JsonKey(name: 'rank', defaultValue: 0)
   int get rank;
 
   /// Create a copy of ClubStandingModel
