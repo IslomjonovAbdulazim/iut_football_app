@@ -34,6 +34,8 @@ mixin _$PlayerModel {
   String get clubAvatar => throw _privateConstructorUsedError;
   @JsonKey(name: 'goals', defaultValue: 0)
   int get goals => throw _privateConstructorUsedError;
+  @JsonKey(name: 'matches_played', defaultValue: 0)
+  int get matchesPlayed => throw _privateConstructorUsedError;
 
   /// Serializes this PlayerModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,7 +60,8 @@ abstract class $PlayerModelCopyWith<$Res> {
       @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
       @JsonKey(name: 'club_name', defaultValue: "") String clubName,
       @JsonKey(name: 'club_avatar', defaultValue: "") String clubAvatar,
-      @JsonKey(name: 'goals', defaultValue: 0) int goals});
+      @JsonKey(name: 'goals', defaultValue: 0) int goals,
+      @JsonKey(name: 'matches_played', defaultValue: 0) int matchesPlayed});
 }
 
 /// @nodoc
@@ -83,6 +86,7 @@ class _$PlayerModelCopyWithImpl<$Res, $Val extends PlayerModel>
     Object? clubName = null,
     Object? clubAvatar = null,
     Object? goals = null,
+    Object? matchesPlayed = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -113,6 +117,10 @@ class _$PlayerModelCopyWithImpl<$Res, $Val extends PlayerModel>
           ? _value.goals
           : goals // ignore: cast_nullable_to_non_nullable
               as int,
+      matchesPlayed: null == matchesPlayed
+          ? _value.matchesPlayed
+          : matchesPlayed // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -132,7 +140,8 @@ abstract class _$$PlayerModelImplCopyWith<$Res>
       @JsonKey(name: 'club_id', defaultValue: 0) int clubId,
       @JsonKey(name: 'club_name', defaultValue: "") String clubName,
       @JsonKey(name: 'club_avatar', defaultValue: "") String clubAvatar,
-      @JsonKey(name: 'goals', defaultValue: 0) int goals});
+      @JsonKey(name: 'goals', defaultValue: 0) int goals,
+      @JsonKey(name: 'matches_played', defaultValue: 0) int matchesPlayed});
 }
 
 /// @nodoc
@@ -155,6 +164,7 @@ class __$$PlayerModelImplCopyWithImpl<$Res>
     Object? clubName = null,
     Object? clubAvatar = null,
     Object? goals = null,
+    Object? matchesPlayed = null,
   }) {
     return _then(_$PlayerModelImpl(
       id: null == id
@@ -185,6 +195,10 @@ class __$$PlayerModelImplCopyWithImpl<$Res>
           ? _value.goals
           : goals // ignore: cast_nullable_to_non_nullable
               as int,
+      matchesPlayed: null == matchesPlayed
+          ? _value.matchesPlayed
+          : matchesPlayed // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -199,7 +213,9 @@ class _$PlayerModelImpl implements _PlayerModel {
       @JsonKey(name: 'club_id', defaultValue: 0) required this.clubId,
       @JsonKey(name: 'club_name', defaultValue: "") required this.clubName,
       @JsonKey(name: 'club_avatar', defaultValue: "") required this.clubAvatar,
-      @JsonKey(name: 'goals', defaultValue: 0) required this.goals});
+      @JsonKey(name: 'goals', defaultValue: 0) required this.goals,
+      @JsonKey(name: 'matches_played', defaultValue: 0)
+      required this.matchesPlayed});
 
   factory _$PlayerModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlayerModelImplFromJson(json);
@@ -225,10 +241,13 @@ class _$PlayerModelImpl implements _PlayerModel {
   @override
   @JsonKey(name: 'goals', defaultValue: 0)
   final int goals;
+  @override
+  @JsonKey(name: 'matches_played', defaultValue: 0)
+  final int matchesPlayed;
 
   @override
   String toString() {
-    return 'PlayerModel(id: $id, name: $name, avatarUrl: $avatarUrl, clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, goals: $goals)';
+    return 'PlayerModel(id: $id, name: $name, avatarUrl: $avatarUrl, clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, goals: $goals, matchesPlayed: $matchesPlayed)';
   }
 
   @override
@@ -245,13 +264,15 @@ class _$PlayerModelImpl implements _PlayerModel {
                 other.clubName == clubName) &&
             (identical(other.clubAvatar, clubAvatar) ||
                 other.clubAvatar == clubAvatar) &&
-            (identical(other.goals, goals) || other.goals == goals));
+            (identical(other.goals, goals) || other.goals == goals) &&
+            (identical(other.matchesPlayed, matchesPlayed) ||
+                other.matchesPlayed == matchesPlayed));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, avatarUrl, clubId, clubName, clubAvatar, goals);
+  int get hashCode => Object.hash(runtimeType, id, name, avatarUrl, clubId,
+      clubName, clubAvatar, goals, matchesPlayed);
 
   /// Create a copy of PlayerModel
   /// with the given fields replaced by the non-null parameter values.
@@ -271,18 +292,19 @@ class _$PlayerModelImpl implements _PlayerModel {
 
 abstract class _PlayerModel implements PlayerModel {
   const factory _PlayerModel(
-          {@JsonKey(name: 'id', defaultValue: 0) required final int id,
-          @JsonKey(name: 'name', defaultValue: 'Unknown Player')
-          required final String name,
-          @JsonKey(name: 'avatar', defaultValue: '')
-          required final String avatarUrl,
-          @JsonKey(name: 'club_id', defaultValue: 0) required final int clubId,
-          @JsonKey(name: 'club_name', defaultValue: "")
-          required final String clubName,
-          @JsonKey(name: 'club_avatar', defaultValue: "")
-          required final String clubAvatar,
-          @JsonKey(name: 'goals', defaultValue: 0) required final int goals}) =
-      _$PlayerModelImpl;
+      {@JsonKey(name: 'id', defaultValue: 0) required final int id,
+      @JsonKey(name: 'name', defaultValue: 'Unknown Player')
+      required final String name,
+      @JsonKey(name: 'avatar', defaultValue: '')
+      required final String avatarUrl,
+      @JsonKey(name: 'club_id', defaultValue: 0) required final int clubId,
+      @JsonKey(name: 'club_name', defaultValue: "")
+      required final String clubName,
+      @JsonKey(name: 'club_avatar', defaultValue: "")
+      required final String clubAvatar,
+      @JsonKey(name: 'goals', defaultValue: 0) required final int goals,
+      @JsonKey(name: 'matches_played', defaultValue: 0)
+      required final int matchesPlayed}) = _$PlayerModelImpl;
 
   factory _PlayerModel.fromJson(Map<String, dynamic> json) =
       _$PlayerModelImpl.fromJson;
@@ -308,6 +330,9 @@ abstract class _PlayerModel implements PlayerModel {
   @override
   @JsonKey(name: 'goals', defaultValue: 0)
   int get goals;
+  @override
+  @JsonKey(name: 'matches_played', defaultValue: 0)
+  int get matchesPlayed;
 
   /// Create a copy of PlayerModel
   /// with the given fields replaced by the non-null parameter values.

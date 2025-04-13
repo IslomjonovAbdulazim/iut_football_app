@@ -13,6 +13,7 @@ class PlayerModel with _$PlayerModel {
     @JsonKey(name: 'club_name', defaultValue: "") required String clubName,
     @JsonKey(name: 'club_avatar', defaultValue: "") required String clubAvatar,
     @JsonKey(name: 'goals', defaultValue: 0) required int goals,
+    @JsonKey(name: 'matches_played', defaultValue: 0) required int matchesPlayed,
   }) = _PlayerModel;
 
   factory PlayerModel.fromJson(Map<String, dynamic> json) =>

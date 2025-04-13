@@ -17,4 +17,15 @@ class ClubDetailController extends GetxController
     tabController.dispose();
     super.onClose();
   }
+
+
+  Stream<ClubModel> getClubDetail() {
+    final channel = WebSocketChannel.connect(
+      Uri.parse("${ApiConstants.streamURL}${ApiConstants.clubDetail}${Get.arguments}/"),
+    );
+
+    return channel.stream.map((data) {
+      return ClubModel.fromJson(jsonDecode(data));
+    });
+  }
 }

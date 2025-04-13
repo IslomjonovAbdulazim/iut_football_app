@@ -15,6 +15,7 @@ _$PlayerModelImpl _$$PlayerModelImplFromJson(Map<String, dynamic> json) =>
       clubName: json['club_name'] as String? ?? '',
       clubAvatar: json['club_avatar'] as String? ?? '',
       goals: (json['goals'] as num?)?.toInt() ?? 0,
+      matchesPlayed: (json['matches_played'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$PlayerModelImplToJson(_$PlayerModelImpl instance) =>
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$PlayerModelImplToJson(_$PlayerModelImpl instance) =>
       'club_name': instance.clubName,
       'club_avatar': instance.clubAvatar,
       'goals': instance.goals,
+      'matches_played': instance.matchesPlayed,
     };

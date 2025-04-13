@@ -90,7 +90,7 @@ class _PlayersSection extends StatelessWidget {
               ),
               title: Text(player.name, style: context.name),
               subtitle: Text(
-                "Goals: ${player.goals}    ID: U\n{player.iutStudentId}",
+                "Goals: ${player.goals}    ID: U{player.iutStudentId}",
                 style: context.smallName,
               ),
             ),

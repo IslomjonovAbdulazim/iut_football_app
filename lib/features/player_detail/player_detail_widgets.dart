@@ -38,7 +38,7 @@ class _PlayerClubInfo extends StatelessWidget {
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: () {
-        Get.toNamed(AppRoutes.clubDetail);
+        Get.toNamed(AppRoutes.clubDetail, arguments: player.clubId);
       },
       child: Row(
         children: [
