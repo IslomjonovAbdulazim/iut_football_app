@@ -32,6 +32,12 @@ mixin _$ClubStandingModel {
   int get goalsScored => throw _privateConstructorUsedError;
   @JsonKey(name: 'goals_conceded')
   int get goalsConceded => throw _privateConstructorUsedError;
+  @JsonKey(name: 'wins')
+  int get wins => throw _privateConstructorUsedError;
+  @JsonKey(name: 'draws')
+  int get draws => throw _privateConstructorUsedError;
+  @JsonKey(name: 'looses')
+  int get looses => throw _privateConstructorUsedError;
   @JsonKey(name: 'rank')
   int get rank => throw _privateConstructorUsedError;
 
@@ -58,6 +64,9 @@ abstract class $ClubStandingModelCopyWith<$Res> {
       @JsonKey(name: 'points') int points,
       @JsonKey(name: 'goals_scored') int goalsScored,
       @JsonKey(name: 'goals_conceded') int goalsConceded,
+      @JsonKey(name: 'wins') int wins,
+      @JsonKey(name: 'draws') int draws,
+      @JsonKey(name: 'looses') int looses,
       @JsonKey(name: 'rank') int rank});
 }
 
@@ -82,6 +91,9 @@ class _$ClubStandingModelCopyWithImpl<$Res, $Val extends ClubStandingModel>
     Object? points = null,
     Object? goalsScored = null,
     Object? goalsConceded = null,
+    Object? wins = null,
+    Object? draws = null,
+    Object? looses = null,
     Object? rank = null,
   }) {
     return _then(_value.copyWith(
@@ -109,6 +121,18 @@ class _$ClubStandingModelCopyWithImpl<$Res, $Val extends ClubStandingModel>
           ? _value.goalsConceded
           : goalsConceded // ignore: cast_nullable_to_non_nullable
               as int,
+      wins: null == wins
+          ? _value.wins
+          : wins // ignore: cast_nullable_to_non_nullable
+              as int,
+      draws: null == draws
+          ? _value.draws
+          : draws // ignore: cast_nullable_to_non_nullable
+              as int,
+      looses: null == looses
+          ? _value.looses
+          : looses // ignore: cast_nullable_to_non_nullable
+              as int,
       rank: null == rank
           ? _value.rank
           : rank // ignore: cast_nullable_to_non_nullable
@@ -132,6 +156,9 @@ abstract class _$$ClubStandingModelImplCopyWith<$Res>
       @JsonKey(name: 'points') int points,
       @JsonKey(name: 'goals_scored') int goalsScored,
       @JsonKey(name: 'goals_conceded') int goalsConceded,
+      @JsonKey(name: 'wins') int wins,
+      @JsonKey(name: 'draws') int draws,
+      @JsonKey(name: 'looses') int looses,
       @JsonKey(name: 'rank') int rank});
 }
 
@@ -154,6 +181,9 @@ class __$$ClubStandingModelImplCopyWithImpl<$Res>
     Object? points = null,
     Object? goalsScored = null,
     Object? goalsConceded = null,
+    Object? wins = null,
+    Object? draws = null,
+    Object? looses = null,
     Object? rank = null,
   }) {
     return _then(_$ClubStandingModelImpl(
@@ -181,6 +211,18 @@ class __$$ClubStandingModelImplCopyWithImpl<$Res>
           ? _value.goalsConceded
           : goalsConceded // ignore: cast_nullable_to_non_nullable
               as int,
+      wins: null == wins
+          ? _value.wins
+          : wins // ignore: cast_nullable_to_non_nullable
+              as int,
+      draws: null == draws
+          ? _value.draws
+          : draws // ignore: cast_nullable_to_non_nullable
+              as int,
+      looses: null == looses
+          ? _value.looses
+          : looses // ignore: cast_nullable_to_non_nullable
+              as int,
       rank: null == rank
           ? _value.rank
           : rank // ignore: cast_nullable_to_non_nullable
@@ -199,6 +241,9 @@ class _$ClubStandingModelImpl implements _ClubStandingModel {
       @JsonKey(name: 'points') required this.points,
       @JsonKey(name: 'goals_scored') required this.goalsScored,
       @JsonKey(name: 'goals_conceded') required this.goalsConceded,
+      @JsonKey(name: 'wins') required this.wins,
+      @JsonKey(name: 'draws') required this.draws,
+      @JsonKey(name: 'looses') required this.looses,
       @JsonKey(name: 'rank') required this.rank});
 
   factory _$ClubStandingModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -223,12 +268,21 @@ class _$ClubStandingModelImpl implements _ClubStandingModel {
   @JsonKey(name: 'goals_conceded')
   final int goalsConceded;
   @override
+  @JsonKey(name: 'wins')
+  final int wins;
+  @override
+  @JsonKey(name: 'draws')
+  final int draws;
+  @override
+  @JsonKey(name: 'looses')
+  final int looses;
+  @override
   @JsonKey(name: 'rank')
   final int rank;
 
   @override
   String toString() {
-    return 'ClubStandingModel(clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, points: $points, goalsScored: $goalsScored, goalsConceded: $goalsConceded, rank: $rank)';
+    return 'ClubStandingModel(clubId: $clubId, clubName: $clubName, clubAvatar: $clubAvatar, points: $points, goalsScored: $goalsScored, goalsConceded: $goalsConceded, wins: $wins, draws: $draws, looses: $looses, rank: $rank)';
   }
 
   @override
@@ -246,13 +300,16 @@ class _$ClubStandingModelImpl implements _ClubStandingModel {
                 other.goalsScored == goalsScored) &&
             (identical(other.goalsConceded, goalsConceded) ||
                 other.goalsConceded == goalsConceded) &&
+            (identical(other.wins, wins) || other.wins == wins) &&
+            (identical(other.draws, draws) || other.draws == draws) &&
+            (identical(other.looses, looses) || other.looses == looses) &&
             (identical(other.rank, rank) || other.rank == rank));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, clubId, clubName, clubAvatar,
-      points, goalsScored, goalsConceded, rank);
+      points, goalsScored, goalsConceded, wins, draws, looses, rank);
 
   /// Create a copy of ClubStandingModel
   /// with the given fields replaced by the non-null parameter values.
@@ -279,6 +336,9 @@ abstract class _ClubStandingModel implements ClubStandingModel {
           @JsonKey(name: 'points') required final int points,
           @JsonKey(name: 'goals_scored') required final int goalsScored,
           @JsonKey(name: 'goals_conceded') required final int goalsConceded,
+          @JsonKey(name: 'wins') required final int wins,
+          @JsonKey(name: 'draws') required final int draws,
+          @JsonKey(name: 'looses') required final int looses,
           @JsonKey(name: 'rank') required final int rank}) =
       _$ClubStandingModelImpl;
 
@@ -303,6 +363,15 @@ abstract class _ClubStandingModel implements ClubStandingModel {
   @override
   @JsonKey(name: 'goals_conceded')
   int get goalsConceded;
+  @override
+  @JsonKey(name: 'wins')
+  int get wins;
+  @override
+  @JsonKey(name: 'draws')
+  int get draws;
+  @override
+  @JsonKey(name: 'looses')
+  int get looses;
   @override
   @JsonKey(name: 'rank')
   int get rank;

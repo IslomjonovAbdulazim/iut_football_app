@@ -15,6 +15,9 @@ _$ClubStandingModelImpl _$$ClubStandingModelImplFromJson(
       points: (json['points'] as num).toInt(),
       goalsScored: (json['goals_scored'] as num).toInt(),
       goalsConceded: (json['goals_conceded'] as num).toInt(),
+      wins: (json['wins'] as num).toInt(),
+      draws: (json['draws'] as num).toInt(),
+      looses: (json['looses'] as num).toInt(),
       rank: (json['rank'] as num).toInt(),
     );
 
@@ -27,5 +30,8 @@ Map<String, dynamic> _$$ClubStandingModelImplToJson(
       'points': instance.points,
       'goals_scored': instance.goalsScored,
       'goals_conceded': instance.goalsConceded,
+      'wins': instance.wins,
+      'draws': instance.draws,
+      'looses': instance.looses,
       'rank': instance.rank,
     };

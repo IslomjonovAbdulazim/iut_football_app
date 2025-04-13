@@ -81,6 +81,8 @@ class _ClubTile extends GetView<MatchDetailsController> {
         SizedBox(height: isAdmin ? 10 : 0),
         isAdmin
             ? DropdownButton<PlayerModel>(
+                menuWidth: 300,
+                dropdownColor: context.cardColor,
                 isExpanded: true,
                 borderRadius: BorderRadius.circular(15),
                 underline: SizedBox.shrink(),
@@ -110,7 +112,8 @@ class _ClubTile extends GetView<MatchDetailsController> {
                         "This action cannot be undone. If you're sure, please press Confirm.",
                     descTextStyle: context.body,
                     btnOk: CupertinoButton(
-                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                       color: context.greenColor,
                       onPressed: () {
                         Get.back();
@@ -122,7 +125,8 @@ class _ClubTile extends GetView<MatchDetailsController> {
                     ),
                     btnOkOnPress: () {},
                     btnCancel: CupertinoButton(
-                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                       color: context.error,
                       onPressed: () {
                         Get.back();
@@ -141,7 +145,27 @@ class _ClubTile extends GetView<MatchDetailsController> {
                     .map((model) {
                   return DropdownMenuItem<PlayerModel>(
                     value: model,
-                    child: Text(model.name),
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: SizedBox(
+                            height: 40,
+                            width: 40,
+                            child: CachedNetworkWidget(model.avatarUrl),
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            model.name,
+                            style: context.name,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 }).toList(),
               )
@@ -151,31 +175,6 @@ class _ClubTile extends GetView<MatchDetailsController> {
   }
 }
 
-void _showPlayers(List<PlayerModel> players, int clubId) async {
-  EasyDialog.positioned(
-    position: EasyDialogPosition.center,
-    id: 1,
-    autoHideDuration: Duration(seconds: 1),
-    content: Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      height: 400,
-      decoration: BoxDecoration(
-        color: Get.context?.cardColor,
-      ),
-      child: ListView.builder(
-        itemCount: players.length,
-        itemBuilder: (context, index) {
-          final model = players[index];
-          return CupertinoButton(
-            onPressed: () {},
-            child: Text(model.name),
-          );
-        },
-      ),
-    ),
-  ).show();
-}
-
 class _ScoreSection extends StatelessWidget {
   final MatchModel match;
 
@@ -183,6 +182,7 @@ class _ScoreSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isAdmin = true;
     final status = match.secondHalfFinishedAt != null
         ? "Finished"
         : match.gameStarted
@@ -223,6 +223,53 @@ class _ScoreSection extends StatelessWidget {
               .add_Hm()
               .format(match.matchTime ?? DateTime.now()),
           style: context.smallName,
+        ),
+        SizedBox(height: isAdmin ? 20 : 0),
+        CupertinoButton(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          color: context.textPrimary,
+          onPressed: () {
+            AwesomeDialog(
+              context: context,
+              dialogType: DialogType.info,
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              title: "Are you sure to start the game",
+              titleTextStyle: context.title,
+              desc:
+                  "This action cannot be undone. If you're sure, please press Confirm.",
+              descTextStyle: context.body,
+              btnOk: CupertinoButton(
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                color: context.greenColor,
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text(
+                  "Confirm",
+                  style: context.biggerName,
+                ),
+              ),
+              btnOkOnPress: () {},
+              btnCancel: CupertinoButton(
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                color: context.error,
+                onPressed: () {
+                  Get.back();
+                },
+                child: Text(
+                  "Cancel",
+                  style: context.biggerName,
+                ),
+              ),
+              btnCancelOnPress: () {},
+            ).show();
+          },
+          child: Text(
+            "Status",
+            style: context.name.copyWith(
+              color: context.backgroundColor,
+            ),
+          ),
         ),
       ],
     );

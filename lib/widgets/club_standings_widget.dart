@@ -76,8 +76,8 @@ class ClubStandingsWidget extends StatelessWidget {
                   children: [
                     // Avatar
                     SizedBox(
-                      width: 40,
-                      height: 40,
+                      width: 45,
+                      height: 45,
                       child: CachedNetworkWidget(standing.clubAvatar),
                     ),
                     const SizedBox(width: 10),
@@ -90,38 +90,31 @@ class ClubStandingsWidget extends StatelessWidget {
                         children: [
                           Text(
                             standing.clubName,
-                            style: context.name,
-                            maxLines: 1,
+                            style: context.body.copyWith(
+                              color: context.textPrimary,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          const SizedBox(height: 2),
-                          Row(
-                            children: [
-                              Text(
-                                "Rank: ${standing.rank}",
-                                style: context.smallName.copyWith(
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              const SizedBox(width: 10),
-                              Text(
-                                "${standing.goalsScored} /",
-                                style: context.smallName
-                                    .copyWith(color: Colors.green),
-                              ),
-                              const SizedBox(width: 6),
-                              Text(
-                                "${standing.goalsConceded}",
-                                style: context.smallName
-                                    .copyWith(color: Colors.red),
-                              ),
-                            ],
-                          ),
+                          // Text("L:${standing}"),
                         ],
                       ),
                     ),
 
                     // Points
+                    SizedBox(
+                      width: 50,
+                      child: Row(
+                        children: [
+                          Container(
+                            color: Colors.red,
+                            width: 15,
+                            child: Text("${standing.wins}"),
+                          ),
+                        ],
+                      ),
+                    ),
                     Text(
                       "${standing.points} pts",
                       style: context.biggerName,

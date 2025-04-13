@@ -11,9 +11,6 @@ class LeagueModel with _$LeagueModel {
   const factory LeagueModel({
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'name') required String name,
-    @JsonKey(name: 'clubs') required List<ClubModel> clubs,
-    @JsonKey(name: 'matches') required List<MatchModel> matches,
-    @JsonKey(name: 'standings') required List<ClubStandingModel> standings,
     @JsonKey(name: 'start_date') required DateTime startDate,
     @JsonKey(name: 'end_date') required DateTime endDate,
     @JsonKey(name: 'direct_advance_count') required int directAdvanceCount,

@@ -12,6 +12,9 @@ class ClubStandingModel with _$ClubStandingModel {
     @JsonKey(name: 'points') required int points,
     @JsonKey(name: 'goals_scored') required int goalsScored,
     @JsonKey(name: 'goals_conceded') required int goalsConceded,
+    @JsonKey(name: 'wins') required int wins,
+    @JsonKey(name: 'draws') required int draws,
+    @JsonKey(name: 'looses') required int looses,
     @JsonKey(name: 'rank') required int rank,
   }) = _ClubStandingModel;
 

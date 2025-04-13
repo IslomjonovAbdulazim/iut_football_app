@@ -5,5 +5,10 @@ class ApiConstants {
 
   /// Leaderboard
   static const String matches = "ws/last-matches/";
+  static const String topScorers = "ws/top-scorers/";
+  static const String playerDetail = "ws/player-detail/";
+  static const String allMatches = "ws/all-matches/";
+  static const String matchDetail = "ws/match-detail/";
+  static const String clubDetail = "ws/club-detail/";
 
 }

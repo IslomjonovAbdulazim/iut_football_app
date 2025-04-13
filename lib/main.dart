@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
         themeMode: themeController.themeMode,
         debugShowCheckedModeBanner: false,
         initialRoute:
-            TokenService.to.hasToken ? AppRoutes.admin : AppRoutes.matchDetail,
+            TokenService.to.hasToken ? AppRoutes.admin : AppRoutes.home,
         initialBinding: InitialBinding(),
         getPages: AppPages.pages,
         builder: (context, child) => MediaQuery(

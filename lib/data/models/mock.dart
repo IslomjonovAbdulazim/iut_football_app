@@ -536,6 +536,9 @@ class MockData {
       goalsScored: 15,
       goalsConceded: 7,
       rank: 1,
+      wins: 5,
+      draws: 2,
+      looses: 0,
     ),
     ClubStandingModel(
       clubId: 2,
@@ -545,6 +548,9 @@ class MockData {
       goalsScored: 12,
       goalsConceded: 9,
       rank: 2,
+      wins: 4,
+      draws: 2,
+      looses: 1,
     ),
     ClubStandingModel(
       clubId: 3,
@@ -554,6 +560,9 @@ class MockData {
       goalsScored: 10,
       goalsConceded: 10,
       rank: 3,
+      wins: 3,
+      draws: 3,
+      looses: 1,
     ),
     ClubStandingModel(
       clubId: 4,
@@ -563,6 +572,9 @@ class MockData {
       goalsScored: 9,
       goalsConceded: 11,
       rank: 4,
+      wins: 3,
+      draws: 1,
+      looses: 3,
     ),
     ClubStandingModel(
       clubId: 5,
@@ -572,6 +584,9 @@ class MockData {
       goalsScored: 8,
       goalsConceded: 14,
       rank: 5,
+      wins: 2,
+      draws: 1,
+      looses: 4,
     ),
   ];
 
@@ -579,17 +594,12 @@ class MockData {
   static final LeagueModel sampleLeague = LeagueModel(
     id: 1,
     name: 'IUT Football League',
-    clubs: clubsWithPlayers,
     // attach players inside
-    matches: sampleMatches,
-    standings: sampleStandings,
     startDate: DateTime(2025, 03, 01),
     endDate: DateTime(2025, 05, 01),
     directAdvanceCount: 1,
-    // top 1 goes directly
     qualifierAdvanceCount: 2,
-    // next 2 do extra round
-    eliminatedCount: 2, // bottom 2 are out
+    eliminatedCount: 2,
   );
 
   /// Player Goal By Match example

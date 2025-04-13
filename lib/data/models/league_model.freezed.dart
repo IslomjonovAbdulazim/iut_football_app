@@ -24,12 +24,6 @@ mixin _$LeagueModel {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'clubs')
-  List<ClubModel> get clubs => throw _privateConstructorUsedError;
-  @JsonKey(name: 'matches')
-  List<MatchModel> get matches => throw _privateConstructorUsedError;
-  @JsonKey(name: 'standings')
-  List<ClubStandingModel> get standings => throw _privateConstructorUsedError;
   @JsonKey(name: 'start_date')
   DateTime get startDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'end_date')
@@ -60,9 +54,6 @@ abstract class $LeagueModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'clubs') List<ClubModel> clubs,
-      @JsonKey(name: 'matches') List<MatchModel> matches,
-      @JsonKey(name: 'standings') List<ClubStandingModel> standings,
       @JsonKey(name: 'start_date') DateTime startDate,
       @JsonKey(name: 'end_date') DateTime endDate,
       @JsonKey(name: 'direct_advance_count') int directAdvanceCount,
@@ -87,9 +78,6 @@ class _$LeagueModelCopyWithImpl<$Res, $Val extends LeagueModel>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? clubs = null,
-    Object? matches = null,
-    Object? standings = null,
     Object? startDate = null,
     Object? endDate = null,
     Object? directAdvanceCount = null,
@@ -105,18 +93,6 @@ class _$LeagueModelCopyWithImpl<$Res, $Val extends LeagueModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      clubs: null == clubs
-          ? _value.clubs
-          : clubs // ignore: cast_nullable_to_non_nullable
-              as List<ClubModel>,
-      matches: null == matches
-          ? _value.matches
-          : matches // ignore: cast_nullable_to_non_nullable
-              as List<MatchModel>,
-      standings: null == standings
-          ? _value.standings
-          : standings // ignore: cast_nullable_to_non_nullable
-              as List<ClubStandingModel>,
       startDate: null == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -152,9 +128,6 @@ abstract class _$$LeagueModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'clubs') List<ClubModel> clubs,
-      @JsonKey(name: 'matches') List<MatchModel> matches,
-      @JsonKey(name: 'standings') List<ClubStandingModel> standings,
       @JsonKey(name: 'start_date') DateTime startDate,
       @JsonKey(name: 'end_date') DateTime endDate,
       @JsonKey(name: 'direct_advance_count') int directAdvanceCount,
@@ -177,9 +150,6 @@ class __$$LeagueModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? clubs = null,
-    Object? matches = null,
-    Object? standings = null,
     Object? startDate = null,
     Object? endDate = null,
     Object? directAdvanceCount = null,
@@ -195,18 +165,6 @@ class __$$LeagueModelImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      clubs: null == clubs
-          ? _value._clubs
-          : clubs // ignore: cast_nullable_to_non_nullable
-              as List<ClubModel>,
-      matches: null == matches
-          ? _value._matches
-          : matches // ignore: cast_nullable_to_non_nullable
-              as List<MatchModel>,
-      standings: null == standings
-          ? _value._standings
-          : standings // ignore: cast_nullable_to_non_nullable
-              as List<ClubStandingModel>,
       startDate: null == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -237,19 +195,12 @@ class _$LeagueModelImpl implements _LeagueModel {
   const _$LeagueModelImpl(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'clubs') required final List<ClubModel> clubs,
-      @JsonKey(name: 'matches') required final List<MatchModel> matches,
-      @JsonKey(name: 'standings')
-      required final List<ClubStandingModel> standings,
       @JsonKey(name: 'start_date') required this.startDate,
       @JsonKey(name: 'end_date') required this.endDate,
       @JsonKey(name: 'direct_advance_count') required this.directAdvanceCount,
       @JsonKey(name: 'qualifier_advance_count')
       required this.qualifierAdvanceCount,
-      @JsonKey(name: 'eliminated_count') required this.eliminatedCount})
-      : _clubs = clubs,
-        _matches = matches,
-        _standings = standings;
+      @JsonKey(name: 'eliminated_count') required this.eliminatedCount});
 
   factory _$LeagueModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LeagueModelImplFromJson(json);
@@ -260,33 +211,6 @@ class _$LeagueModelImpl implements _LeagueModel {
   @override
   @JsonKey(name: 'name')
   final String name;
-  final List<ClubModel> _clubs;
-  @override
-  @JsonKey(name: 'clubs')
-  List<ClubModel> get clubs {
-    if (_clubs is EqualUnmodifiableListView) return _clubs;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_clubs);
-  }
-
-  final List<MatchModel> _matches;
-  @override
-  @JsonKey(name: 'matches')
-  List<MatchModel> get matches {
-    if (_matches is EqualUnmodifiableListView) return _matches;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_matches);
-  }
-
-  final List<ClubStandingModel> _standings;
-  @override
-  @JsonKey(name: 'standings')
-  List<ClubStandingModel> get standings {
-    if (_standings is EqualUnmodifiableListView) return _standings;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_standings);
-  }
-
   @override
   @JsonKey(name: 'start_date')
   final DateTime startDate;
@@ -305,7 +229,7 @@ class _$LeagueModelImpl implements _LeagueModel {
 
   @override
   String toString() {
-    return 'LeagueModel(id: $id, name: $name, clubs: $clubs, matches: $matches, standings: $standings, startDate: $startDate, endDate: $endDate, directAdvanceCount: $directAdvanceCount, qualifierAdvanceCount: $qualifierAdvanceCount, eliminatedCount: $eliminatedCount)';
+    return 'LeagueModel(id: $id, name: $name, startDate: $startDate, endDate: $endDate, directAdvanceCount: $directAdvanceCount, qualifierAdvanceCount: $qualifierAdvanceCount, eliminatedCount: $eliminatedCount)';
   }
 
   @override
@@ -315,10 +239,6 @@ class _$LeagueModelImpl implements _LeagueModel {
             other is _$LeagueModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            const DeepCollectionEquality().equals(other._clubs, _clubs) &&
-            const DeepCollectionEquality().equals(other._matches, _matches) &&
-            const DeepCollectionEquality()
-                .equals(other._standings, _standings) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
@@ -332,18 +252,8 @@ class _$LeagueModelImpl implements _LeagueModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      const DeepCollectionEquality().hash(_clubs),
-      const DeepCollectionEquality().hash(_matches),
-      const DeepCollectionEquality().hash(_standings),
-      startDate,
-      endDate,
-      directAdvanceCount,
-      qualifierAdvanceCount,
-      eliminatedCount);
+  int get hashCode => Object.hash(runtimeType, id, name, startDate, endDate,
+      directAdvanceCount, qualifierAdvanceCount, eliminatedCount);
 
   /// Create a copy of LeagueModel
   /// with the given fields replaced by the non-null parameter values.
@@ -365,10 +275,6 @@ abstract class _LeagueModel implements LeagueModel {
   const factory _LeagueModel(
       {@JsonKey(name: 'id') required final int id,
       @JsonKey(name: 'name') required final String name,
-      @JsonKey(name: 'clubs') required final List<ClubModel> clubs,
-      @JsonKey(name: 'matches') required final List<MatchModel> matches,
-      @JsonKey(name: 'standings')
-      required final List<ClubStandingModel> standings,
       @JsonKey(name: 'start_date') required final DateTime startDate,
       @JsonKey(name: 'end_date') required final DateTime endDate,
       @JsonKey(name: 'direct_advance_count')
@@ -387,15 +293,6 @@ abstract class _LeagueModel implements LeagueModel {
   @override
   @JsonKey(name: 'name')
   String get name;
-  @override
-  @JsonKey(name: 'clubs')
-  List<ClubModel> get clubs;
-  @override
-  @JsonKey(name: 'matches')
-  List<MatchModel> get matches;
-  @override
-  @JsonKey(name: 'standings')
-  List<ClubStandingModel> get standings;
   @override
   @JsonKey(name: 'start_date')
   DateTime get startDate;
