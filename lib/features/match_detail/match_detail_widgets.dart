@@ -106,11 +106,12 @@ class _ClubTile extends GetView<MatchDetailsController> {
                   ),
                 ),
                 onChanged: (val) {
+                  if (val == null) return;
                   AwesomeDialog(
                     context: context,
                     dialogType: DialogType.info,
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                    title: "${val?.name ?? "Someone"} just scored a goal!",
+                    title: "${val.name ?? "Someone"} just scored a goal!",
                     titleTextStyle: context.title,
                     desc:
                         "This action cannot be undone. If you're sure, please press Confirm.",
@@ -120,6 +121,11 @@ class _ClubTile extends GetView<MatchDetailsController> {
                           EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                       color: context.greenColor,
                       onPressed: () {
+                        controller.goalScored(
+                          val,
+                          match,
+                          club,
+                        );
                         Get.back();
                       },
                       child: Text(

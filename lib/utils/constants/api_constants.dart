@@ -3,7 +3,7 @@ class ApiConstants {
   static const String streamURL = "ws://10.10.1.108:8000/";
   static const String _ = "http://176.57.214.64:8020/";
 
-  /// Leaderboard
+  /// WebSocket
   static const String matches = "ws/last-matches/";
   static const String topScorers = "ws/top-scorers/";
   static const String playerDetail = "ws/player-detail/";
@@ -11,5 +11,8 @@ class ApiConstants {
   static const String matchDetail = "ws/match-detail/";
   static const String clubDetail = "ws/club-detail/";
   static const String standings = "ws/standings/";
+
+  // RestApi
+  static const String goalScored = "create-goal/";
 
 }

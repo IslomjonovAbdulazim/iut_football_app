@@ -82,7 +82,7 @@ class _PlayersSection extends StatelessWidget {
             padding: EdgeInsets.zero,
             color: context.cardColor,
             onPressed: () {
-              Get.toNamed(AppRoutes.playerDetails, arguments: player);
+              Get.toNamed(AppRoutes.playerDetails, arguments: player.id);
             },
             child: ListTile(
               leading: CircleAvatar(

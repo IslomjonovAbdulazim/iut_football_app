@@ -20,13 +20,13 @@ ScoreGoalModel _$ScoreGoalModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ScoreGoalModel {
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'player_id', defaultValue: 0)
   int get playerId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'minute')
+  @JsonKey(name: 'minute', defaultValue: 0)
   int get minute => throw _privateConstructorUsedError;
-  @JsonKey(name: 'opponent_club_id')
+  @JsonKey(name: 'opponent_club_id', defaultValue: 0)
   int get opponentClubId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'match_id')
+  @JsonKey(name: 'match_id', defaultValue: 0)
   int get matchId => throw _privateConstructorUsedError;
 
   /// Serializes this ScoreGoalModel to a JSON map.
@@ -46,10 +46,10 @@ abstract class $ScoreGoalModelCopyWith<$Res> {
       _$ScoreGoalModelCopyWithImpl<$Res, ScoreGoalModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'player_id') int playerId,
-      @JsonKey(name: 'minute') int minute,
-      @JsonKey(name: 'opponent_club_id') int opponentClubId,
-      @JsonKey(name: 'match_id') int matchId});
+      {@JsonKey(name: 'player_id', defaultValue: 0) int playerId,
+      @JsonKey(name: 'minute', defaultValue: 0) int minute,
+      @JsonKey(name: 'opponent_club_id', defaultValue: 0) int opponentClubId,
+      @JsonKey(name: 'match_id', defaultValue: 0) int matchId});
 }
 
 /// @nodoc
@@ -102,10 +102,10 @@ abstract class _$$ScoreGoalModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'player_id') int playerId,
-      @JsonKey(name: 'minute') int minute,
-      @JsonKey(name: 'opponent_club_id') int opponentClubId,
-      @JsonKey(name: 'match_id') int matchId});
+      {@JsonKey(name: 'player_id', defaultValue: 0) int playerId,
+      @JsonKey(name: 'minute', defaultValue: 0) int minute,
+      @JsonKey(name: 'opponent_club_id', defaultValue: 0) int opponentClubId,
+      @JsonKey(name: 'match_id', defaultValue: 0) int matchId});
 }
 
 /// @nodoc
@@ -151,25 +151,26 @@ class __$$ScoreGoalModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ScoreGoalModelImpl implements _ScoreGoalModel {
   const _$ScoreGoalModelImpl(
-      {@JsonKey(name: 'player_id') required this.playerId,
-      @JsonKey(name: 'minute') required this.minute,
-      @JsonKey(name: 'opponent_club_id') required this.opponentClubId,
-      @JsonKey(name: 'match_id') required this.matchId});
+      {@JsonKey(name: 'player_id', defaultValue: 0) required this.playerId,
+      @JsonKey(name: 'minute', defaultValue: 0) required this.minute,
+      @JsonKey(name: 'opponent_club_id', defaultValue: 0)
+      required this.opponentClubId,
+      @JsonKey(name: 'match_id', defaultValue: 0) required this.matchId});
 
   factory _$ScoreGoalModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ScoreGoalModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'player_id', defaultValue: 0)
   final int playerId;
   @override
-  @JsonKey(name: 'minute')
+  @JsonKey(name: 'minute', defaultValue: 0)
   final int minute;
   @override
-  @JsonKey(name: 'opponent_club_id')
+  @JsonKey(name: 'opponent_club_id', defaultValue: 0)
   final int opponentClubId;
   @override
-  @JsonKey(name: 'match_id')
+  @JsonKey(name: 'match_id', defaultValue: 0)
   final int matchId;
 
   @override
@@ -214,26 +215,27 @@ class _$ScoreGoalModelImpl implements _ScoreGoalModel {
 
 abstract class _ScoreGoalModel implements ScoreGoalModel {
   const factory _ScoreGoalModel(
-          {@JsonKey(name: 'player_id') required final int playerId,
-          @JsonKey(name: 'minute') required final int minute,
-          @JsonKey(name: 'opponent_club_id') required final int opponentClubId,
-          @JsonKey(name: 'match_id') required final int matchId}) =
-      _$ScoreGoalModelImpl;
+      {@JsonKey(name: 'player_id', defaultValue: 0) required final int playerId,
+      @JsonKey(name: 'minute', defaultValue: 0) required final int minute,
+      @JsonKey(name: 'opponent_club_id', defaultValue: 0)
+      required final int opponentClubId,
+      @JsonKey(name: 'match_id', defaultValue: 0)
+      required final int matchId}) = _$ScoreGoalModelImpl;
 
   factory _ScoreGoalModel.fromJson(Map<String, dynamic> json) =
       _$ScoreGoalModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'player_id')
+  @JsonKey(name: 'player_id', defaultValue: 0)
   int get playerId;
   @override
-  @JsonKey(name: 'minute')
+  @JsonKey(name: 'minute', defaultValue: 0)
   int get minute;
   @override
-  @JsonKey(name: 'opponent_club_id')
+  @JsonKey(name: 'opponent_club_id', defaultValue: 0)
   int get opponentClubId;
   @override
-  @JsonKey(name: 'match_id')
+  @JsonKey(name: 'match_id', defaultValue: 0)
   int get matchId;
 
   /// Create a copy of ScoreGoalModel

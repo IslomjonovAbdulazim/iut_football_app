@@ -8,10 +8,10 @@ part of 'score_goal_model.dart';
 
 _$ScoreGoalModelImpl _$$ScoreGoalModelImplFromJson(Map<String, dynamic> json) =>
     _$ScoreGoalModelImpl(
-      playerId: (json['player_id'] as num).toInt(),
-      minute: (json['minute'] as num).toInt(),
-      opponentClubId: (json['opponent_club_id'] as num).toInt(),
-      matchId: (json['match_id'] as num).toInt(),
+      playerId: (json['player_id'] as num?)?.toInt() ?? 0,
+      minute: (json['minute'] as num?)?.toInt() ?? 0,
+      opponentClubId: (json['opponent_club_id'] as num?)?.toInt() ?? 0,
+      matchId: (json['match_id'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$ScoreGoalModelImplToJson(
