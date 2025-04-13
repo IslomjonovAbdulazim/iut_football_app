@@ -32,3 +32,37 @@ class MatchModel with _$MatchModel {
 
   factory MatchModel.fromJson(Map<String, dynamic> json) => _$MatchModelFromJson(json);
 }
+
+enum GamePhase {
+  notRelated,
+  firstHalf,
+  secondHalf,
+}
+
+extension MatchModelStatusExtension on MatchModel {
+  String get matchStatus {
+    if (secondHalfFinishedAt != null) return "Finished";
+    if (firstHalfStartedAt != null) return "Live";
+    return "Upcoming";
+  }
+
+  GamePhase get gamePhase {
+    if (firstHalfStartedAt != null && firstHalfFinishedAt == null) {
+      return GamePhase.firstHalf;
+    } else if (secondHalfStartedAt != null && secondHalfFinishedAt == null) {
+      return GamePhase.secondHalf;
+    }
+    return GamePhase.notRelated;
+  }
+
+  bool get canStartGame {
+    return firstHalfStartedAt == null &&
+        matchTime != null &&
+        DateTime.now().isAfter(matchTime!);
+  }
+
+  /// Extra helpers
+  bool get isUpcoming => matchStatus == "Upcoming";
+  bool get isLive => matchStatus == "Live";
+  bool get isFinished => matchStatus == "Finished";
+}

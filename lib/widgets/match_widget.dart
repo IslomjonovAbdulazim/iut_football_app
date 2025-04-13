@@ -15,7 +15,6 @@ class MatchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isUpcoming = match.matchTime?.isAfter(DateTime.now()) == true;
     final matchTimeText = DateFormat.Hm().format(match.matchTime ?? DateTime.now());
     final dateText = DateFormat.yMd().format(match.matchTime ?? DateTime.now());
 
@@ -72,7 +71,7 @@ class MatchWidget extends StatelessWidget {
                         "${match.homeScore} : ${match.awayScore}",
                         style: context.title,
                       ),
-                      if (isUpcoming)
+                      if (match.isUpcoming)
                         Container(
                           margin: const EdgeInsets.only(top: 4),
                           padding: const EdgeInsets.symmetric(
@@ -87,7 +86,7 @@ class MatchWidget extends StatelessWidget {
                                 TextStyle(fontSize: 12, color: Colors.orange),
                           ),
                         )
-                      else if (match.secondHalfFinishedAt != null)
+                      else if (match.isLive)
                         Container(
                           margin: const EdgeInsets.only(top: 4),
                           padding: const EdgeInsets.symmetric(
