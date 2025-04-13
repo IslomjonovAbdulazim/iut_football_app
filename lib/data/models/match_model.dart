@@ -75,32 +75,35 @@ extension MatchModelStatusExtension on MatchModel {
 
   /// Time formatters
   String get formattedMatchTime =>
-      matchTime != null ? DateFormat('HH:mm').format(matchTime!) : "-";
+      matchTime != null ? DateFormat('HH:mm').format(matchTime!.toLocal()) : "-";
 
   String get formattedFirstHalfTime =>
-      firstHalfStartedAt != null ? DateFormat('HH:mm').format(firstHalfStartedAt!) : "-";
+      firstHalfStartedAt != null ? DateFormat('HH:mm').format(firstHalfStartedAt!.toLocal()) : "⏳";
+
+  String get formattedFirstHalfEndTime =>
+      firstHalfFinishedAt != null ? DateFormat('HH:mm').format(firstHalfFinishedAt!.toLocal()) : "⏳";
 
   String get formattedSecondHalfTime =>
-      secondHalfStartedAt != null ? DateFormat('HH:mm').format(secondHalfStartedAt!) : "-";
+      secondHalfStartedAt != null ? DateFormat('HH:mm').format(secondHalfStartedAt!.toLocal()) : "⏳";
 
-  String get formattedFullTime =>
-      secondHalfFinishedAt != null ? DateFormat('HH:mm').format(secondHalfFinishedAt!) : "-";
+  String get formattedSecondHalfEndTime =>
+      secondHalfFinishedAt != null ? DateFormat('HH:mm').format(secondHalfFinishedAt!.toLocal()) : "⏳";
 
   /// ✅ NEW: Half durations
   String get firstHalfDuration {
     if (firstHalfStartedAt != null && firstHalfFinishedAt != null) {
-      final duration = firstHalfFinishedAt!.difference(firstHalfStartedAt!);
+      final duration = firstHalfFinishedAt!.toLocal().difference(firstHalfStartedAt!.toLocal());
       return "${duration.inMinutes} min";
     }
-    return "-";
+    return "N/A";
   }
 
   String get secondHalfDuration {
     if (secondHalfStartedAt != null && secondHalfFinishedAt != null) {
-      final duration = secondHalfFinishedAt!.difference(secondHalfStartedAt!);
+      final duration = secondHalfFinishedAt!.toLocal().difference(secondHalfStartedAt!.toLocal());
       return "${duration.inMinutes} min";
     }
-    return "-";
+    return "N/A";
   }
 
   String get confirmationText {
@@ -132,14 +135,37 @@ extension MatchModelStatusExtension on MatchModel {
   }
 
   int? get currentMatchMinute {
-    final now = DateTime.now();
+    // Convert current time to UTC so that it's in the same zone as the stored times.
+    final now = DateTime.now().toUtc();
 
+    // Case 1: First half in progress.
     if (firstHalfStartedAt != null && firstHalfFinishedAt == null) {
-      return now.difference(firstHalfStartedAt!).inMinutes.clamp(0, 20);
-    } else if (secondHalfStartedAt != null && secondHalfFinishedAt == null) {
-      return 20 + now.difference(secondHalfStartedAt!).inMinutes.clamp(0, 20);
+      // Convert start time to UTC for a fair difference.
+      final diff = now.difference(firstHalfStartedAt!.toUtc());
+      // If the time difference is negative, use 0.
+      final minutesDiff = diff.isNegative ? 0 : diff.inMinutes;
+      // Clamp the minutes to a maximum of 20.
+      return minutesDiff.clamp(0, 20);
     }
 
+    // Case 2: Halftime – first half has finished and second half hasn't started.
+    if (firstHalfStartedAt != null &&
+        firstHalfFinishedAt != null &&
+        secondHalfStartedAt == null) {
+      return 20;
+    }
+
+    // Case 3: Second half in progress.
+    if (secondHalfStartedAt != null && secondHalfFinishedAt == null) {
+      final diff = now.difference(secondHalfStartedAt!.toUtc());
+      final minutesDiff = diff.isNegative ? 0 : diff.inMinutes;
+      // Clamp the seconds half duration between 0 and 20 minutes,
+      // then add the base 20 minutes that represent the finished first half.
+      return 20 + (minutesDiff.clamp(0, 20));
+    }
+
+    // If none of these conditions match, return null.
     return null;
   }
+
 }

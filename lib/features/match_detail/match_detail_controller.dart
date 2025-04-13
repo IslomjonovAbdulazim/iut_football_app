@@ -68,7 +68,7 @@ class MatchDetailsController extends GetxController {
     isLoading.value = true;
     final ScoreGoalModel goal = ScoreGoalModel(
       playerId: player.id,
-      minute: 21,
+      minute: match.currentMatchMinute ?? -1,
       opponentClubId: clubId,
       matchId: match.id,
     );
@@ -84,7 +84,7 @@ class MatchDetailsController extends GetxController {
     isLoading.value = true;
     final ChangeStatusModel goal = ChangeStatusModel(
       matchId: matchId,
-      time: DateTime.now(),
+      time: DateTime.now().toUtc(),
     );
     await Dio().post(
       ApiConstants.baseURL + ApiConstants.changeStatus,

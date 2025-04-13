@@ -15,8 +15,8 @@ class MatchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final matchTimeText = DateFormat.Hm().format(match.matchTime ?? DateTime.now());
-    final dateText = DateFormat.yMd().format(match.matchTime ?? DateTime.now());
+    final matchTimeText = DateFormat.Hm().format(match.matchTime?.toLocal() ?? DateTime.now());
+    final dateText = DateFormat.yMd().format(match.matchTime?.toLocal() ?? DateTime.now());
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),

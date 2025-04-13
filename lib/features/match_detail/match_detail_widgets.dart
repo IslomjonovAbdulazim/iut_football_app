@@ -83,7 +83,9 @@ class _ClubTile extends GetView<MatchDetailsController> {
           ),
         ),
         SizedBox(height: isAdmin ? 10 : 0),
-        isAdmin
+        isAdmin &&
+                match.isLive &&
+                (match.isFirstHalfGoing || match.isSecondHalfGoing)
             ? DropdownButton<PlayerModel>(
                 menuWidth: 300,
                 dropdownColor: context.cardColor,
@@ -221,15 +223,57 @@ class _ScoreSection extends GetView<MatchDetailsController> {
             ),
           ),
         ),
-        const SizedBox(height: 8),
-        Text(
-          DateFormat.yMMMEd()
-              .add_Hm()
-              .format(match.matchTime ?? DateTime.now()),
-          style: context.smallName,
-        ),
+        const SizedBox(height: 12),
+        match.isUpcoming
+            ? Text(
+                DateFormat.yMMMEd().add_Hm().format(
+                    match.matchTime?.toLocal() ?? DateTime.now().toLocal()),
+                style: context.smallName,
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          "1st Half",
+                          style: context.code,
+                        ),
+                        Text(
+                          "${match.formattedFirstHalfTime} — ${match.formattedFirstHalfEndTime}",
+                          style: context.name,
+                        ),
+                        Text(
+                          match.firstHalfDuration,
+                          style: context.name,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          "2nd Half",
+                          style: context.code,
+                        ),
+                        Text(
+                          "${match.formattedSecondHalfTime} — ${match.formattedSecondHalfEndTime}",
+                          style: context.name,
+                        ),
+                        Text(
+                          match.secondHalfDuration,
+                          style: context.name,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
         SizedBox(height: isAdmin ? 20 : 0),
-        !match.isFinished
+        !match.isFinished && isAdmin
             ? CupertinoButton(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                 color: context.textPrimary,
@@ -329,7 +373,9 @@ class _GoalTile extends StatelessWidget {
 
     final textColumn = Expanded(
       child: Text(
-        "${event.playerName ?? "No Name"} - ${event.minute}'",
+        "${isHomeTeam ? "" : "'${event.minute} — "}"
+        "${event.playerName ?? "Unknown"}"
+        "${isHomeTeam ? " — ${event.minute}'" : ""}",
         style: context.name,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
