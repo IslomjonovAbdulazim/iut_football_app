@@ -60,6 +60,8 @@ mixin _$MatchModel {
   List<PlayerModel> get homeClubPlayers => throw _privateConstructorUsedError;
   @JsonKey(name: 'away_club_players', defaultValue: [])
   List<PlayerModel> get awayClubPlayers => throw _privateConstructorUsedError;
+  @JsonKey(name: 'duration', defaultValue: 20)
+  int get duration => throw _privateConstructorUsedError;
 
   /// Serializes this MatchModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -104,7 +106,8 @@ abstract class $MatchModelCopyWith<$Res> {
       @JsonKey(name: 'home_club_players', defaultValue: [])
       List<PlayerModel> homeClubPlayers,
       @JsonKey(name: 'away_club_players', defaultValue: [])
-      List<PlayerModel> awayClubPlayers});
+      List<PlayerModel> awayClubPlayers,
+      @JsonKey(name: 'duration', defaultValue: 20) int duration});
 }
 
 /// @nodoc
@@ -142,6 +145,7 @@ class _$MatchModelCopyWithImpl<$Res, $Val extends MatchModel>
     Object? leagueId = null,
     Object? homeClubPlayers = null,
     Object? awayClubPlayers = null,
+    Object? duration = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -224,6 +228,10 @@ class _$MatchModelCopyWithImpl<$Res, $Val extends MatchModel>
           ? _value.awayClubPlayers
           : awayClubPlayers // ignore: cast_nullable_to_non_nullable
               as List<PlayerModel>,
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -263,7 +271,8 @@ abstract class _$$MatchModelImplCopyWith<$Res>
       @JsonKey(name: 'home_club_players', defaultValue: [])
       List<PlayerModel> homeClubPlayers,
       @JsonKey(name: 'away_club_players', defaultValue: [])
-      List<PlayerModel> awayClubPlayers});
+      List<PlayerModel> awayClubPlayers,
+      @JsonKey(name: 'duration', defaultValue: 20) int duration});
 }
 
 /// @nodoc
@@ -299,6 +308,7 @@ class __$$MatchModelImplCopyWithImpl<$Res>
     Object? leagueId = null,
     Object? homeClubPlayers = null,
     Object? awayClubPlayers = null,
+    Object? duration = null,
   }) {
     return _then(_$MatchModelImpl(
       id: null == id
@@ -381,6 +391,10 @@ class __$$MatchModelImplCopyWithImpl<$Res>
           ? _value._awayClubPlayers
           : awayClubPlayers // ignore: cast_nullable_to_non_nullable
               as List<PlayerModel>,
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -416,7 +430,8 @@ class _$MatchModelImpl implements _MatchModel {
       @JsonKey(name: 'home_club_players', defaultValue: [])
       required final List<PlayerModel> homeClubPlayers,
       @JsonKey(name: 'away_club_players', defaultValue: [])
-      required final List<PlayerModel> awayClubPlayers})
+      required final List<PlayerModel> awayClubPlayers,
+      @JsonKey(name: 'duration', defaultValue: 20) required this.duration})
       : _goalEvents = goalEvents,
         _homeClubPlayers = homeClubPlayers,
         _awayClubPlayers = awayClubPlayers;
@@ -503,8 +518,12 @@ class _$MatchModelImpl implements _MatchModel {
   }
 
   @override
+  @JsonKey(name: 'duration', defaultValue: 20)
+  final int duration;
+
+  @override
   String toString() {
-    return 'MatchModel(id: $id, homeClubId: $homeClubId, homeClubName: $homeClubName, homeClubAvatar: $homeClubAvatar, awayClubId: $awayClubId, awayClubName: $awayClubName, awayClubAvatar: $awayClubAvatar, homeScore: $homeScore, awayScore: $awayScore, matchTime: $matchTime, firstHalfStartedAt: $firstHalfStartedAt, firstHalfFinishedAt: $firstHalfFinishedAt, secondHalfStartedAt: $secondHalfStartedAt, secondHalfFinishedAt: $secondHalfFinishedAt, gameStarted: $gameStarted, title: $title, goalEvents: $goalEvents, leagueId: $leagueId, homeClubPlayers: $homeClubPlayers, awayClubPlayers: $awayClubPlayers)';
+    return 'MatchModel(id: $id, homeClubId: $homeClubId, homeClubName: $homeClubName, homeClubAvatar: $homeClubAvatar, awayClubId: $awayClubId, awayClubName: $awayClubName, awayClubAvatar: $awayClubAvatar, homeScore: $homeScore, awayScore: $awayScore, matchTime: $matchTime, firstHalfStartedAt: $firstHalfStartedAt, firstHalfFinishedAt: $firstHalfFinishedAt, secondHalfStartedAt: $secondHalfStartedAt, secondHalfFinishedAt: $secondHalfFinishedAt, gameStarted: $gameStarted, title: $title, goalEvents: $goalEvents, leagueId: $leagueId, homeClubPlayers: $homeClubPlayers, awayClubPlayers: $awayClubPlayers, duration: $duration)';
   }
 
   @override
@@ -549,7 +568,9 @@ class _$MatchModelImpl implements _MatchModel {
             const DeepCollectionEquality()
                 .equals(other._homeClubPlayers, _homeClubPlayers) &&
             const DeepCollectionEquality()
-                .equals(other._awayClubPlayers, _awayClubPlayers));
+                .equals(other._awayClubPlayers, _awayClubPlayers) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -575,7 +596,8 @@ class _$MatchModelImpl implements _MatchModel {
         const DeepCollectionEquality().hash(_goalEvents),
         leagueId,
         const DeepCollectionEquality().hash(_homeClubPlayers),
-        const DeepCollectionEquality().hash(_awayClubPlayers)
+        const DeepCollectionEquality().hash(_awayClubPlayers),
+        duration
       ]);
 
   /// Create a copy of MatchModel
@@ -632,7 +654,9 @@ abstract class _MatchModel implements MatchModel {
       @JsonKey(name: 'home_club_players', defaultValue: [])
       required final List<PlayerModel> homeClubPlayers,
       @JsonKey(name: 'away_club_players', defaultValue: [])
-      required final List<PlayerModel> awayClubPlayers}) = _$MatchModelImpl;
+      required final List<PlayerModel> awayClubPlayers,
+      @JsonKey(name: 'duration', defaultValue: 20)
+      required final int duration}) = _$MatchModelImpl;
 
   factory _MatchModel.fromJson(Map<String, dynamic> json) =
       _$MatchModelImpl.fromJson;
@@ -697,6 +721,9 @@ abstract class _MatchModel implements MatchModel {
   @override
   @JsonKey(name: 'away_club_players', defaultValue: [])
   List<PlayerModel> get awayClubPlayers;
+  @override
+  @JsonKey(name: 'duration', defaultValue: 20)
+  int get duration;
 
   /// Create a copy of MatchModel
   /// with the given fields replaced by the non-null parameter values.

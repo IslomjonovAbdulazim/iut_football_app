@@ -47,6 +47,7 @@ _$MatchModelImpl _$$MatchModelImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => PlayerModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      duration: (json['duration'] as num?)?.toInt() ?? 20,
     );
 
 Map<String, dynamic> _$$MatchModelImplToJson(_$MatchModelImpl instance) =>
@@ -72,4 +73,5 @@ Map<String, dynamic> _$$MatchModelImplToJson(_$MatchModelImpl instance) =>
       'league_id': instance.leagueId,
       'home_club_players': instance.homeClubPlayers,
       'away_club_players': instance.awayClubPlayers,
+      'duration': instance.duration,
     };

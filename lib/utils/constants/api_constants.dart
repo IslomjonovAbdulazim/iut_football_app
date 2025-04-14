@@ -1,7 +1,7 @@
 class ApiConstants {
-  static const String baseURL = "http://10.10.1.108:8000/";
-  static const String streamURL = "ws://10.10.1.108:8000/";
-  static const String _ = "http://176.57.214.64:8020/";
+  static const String baseURL = "http://85.92.110.162:8002/";
+  static const String streamURL = "ws://85.92.110.162:8002/";
+  static const String _ = "http://85.92.110.162:8002/";
 
   /// WebSocket
   static const String matches = "ws/last-matches/";
@@ -15,5 +15,4 @@ class ApiConstants {
   // RestApi
   static const String goalScored = "create-goal/";
   static const String changeStatus = "change-status/";
-
 }

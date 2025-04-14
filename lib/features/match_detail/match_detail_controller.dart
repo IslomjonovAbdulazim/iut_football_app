@@ -1,51 +1,68 @@
 part of 'imports.dart';
 
 class MatchDetailsController extends GetxController {
-  // List<PlayerModel> homePlayers = MockData.players;
-  // List<PlayerModel> awayPlayers = MockData.players;
   RxBool isLoading = false.obs;
-  // final RxInt minutes = 0.obs;
-  // final RxInt seconds = 0.obs;
-  // Timer? _timer;
-  //
-  // DateTime? startTime;
-  // int offsetMinutes = 0;
-  //
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
-  //
-  // @override
-  // void onClose() {
-  //   _timer?.cancel();
-  //   super.onClose();
-  // }
-  //
-  // void startTimer(DateTime start, {int offset = 0}) {
-  //   startTime = start;
-  //   offsetMinutes = offset;
-  //   _timer?.cancel();
-  //
-  //   _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-  //     final diff = DateTime.now().difference(startTime!);
-  //     final totalSeconds = offsetMinutes * 60 + diff.inSeconds;
-  //
-  //     minutes.value = totalSeconds ~/ 60;
-  //     seconds.value = totalSeconds % 60;
-  //   });
-  // }
-  //
-  // void stopTimer() {
-  //   _timer?.cancel();
-  //   _timer = null;
-  // }
-  //
-  // void reset() {
-  //   minutes.value = 0;
-  //   seconds.value = 0;
-  //   _timer?.cancel();
-  // }
+  final Rx<MatchModel?> _match = Rx<MatchModel?>(null);
+  final RxInt elapsedSeconds = 0.obs;
+
+  Timer? _timer;
+
+  void setMatch(MatchModel match) {
+    _match.value = match;
+    _updateElapsed(); // initial value
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer?.cancel(); // reset if already running
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      _updateElapsed();
+    });
+  }
+
+  void _updateElapsed() {
+    final match = _match.value;
+    if (match == null) return;
+
+    final now = DateTime.now().toUtc();
+    int seconds = 0;
+
+    if (match.firstHalfStartedAt != null && match.firstHalfFinishedAt == null) {
+      seconds = now.difference(match.firstHalfStartedAt!.toUtc()).inSeconds;
+    } else if (match.secondHalfStartedAt != null && match.secondHalfFinishedAt == null) {
+      seconds = now.difference(match.secondHalfStartedAt!.toUtc()).inSeconds;
+    } else if (match.firstHalfStartedAt != null &&
+        match.firstHalfFinishedAt != null &&
+        match.secondHalfStartedAt == null) {
+      seconds = match.firstHalfFinishedAt!
+          .difference(match.firstHalfStartedAt!)
+          .inSeconds;
+    } else if (match.secondHalfStartedAt != null &&
+        match.secondHalfFinishedAt != null) {
+      seconds = match.secondHalfFinishedAt!
+          .difference(match.secondHalfStartedAt!)
+          .inSeconds;
+    }
+
+    elapsedSeconds.value = seconds.clamp(0, match.duration * 60);
+  }
+
+  String get formattedTimerText {
+    final totalSeconds = elapsedSeconds.value;
+    final minutes = totalSeconds ~/ 60;
+    final seconds = totalSeconds % 60;
+    return "${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}";
+  }
+
+  void stop() {
+    _timer?.cancel();
+  }
+
+  @override
+  void onClose() {
+    _timer?.cancel();
+    super.onClose();
+  }
 
   Stream<MatchModel> getMatchDetail() {
     final channel = WebSocketChannel.connect(
@@ -68,7 +85,7 @@ class MatchDetailsController extends GetxController {
     isLoading.value = true;
     final ScoreGoalModel goal = ScoreGoalModel(
       playerId: player.id,
-      minute: match.currentMatchMinute ?? -1,
+      minute: (match.currentMatchMinute ?? -2) + 1,
       opponentClubId: clubId,
       matchId: match.id,
     );

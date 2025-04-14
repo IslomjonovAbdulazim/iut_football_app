@@ -37,6 +37,9 @@ class MatchDetailsPage extends GetView<MatchDetailsController> {
                   return Text(snapshot.error.toString(), style: context.title);
                 } else {
                   final model = snapshot.data!;
+                  if (controller._match.value == null) {
+                    controller.setMatch(model);
+                  }
                   return ListView(
                     padding: const EdgeInsets.all(16),
                     children: [

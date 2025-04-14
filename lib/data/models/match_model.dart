@@ -29,6 +29,7 @@ class MatchModel with _$MatchModel {
     @JsonKey(name: 'league_id', defaultValue: 0) required int leagueId,
     @JsonKey(name: 'home_club_players', defaultValue: []) required List<PlayerModel> homeClubPlayers,
     @JsonKey(name: 'away_club_players', defaultValue: []) required List<PlayerModel> awayClubPlayers,
+    @JsonKey(name: 'duration', defaultValue: 20) required int duration,
   }) = _MatchModel;
 
   factory MatchModel.fromJson(Map<String, dynamic> json) => _$MatchModelFromJson(json);
@@ -166,6 +167,41 @@ extension MatchModelStatusExtension on MatchModel {
 
     // If none of these conditions match, return null.
     return null;
+  }
+
+  int get currentElapsedSeconds {
+    final now = DateTime.now().toUtc();
+
+    // First half active
+    if (firstHalfStartedAt != null && firstHalfFinishedAt == null) {
+      final seconds = now.difference(firstHalfStartedAt!.toUtc()).inSeconds;
+      return seconds.clamp(0, duration * 60);
+    }
+
+    // Second half active
+    if (secondHalfStartedAt != null && secondHalfFinishedAt == null) {
+      final seconds = now.difference(secondHalfStartedAt!.toUtc()).inSeconds;
+      return seconds.clamp(0, duration * 60);
+    }
+
+    // First half finished
+    if (firstHalfStartedAt != null && firstHalfFinishedAt != null && secondHalfStartedAt == null) {
+      return firstHalfFinishedAt!.difference(firstHalfStartedAt!).inSeconds.clamp(0, duration * 60);
+    }
+
+    // Second half finished
+    if (secondHalfStartedAt != null && secondHalfFinishedAt != null) {
+      return secondHalfFinishedAt!.difference(secondHalfStartedAt!).inSeconds.clamp(0, duration * 60);
+    }
+
+    return 0;
+  }
+
+  String get formattedTimerText {
+    final totalSeconds = currentElapsedSeconds;
+    final minutes = totalSeconds ~/ 60;
+    final seconds = totalSeconds % 60;
+    return "${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}";
   }
 
 }

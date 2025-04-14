@@ -223,6 +223,13 @@ class _ScoreSection extends GetView<MatchDetailsController> {
             ),
           ),
         ),
+        SizedBox(height: 5),
+        Obx(
+          () => Text(
+            controller.formattedTimerText,
+            style: context.title,
+          ),
+        ),
         const SizedBox(height: 12),
         match.isUpcoming
             ? Text(

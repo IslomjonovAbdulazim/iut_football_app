@@ -90,9 +90,10 @@ class _PlayersSection extends StatelessWidget {
               ),
               title: Text(player.name, style: context.name),
               subtitle: Text(
-                "Goals: ${player.goals}    ID: U{player.iutStudentId}",
+                "Goals: ${player.goals}",
                 style: context.smallName,
               ),
+              trailing: Icon(CupertinoIcons.chevron_right),
             ),
           ),
         );

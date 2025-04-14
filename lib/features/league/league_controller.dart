@@ -8,9 +8,9 @@ class LeagueController extends GetxController {
 
     return channel.stream.map((data) {
       final List<dynamic> jsonList = jsonDecode(data);
-      return jsonList
-          .map((json) => ClubStandingModel.fromJson(json))
-          .toList();
+      return jsonList.map((json) {
+        return ClubStandingModel.fromJson(json);
+      }).toList();
     });
   }
 }

@@ -18,11 +18,6 @@ class _PlayerHeader extends StatelessWidget {
           player.playerName,
           style: context.title,
         ),
-        const SizedBox(height: 6),
-        Text(
-          "ID: ${player.playerId}",
-          style: context.smallName.copyWith(color: Colors.grey),
-        ),
       ],
     );
   }
