@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
-import 'package:iut_football_app/features/admin/imports.dart';
-import 'package:iut_football_app/features/club_detail/imports.dart';
-import 'package:iut_football_app/features/home/imports.dart';
-import 'package:iut_football_app/features/league/imports.dart';
-import 'package:iut_football_app/features/match_detail/imports.dart';
-import 'package:iut_football_app/features/matches/imports.dart';
-import 'package:iut_football_app/features/player_detail/imports.dart';
-import 'package:iut_football_app/features/stats/imports.dart';
+import '../features/admin/imports.dart';
+import '../features/club_detail/imports.dart';
+import '../features/home/imports.dart';
+import '../features/league/imports.dart';
+import '../features/match_detail/imports.dart';
+import '../features/matches/imports.dart';
+import '../features/player_detail/imports.dart';
+import '../features/stats/imports.dart';
 
 import '../features/screens/auth/imports.dart';
 import '../features/screens/internal_error/imports.dart';

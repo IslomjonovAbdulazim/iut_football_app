@@ -16,6 +16,7 @@ class _MatchHeader extends StatelessWidget {
             club: match.homeClubId,
             isHomeClub: true,
             match: match,
+            opponent: match.awayClubId,
           ),
         ),
         const SizedBox(width: 8),
@@ -28,6 +29,7 @@ class _MatchHeader extends StatelessWidget {
             club: match.awayClubId,
             isHomeClub: false,
             match: match,
+            opponent: match.homeClubId,
           ),
         ),
       ],
@@ -39,6 +41,7 @@ class _ClubTile extends GetView<MatchDetailsController> {
   final String name;
   final String avatar;
   final int club;
+  final int opponent;
   final bool isHomeClub;
   final MatchModel match;
 
@@ -48,11 +51,12 @@ class _ClubTile extends GetView<MatchDetailsController> {
     required this.club,
     required this.isHomeClub,
     required this.match,
+    required this.opponent,
   });
 
   @override
   Widget build(BuildContext context) {
-    bool isAdmin = true;
+    bool isAdmin = false;
     return Column(
       children: [
         CupertinoButton(
@@ -126,7 +130,7 @@ class _ClubTile extends GetView<MatchDetailsController> {
                         controller.goalScored(
                           val,
                           match,
-                          club,
+                          opponent,
                         );
                         Get.back();
                       },
